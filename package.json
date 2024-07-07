@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "kind-tiger": "^1.0.1",
     "sass": "^1.69.5",
     "vite": "^5.0.8",
     "vite-plugin-style-import": "^2.0.0"
