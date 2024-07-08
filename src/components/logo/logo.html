@@ -2,24 +2,21 @@
 <html lang="ko">
    <head>
       <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="viewport" content="width=\, initial-scale=1.0" />
+      <link rel="stylesheet" href="logo.scss" />
       <title>logo-component</title>
-      <link rel="stylesheet" href="./logo.scss" />
    </head>
    <body>
-      <div class="input__container">
-         <label for="username" class="input__label">아이디</label>
-         <input
-            type="text"
-            id="username"
-            class="input__filed"
-            placeholder="아이디를 입력해주세요"
-            aria-describedby="username-error"
-            aria-invalid="true"
-         />
-         <div id="username-error" class="input__error" role="alert">
-            아이디는 필수 입력 항목입니다.
-         </div>
-      </div>
+      <!-- 링크 필요 로고 -->
+      <a href="/" class="logo__component">
+         <img src="/assets/sample.png" alt="109 place 로고 이미지" class="logo__img" />
+         <h1 class="logo__name">109 PLACE</h1>
+      </a>
+
+      <!-- 링크 안 필요한 로고 -->
+      <!-- <div class="logo__component">
+         <img src="/assets/sample.png" alt="109 place 로고 이미지" class="logo__img" />
+         <div class="logo__name">109 PLACE</div>
+      </div> -->
    </body>
 </html>

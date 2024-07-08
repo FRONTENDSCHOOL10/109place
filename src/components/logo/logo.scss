@@ -1,26 +1,20 @@
 @import url('/styles/_reset.scss');
-.input__container {
-   position: absolute;
-   width: 15.625rem;
-}
-.input__label {
-   font-size: 12px;
-   color: rgb(0, 0, 0);
-}
-.input__filed {
-   width: 100%;
-   padding: 12px 20px;
-   border-radius: 4px;
-   border: 1px solid;
-   border-color: rgb(0, 0, 0);
-}
-/* 포커스 시 테두리 추가 */
-.input__field:focus {
-   outline: 2px solid blue;
-}
 
-.input__error {
-   font-size: 12px;
-   color: #ba4d4d;
-   margin-top: 0.375rem;
+
+.logo {
+   &__component {
+      display: block;
+      text-decoration-line: none;
+      width: 10.38rem;
+      text-align: center;
+   }
+   &__img {
+      max-width: 50%;
+      margin-bottom: 10px;
+   }
+   &__name {
+      font-size: 2.38 rem;
+      font-weight: bold;
+      color: black;
+   }
 }
