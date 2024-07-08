@@ -1,0 +1,24 @@
+body {
+   margin: 0;
+}
+.header {
+   padding: 1rem;
+}
+.header-btn-container {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+.header-btn-container button {
+   background: none;
+   border: none;
+   padding: 0;
+}
+.fa-solid {
+   font-weight: 600;
+   font-size: 1.2rem;
+}
+
+.header-rightExit-btn {
+   margin-left: auto;
+}
