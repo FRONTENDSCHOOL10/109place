@@ -4,18 +4,22 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>logo-component</title>
-      <link rel="stylesheet" href="logo.css" />
+      <link rel="stylesheet" href="./logo.scss" />
    </head>
    <body>
-      <div class="input-container">
-         <label for="username">아이디</label>
+      <div class="input__container">
+         <label for="username" class="input__label">아이디</label>
          <input
             type="text"
             id="username"
-            name="username"
+            class="input__filed"
             placeholder="아이디를 입력해주세요"
-            required
+            aria-describedby="username-error"
+            aria-invalid="true"
          />
+         <div id="username-error" class="input__error" role="alert">
+            아이디는 필수 입력 항목입니다.
+         </div>
       </div>
    </body>
 </html>
