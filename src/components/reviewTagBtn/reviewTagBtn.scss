@@ -1,0 +1,38 @@
+@import url('/styles/_reset.scss');
+
+//임의로 지정
+form {
+   padding: 30px;
+}
+
+.review__tag {
+   &--column {
+      display: flex;
+      flex-flow: row wrap;
+      row-gap: 0.625rem;
+   }
+
+   &--h1 {
+      font-size: medium;
+      padding: 0.625rem;
+   }
+
+   &--input[type='checkbox'] {
+      display: none;
+      font-size: small;
+   }
+
+   &--label {
+      cursor: pointer;
+      padding: 0.3125rem;
+      margin: 0 0.3125rem;
+      font-size: medium;
+   }
+
+   &--input[type='checkbox']:checked + label {
+      border: 1px solid grey;
+      border-radius: 1.25rem;
+      padding: 0.3125rem;
+      margin: 0 0.3125rem;
+   }
+}

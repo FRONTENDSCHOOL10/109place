@@ -1,0 +1,43 @@
+@import url('/styles/_reset.scss');
+
+//임의로 지정
+body {
+   width: 100%;
+   padding: 1.875rem;
+}
+
+.review--container {
+   display: flex;
+   gap: 1.25rem;
+}
+
+.review--card {
+   width: 10rem;
+   height: 11.25rem;
+   background-color: bisque;
+   position: relative;
+
+   &__title {
+      font-size: small;
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-flow: column nowrap;
+      box-sizing: border-box;
+      gap: 0.3125rem;
+
+      :last-child {
+         font-size: large;
+      }
+   }
+}
+
+.no-image-span {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   width: 7.5rem;
+   translate: 0 -1.875rem;
+}

@@ -1,0 +1,36 @@
+@import url('/styles/_reset.scss');
+
+//임의로 지정
+body {
+   margin: 3.125rem;
+}
+
+.modal {
+   width: 60%;
+   border: 1px solid gainsboro;
+   padding: 1.875rem;
+   border-radius: 1.5625rem;
+
+   &__text {
+      text-align: center;
+      margin-bottom: 1.25rem;
+   }
+
+   &__confirm {
+      display: flex;
+      border-radius: 0.5625rem;
+      flex-flow: row nowrap;
+      width: 100%;
+
+      &__btn {
+         border: none;
+         background-color: transparent;
+         width: 50%;
+         padding-top: 0.9375rem;
+
+         :last-child {
+            color: cornflowerblue;
+         }
+      }
+   }
+}
