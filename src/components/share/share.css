@@ -1,0 +1,49 @@
+body {
+   margin: 0;
+   padding: 0;
+}
+ul,
+li {
+   list-style: none;
+}
+.header {
+   padding: 1rem;
+}
+.header__container--btn {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+.header__container--btn button {
+   background: none;
+   border: none;
+   padding: 0;
+}
+
+.header__rightExitBtn {
+   margin-left: auto;
+}
+
+.share__container {
+   width: 80%;
+   margin: 0 auto;
+   background-color: #f8f9fa;
+   border-radius: 1rem;
+}
+.share__icons {
+   padding: 2rem;
+   display: flex;
+   justify-content: space-between;
+}
+
+.share__icons--icon {
+   width: 5rem;
+   background-color: #f8f9fa;
+   padding: 1rem;
+   display: flex;
+   align-items: center;
+}
+
+img {
+   width: 80%;
+}
