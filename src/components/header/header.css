@@ -4,12 +4,12 @@ body {
 .header {
    padding: 1rem;
 }
-.header-btn-container {
+.header__container--btn {
    width: 100%;
    display: flex;
    justify-content: space-between;
 }
-.header-btn-container button {
+.header__container--btn button {
    background: none;
    border: none;
    padding: 0;
@@ -19,6 +19,6 @@ body {
    font-size: 1.2rem;
 }
 
-.header-rightExit-btn {
+.header__rightExitBtn {
    margin-left: auto;
 }
