@@ -3,21 +3,22 @@
 .header {
    padding: 1rem;
 }
-.header__container--btn {
+.header__btn {
    width: 100%;
    display: flex;
    justify-content: space-between;
-}
-.header__container--btn button {
-   background: none;
-   border: none;
-   padding: 0;
-}
-.fa-solid {
-   font-weight: 600;
-   font-size: 1.2rem;
-}
 
-.header__rightExitBtn {
-   margin-left: auto;
+   & button {
+      background: none;
+      border: none;
+      padding: 0;
+
+      &--icon {
+         font-weight: 600;
+         font-size: 1.2rem;
+      }
+   }
+   &--right-exit {
+      margin-left: auto;
+   }
 }
