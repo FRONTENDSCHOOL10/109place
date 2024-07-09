@@ -1,17 +1,16 @@
 .reviewTag {
-   width: 20%;
+   display: inline-flex;
    background-color: #ebebee;
-   display: flex;
-   justify-content: space-between;
    align-items: center;
    border-radius: 0.5rem;
    color: #555558;
+   margin-bottom: 0.3rem;
 
    div {
-      padding: 0.3rem 0;
+      padding: 0.3rem;
    }
    .reviewTag__emoji {
-      padding-left: 0.8rem;
+      padding: 0 0.3rem 0 0.8rem;
    }
    .reviewTag__text {
       padding-right: 0.8rem;
