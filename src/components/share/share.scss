@@ -1,18 +1,12 @@
-body {
-   margin: 0;
-   padding: 0;
-}
-ul,
-li {
-   list-style: none;
-}
+@import url('/styles/_reset.scss');
 
 .share__title {
    display: flex;
    justify-content: center;
    align-items: center;
-   font-size: 1.5rem;
-   margin: 0;
+   font-size: 1.3rem;
+   margin-bottom: 1.8rem;
+   font-weight: bold;
 }
 .share__container {
    display: flex;
@@ -37,14 +31,14 @@ li {
    flex-direction: column;
    align-items: center;
    font-size: 1rem;
-   color: rgb(28, 28, 28);
+   color: rgb(67, 67, 67);
 
    a {
       width: 3rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.8rem;
       background-color: white;
       padding: 0.6rem 0.3rem;
       border-radius: 1rem;
@@ -62,9 +56,10 @@ li {
    background-color: white;
    border-radius: 1rem;
    border: solid 0.8px lightgrey;
+   margin-top: 1.8rem;
 
    .share__CopyURL--add {
-      color: rgb(21, 21, 178);
+      color: #4997ec;
       padding: 0.8rem 0.5rem;
    }
    .share__CopyURL--btn {
