@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "eslint": "^9.6.0",
     "kind-tiger": "^1.0.1",
+    "prettier": "^3.3.2",
     "sass": "^1.69.5",
     "vite": "^5.0.8",
     "vite-plugin-style-import": "^2.0.0"
