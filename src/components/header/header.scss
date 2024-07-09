@@ -1,6 +1,5 @@
-body {
-   margin: 0;
-}
+@import url('/styles/_reset.scss');
+
 .header {
    padding: 1rem;
 }
@@ -15,7 +14,6 @@ body {
    padding: 0;
 }
 .fa-solid {
-   font-weight: 600;
    font-size: 1.2rem;
 }
 
