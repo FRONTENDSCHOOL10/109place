@@ -1,39 +1,46 @@
+<!DOCTYPE html>
 <html lang="ko">
-   <meta charset="UTF-8" />
-   <link rel="stylesheet" href="share.scss" />
-   <script
-      src="https://kit.fontawesome.com/0d62736544.js"
-      crossorigin="anonymous"
-   ></script>
-
-   <div class="share__container">
-      <h1 class="share__title">공유하기</h1>
-      <ul class="share__icons">
-         <li class="share__icons--icon">
-            <a href="">
-               <img
-                  src="/assets/images/naverblog.png"
-                  alt="네이버 블로그 로고"
-               />
-            </a>
-            <span>블로그</span>
-         </li>
-         <li class="share__icons--icon">
-            <a href="">
-               <img src="/assets/images/kakao.png" alt="카카오톡 로고" />
-            </a>
-            <span>카카오톡</span>
-         </li>
-         <li class="share__icons--icon">
-            <a href="">
-               <img src="/assets/images/facebook.png" alt="페이스북 로고" />
-            </a>
-            <span>페이스북</span>
-         </li>
-      </ul>
-      <div class="share__CopyURL">
-         <div class="share__CopyURL--add">http://naver.com</div>
-         <div class="share__CopyURL--btn">URL 복사</div>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>share component</title>
+      <link rel="stylesheet" href="share.scss" />
+      <script
+         src="https://kit.fontawesome.com/0d62736544.js"
+         crossorigin="anonymous"
+      ></script>
+   </head>
+   <body>
+      <div class="share__container">
+         <h1 class="share__container--title">공유하기</h1>
+         <div
+            class="share__container--icons"
+            role="group"
+            aria-label="Button Group"
+         >
+            <button type="button" class="share__icons--icon">
+               <a href="_" class="share__icons--link">
+                  <img class="share__icons--image" src="_" alt="로고" />
+               </a>
+               <span>블로그</span>
+            </button>
+            <button type="button" class="share__icons--icon">
+               <a href="_" class="share__icons--link">
+                  <img class="share__icons--image" src="_" alt="로고" />
+               </a>
+               <span>카카오톡</span>
+            </button>
+            <button type="button" class="share__icons--icon">
+               <a href="_" class="share__icons--link">
+                  <img class="share__icons--image" src="_" alt="로고" />
+               </a>
+               <span>페이스북</span>
+            </button>
+         </div>
+         <div class="share__copy-url">
+            <div class="share__copy-url--add">http://naver.com</div>
+            <button class="share__copy-url--btn">URL 복사</button>
+         </div>
       </div>
-   </div>
+   </body>
 </html>
