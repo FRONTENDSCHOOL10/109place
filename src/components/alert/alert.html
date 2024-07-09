@@ -3,15 +3,15 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
+      <title>alert-component</title>
       <link rel="stylesheet" href="./alert.scss" />
    </head>
    <body>
-      <div class="modal">
-         <p class="modal__text">리뷰를 삭제하시겠습니까?</p>
-         <div class="modal__confirm">
-            <button class="modal__confirm__btn">취소</button>
-            <button class="modal__confirm__btn">삭제</button>
+      <div class="alert" role="alert">
+         <p class="alert__text sr-only">리뷰를 삭제하시겠습니까?</p>
+         <div class="alert__confirm" role="button">
+            <button class="alert__confirm__btn">취소</button>
+            <button class="alert__confirm__btn">삭제</button>
          </div>
       </div>
    </body>

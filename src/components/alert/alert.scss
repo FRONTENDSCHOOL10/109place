@@ -5,9 +5,9 @@ body {
    margin: 3.125rem;
 }
 
-.modal {
-   width: 60%;
-   border: 1px solid gainsboro;
+.alert {
+   width: 40%;
+   border: 0.0625rem solid gainsboro;
    padding: 1.875rem;
    border-radius: 1.5625rem;
 
@@ -22,15 +22,16 @@ body {
       flex-flow: row nowrap;
       width: 100%;
 
+      :hover {
+         color: skyblue;
+      }
+
       &__btn {
          border: none;
          background-color: transparent;
          width: 50%;
          padding-top: 0.9375rem;
-
-         :last-child {
-            color: cornflowerblue;
-         }
+         cursor: pointer;
       }
    }
 }

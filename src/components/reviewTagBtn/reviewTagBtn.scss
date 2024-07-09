@@ -30,7 +30,7 @@ form {
    }
 
    &--input[type='checkbox']:checked + label {
-      border: 1px solid grey;
+      border: 0.0625rem solid grey;
       border-radius: 1.25rem;
       padding: 0.3125rem;
       margin: 0 0.3125rem;
