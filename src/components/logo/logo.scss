@@ -1,20 +1,22 @@
 @import url('/styles/_reset.scss');
 
-
 .logo {
    &__component {
       display: block;
       text-decoration-line: none;
-      width: 10.38rem;
+      width: 12.38rem;
+      height: 7.63rem;
       text-align: center;
-   }
-   &__img {
-      max-width: 50%;
-      margin-bottom: 10px;
+      svg {
+         width: 2.625rem;
+         height: 3.4375rem;
+      }
    }
    &__name {
-      font-size: 2.38 rem;
+      // 변수 빼기
+      font-size: 2.25rem;
       font-weight: bold;
-      color: black;
+      // 변수 빼기
+      color: #246beb;
    }
 }
