@@ -1,0 +1,51 @@
+@import url('/styles/_reset.scss');
+
+
+body{
+  padding:2rem;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+}
+
+
+.search__link{
+  text-decoration: none;
+  color: inherit;
+
+  border: 0.13rem solid #181818;
+  border-radius: 2rem;
+  color: lightgray;
+  
+  &--primary{
+    width: 23rem;
+    padding: 1rem 1rem;
+  }
+
+  &--secondary{
+    width: 21rem;
+    padding: 1.3rem 1rem;
+  }
+}
+
+.search{
+  border: 0.12rem solid #181818;
+  border-radius: 0.3rem;
+  width: 25rem;
+
+  display: flex;
+  align-items: center;
+
+  &__input{
+    border: none;
+    padding: 1rem 10rem 1rem 1rem;
+  }
+
+  &__btn{
+    padding: 0.3rem;
+    font-size: 1.5rem;
+
+    border: none;
+    background-color: white;
+  }
+}
