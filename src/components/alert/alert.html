@@ -1,1 +1,18 @@
-// 폴더 사라짐 방지용
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>alert-component</title>
+      <link rel="stylesheet" href="/src/components/alert/alert.scss" />
+   </head>
+   <body>
+      <div class="alert" role="alert">
+         <p class="alert__text sr-only">리뷰를 삭제하시겠습니까?</p>
+         <div class="alert__confirm" role="button">
+            <button class="alert__confirm__btn">취소</button>
+            <button class="alert__confirm__btn">삭제</button>
+         </div>
+      </div>
+   </body>
+</html>
