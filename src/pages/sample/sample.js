@@ -1,0 +1,1 @@
+import '/src/pages/sample/sample.scss';
