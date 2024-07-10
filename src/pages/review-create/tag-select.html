@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>review-create-tag-select</title>
+      <link type="module" href="/src/pages/review-create/tag-select.js">
+   </head>
+   <body>
+        <header class="header">
+            <div class="header__btn">
+            <button>
+                <i class="fa-solid fa-chevron-left header__btn--icon"></i>
+            </button>
+            <button>
+                <i class="fa-solid fa-x header__btn--icon"></i>
+            </button>
+            </div>
+        </header>
+        <section>
+            <form action="#">
+                <fieldset class="review__tag--column">
+                    <legend class="review__tag--h1">어떻게 이용하셨나요?</legend>
+                <input type="checkbox" class="review__tag--input" id="without-reservation" name="without-reservation" class="review__tag">
+                    <label class="review__tag--label" for="without-reservation">예약 없이</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="with-reservation" name="with-reservation" class="review__tag">
+                    <label class="review__tag--label" for="with-reservation">예약 후</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="takeout-delivery" name="takeout-delivery" class="review__tag">
+                    <label class="review__tag--label" for="takeout-delivery">포장∙배달</label>
+                </input>
+                </fieldset>
+            </form>
+            <form action="#">
+                <fieldset class="review__tag--column">
+                    <legend class="review__tag--h1">대기 후 이용하셨나요?</legend>
+                <input type="checkbox" class="review__tag--input" id="not-wait" name="not-wait" class="review__tag">
+                    <label class="review__tag--label" for="not-wait">바로 입장</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="within10m" name="within10m" class="review__tag">
+                    <label class="review__tag--label" for="within10m">10분 이내</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="within30m" name="within30m" class="review__tag">
+                    <label class="review__tag--label" for="within30m">30분 이내</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="after30m" name="after30m" class="review__tag">
+                    <label class="review__tag--label" for="after30m">30분 이후</label>
+                </input>
+                </fieldset>
+            </form>        
+            <form action="#">
+                <fieldset class="review__tag--column">
+                <legend class="review__tag--h1">누구와 함께했나요?</legend>
+                <input type="checkbox" class="review__tag--input" id="partner" name="partner" class="review__tag">
+                    <label class="review__tag--label" for="partner">연인∙배우자</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="friend" name="friend" class="review__tag">
+                    <label class="review__tag--label" for="friend">친구</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="colleague" name="colleague" class="review__tag">
+                    <label class="review__tag--label" for="colleague">지인∙동료</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="alone" name="alone" class="review__tag">
+                    <label class="review__tag--label" for="alone">혼자</label>
+                </input>
+                </fieldset>
+            </form>
+            <form action="#">
+                <fieldset class="review__tag--column">
+                    <legend class="review__tag--h1">어떻게 이용하셨나요?</legend>
+                <input type="checkbox" class="review__tag--input" id="without-reservation" name="without-reservation" class="review__tag">
+                    <label class="review__tag--label" for="without-reservation">예약 없이</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="with-reservation" name="with-reservation" class="review__tag">
+                    <label class="review__tag--label" for="with-reservation">예약 후</label>
+                </input>
+                <input type="checkbox" class="review__tag--input" id="takeout-delivery" name="takeout-delivery" class="review__tag">
+                    <label class="review__tag--label" for="takeout-delivery">포장∙배달</label>
+                </input>
+                </fieldset>
+            </form>
+        </section>
+        <button type="submit" class="btn__review--next">다음</button>
+   </body>
+</html>
