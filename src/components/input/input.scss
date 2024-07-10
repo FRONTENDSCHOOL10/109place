@@ -1,0 +1,27 @@
+@import url('/src/styles/_reset.scss');
+
+.input {
+   &__container {
+      position: absolute;
+      width: 15.625rem;
+   }
+   &__label {
+      font-size: 0.75;
+      color: rgb(0, 0, 0);
+   }
+   &--filed {
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 4px;
+      border: 1px solid;
+      border-color: rgb(0, 0, 0);
+      &:focus {
+         outline: 2px solid blue;
+      }
+   }
+   &--error {
+      font-size: 12px;
+      color: #ba4d4d;
+      margin-top: 0.375rem;
+   }
+}

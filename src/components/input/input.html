@@ -1,1 +1,24 @@
-// 폴더 사라짐 방지용
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>input-component</title>
+      <link rel="stylesheet" href="/src/components/input/input.scss"/>
+   </head>
+   <body>
+      <div class="input__container">
+         <label for="username" class="input__label">아이디</label>
+         <input
+            type="text"
+            id="username"
+            class="input--filed"
+            placeholder="아이디를 입력해주세요"
+            aria-describedby="username-error"
+         />
+         <p id="username-error" class="input--error hidden" role="alert">
+            아이디는 필수 입력 항목입니다.
+         </p>
+      </div>
+   </body>
+</html>
