@@ -1,1 +1,46 @@
-// 폴더 사라짐 방지용
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>share component</title>
+      <link rel="stylesheet" href="/src/components/share/share.scss" />
+      <script
+         src="https://kit.fontawesome.com/0d62736544.js"
+         crossorigin="anonymous"
+      ></script>
+   </head>
+   <body>
+      <div class="share__container" roll="grope">
+         <h1 class="share__container--title">공유하기</h1>
+         <div
+            class="share__container--icons"
+            role="group"
+            aria-label="Button Group"
+         >
+            <button type="button" class="share__icons--icon">
+               <a href="_" class="share__icons--link">
+                  <img class="share__icons--image" src="_" alt="로고" />
+               </a>
+               <span>블로그</span>
+            </button>
+            <button type="button" class="share__icons--icon">
+               <a href="_" class="share__icons--link">
+                  <img class="share__icons--image" src="_" alt="로고" />
+               </a>
+               <span>카카오톡</span>
+            </button>
+            <button type="button" class="share__icons--icon">
+               <a href="_" class="share__icons--link">
+                  <img class="share__icons--image" src="_" alt="로고" />
+               </a>
+               <span>페이스북</span>
+            </button>
+         </div>
+         <div class="share__copy-url">
+            <div class="share__copy-url--add">http://naver.com</div>
+            <button class="share__copy-url--btn">URL 복사</button>
+         </div>
+      </div>
+   </body>
+</html>
