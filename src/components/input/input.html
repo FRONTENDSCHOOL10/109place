@@ -4,7 +4,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>input-component</title>
-      <link rel="stylesheet" href="input.scss" />
+      <link rel="stylesheet" href="/src/components/input/input.html" />
    </head>
    <body>
       <div class="input__container">
@@ -15,9 +15,8 @@
             class="input--filed"
             placeholder="아이디를 입력해주세요"
             aria-describedby="username-error"
-            aria-invalid="true"
          />
-         <p id="username-error" class="input--error" role="alert">
+         <p id="username-error" class="input--error hidden" role="alert">
             아이디는 필수 입력 항목입니다.
          </p>
       </div>
