@@ -1,20 +1,85 @@
+@use '/src/styles/common/index' as *;
+
 body{
+  width: 22.50rem;
+  height: 40rem;
+
+  border: 1px solid blue;
+
   display: flex;
   flex-flow: column;
   gap: 2rem;
-  padding: 2rem;
 }
 
-main__btn{
-  width: 20rem;
 
-  
+// 버튼 기본 구성
+.btn__link{
+  color: inherit;
+  font-size: 1.06rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  width: 17.7rem;
+  padding: 1.1rem;
 }
 
-// main__btn--blue{
+.btn__input{
+  border: none;
+  font-size: 1.06rem;
+  border-radius: 0.4rem;
+  padding: 1.1rem;
+  width: 19.9rem;
+}
 
-// }
 
-// main__btn--white{
+// 색상 커스텀
+.btn--blue{
+  background: $primary-50;
+  color: $gray-0;
+}
 
-// }
+.btn--w-blue{
+  background: $primary-5;
+  color: $primary-60;
+  border: 1.5px solid $primary-40;
+}
+
+.btn--gray{
+  background: $gray-30;
+  color: $gray-60;
+}
+
+.btn--w-black{
+  background: $gray-0;
+  color: $gray-100;
+  border: 1.5px solid $gray-100;
+}
+
+.btn--w-red{
+  background: $gray-0;
+  color: $danger;
+  border: 1.5px solid $gray-100;
+}
+
+
+// 두께 커스텀
+.btn--slim{
+  padding: 0.7rem 1.1rem;
+}
+
+
+// 길이 커스텀
+.btn--short.btn__link{
+  width: 14.5rem;
+}
+
+.btn--short.btn__input{
+  width: 16.7rem;
+}
+
+.btn--extra-short.btn__link{
+  width: 5.3rem;
+}
+
+.btn--extra-short.btn__input{
+  width: 7.5rem;
+}
