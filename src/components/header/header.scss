@@ -1,0 +1,23 @@
+@import url('/src/styles/_reset.scss');
+.header {
+   padding: 1rem;
+}
+.header__btn {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+
+   & button {
+      background: none;
+      border: none;
+      padding: 0;
+
+      &--icon {
+         font-weight: 600;
+         font-size: 1.2rem;
+      }
+   }
+   &--right-exit {
+      margin-left: auto;
+   }
+}
