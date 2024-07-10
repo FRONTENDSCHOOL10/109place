@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>img-content</title>
+      <script
+         src="https://kit.fontawesome.com/0d62736544.js"
+         crossorigin="anonymous"
+      ></script>
+   </head>
+   <body>
+      <header class="header">
+         <div class="header__btn">
+            <button>
+               <i class="fa-solid fa-arrow-left header__btn--icon"></i>
+            </button>
+            <button>
+               <i class="fa-solid fa-x header__btn--icon"></i>
+            </button>
+         </div>
+      </header>
+      <section role="contentinfo">
+         <div class="reviewTag" role="grope">
+            <div class="reviewTag__emoji">😜</div>
+            <div class="reviewTag__text">음식이 맛있어요</div>
+         </div>
+
+         <div class="reviewTag" role="grope">
+            <div class="reviewTag__emoji">💗</div>
+            <div class="reviewTag__text">친절해요</div>
+         </div>
+
+         <div class="reviewTag" role="grope">
+            <div class="reviewTag__emoji">🌱</div>
+            <div class="reviewTag__text">재료가 신선해요</div>
+         </div>
+
+         <div class="reviewTag" role="grope">
+            <div class="reviewTag__emoji">🍚</div>
+            <div class="reviewTag__text">양이 많아요</div>
+         </div>
+
+         <div class="reviewTag" role="grope">
+            <div class="reviewTag__emoji">👀</div>
+            <div class="reviewTag__text">매장이 넓어요</div>
+         </div>
+      </section>
+      <section role="form">
+         <span>사진을 추가해 주세요</span>
+         <form>
+            <label for="imageUpload">사진 추가</label>
+            <input
+               type="file"
+               id="imageUpload"
+               name="imageUpload"
+               accept="image/*"
+            />
+            <input type="submit" value="업로드" />
+         </form>
+         <span>리뷰를 작성해 주세요</span>
+         <div class="input-count__component">
+            <textarea
+               class="input-count__input"
+               placeholder="리뷰를 작성해 주세요!"
+            ></textarea>
+            <div class="input-count__count">0 / 400</div>
+         </div>
+      </section>
+   </body>
+</html>
