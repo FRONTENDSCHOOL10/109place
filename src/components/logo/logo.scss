@@ -1,22 +1,23 @@
 @import url('/styles/_reset.scss');
 
 .logo {
-   &__component {
-      display: block;
-      text-decoration-line: none;
-      width: 12.38rem;
-      height: 7.63rem;
-      text-align: center;
-      svg {
-         width: 2.625rem;
-         height: 3.4375rem;
-      }
+   // 기본 크기
+   width: 12.375rem;
+   height: auto;
+
+   svg {
+      width: 100%;
+      height: auto;
    }
-   &__name {
-      // 변수 빼기
-      font-size: 2.25rem;
-      font-weight: bold;
-      // 변수 빼기
-      color: #246beb;
+
+   // 후에 로고 크기 변경할 일 생길 것 같아 필요시 수정
+   &.small {
+      width: 3.125rem;
+   }
+   &.medium {
+      width: 6.25rem;
+   }
+   &.large {
+      width: 15.625rem;
    }
 }
