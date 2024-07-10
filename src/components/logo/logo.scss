@@ -1,0 +1,23 @@
+@import url('/src/styles/_reset.scss');
+
+.logo {
+   // 기본 크기
+   width: 12.375rem;
+   height: auto;
+
+   svg {
+      width: 100%;
+      height: auto;
+   }
+
+   // 후에 로고 크기 변경할 일 생길 것 같아 필요시 수정
+   &.small {
+      width: 3.125rem;
+   }
+   &.medium {
+      width: 6.25rem;
+   }
+   &.large {
+      width: 15.625rem;
+   }
+}
