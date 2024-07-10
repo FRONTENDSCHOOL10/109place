@@ -7,14 +7,12 @@
    border-radius: 0.5rem;
    color: #555558;
    margin-bottom: 0.3rem;
+   padding: 0.3rem;
 
-   div {
-      padding: 0.3rem;
-   }
-   .reviewTag__emoji {
+   &__emoji {
       padding: 0 0.3rem 0 0.8rem;
    }
-   .reviewTag__text {
+   &__text {
       padding-right: 0.8rem;
    }
 }
