@@ -1,0 +1,18 @@
+@import url('/src/styles/_reset.scss');
+
+.reviewTag {
+   display: inline-flex;
+   background-color: #ebebee;
+   align-items: center;
+   border-radius: 0.5rem;
+   color: #555558;
+   margin-bottom: 0.3rem;
+   padding: 0.3rem;
+
+   &__emoji {
+      padding: 0 0.3rem 0 0.8rem;
+   }
+   &__text {
+      padding-right: 0.8rem;
+   }
+}
