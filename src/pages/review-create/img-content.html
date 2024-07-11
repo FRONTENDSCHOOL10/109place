@@ -8,6 +8,10 @@
          src="https://kit.fontawesome.com/0d62736544.js"
          crossorigin="anonymous"
       ></script>
+      <script
+         type="module"
+         src="/src/pages/review-create/img-content.js"
+      ></script>
    </head>
    <body>
       <header class="header">
@@ -21,51 +25,55 @@
          </div>
       </header>
       <section role="contentinfo">
-         <div class="reviewTag" role="grope">
+         <div class="reviewTag" role="group">
             <div class="reviewTag__emoji">😜</div>
             <div class="reviewTag__text">음식이 맛있어요</div>
          </div>
 
-         <div class="reviewTag" role="grope">
+         <div class="reviewTag" role="group">
             <div class="reviewTag__emoji">💗</div>
             <div class="reviewTag__text">친절해요</div>
          </div>
 
-         <div class="reviewTag" role="grope">
+         <div class="reviewTag" role="group">
             <div class="reviewTag__emoji">🌱</div>
             <div class="reviewTag__text">재료가 신선해요</div>
          </div>
 
-         <div class="reviewTag" role="grope">
+         <div class="reviewTag" role="group">
             <div class="reviewTag__emoji">🍚</div>
             <div class="reviewTag__text">양이 많아요</div>
          </div>
 
-         <div class="reviewTag" role="grope">
+         <div class="reviewTag" role="group">
             <div class="reviewTag__emoji">👀</div>
             <div class="reviewTag__text">매장이 넓어요</div>
          </div>
       </section>
-      <section role="form">
-         <span>사진을 추가해 주세요</span>
+      <section aria-label="사진 선택란">
+         <h1>사진을 추가해 주세요</h1>
          <form>
-            <label for="imageUpload">사진 추가</label>
+            <label for="imageUpload">사진 선택하기</label>
             <input
                type="file"
                id="imageUpload"
                name="imageUpload"
                accept="image/*"
             />
-            <input type="submit" value="업로드" />
+            <button type="submit">사진 추가</button>
          </form>
-         <span>리뷰를 작성해 주세요</span>
-         <div class="input-count__component">
+      </section>
+      <section aria-label="리뷰 작성란">
+         <h1>리뷰를 작성해 주세요</h1>
+         <!-- div 태그를 form으로 고치고 버튼을 안으로 넣음 -->
+         <form class="input-count__component">
             <textarea
                class="input-count__input"
                placeholder="리뷰를 작성해 주세요!"
             ></textarea>
             <div class="input-count__count">0 / 400</div>
-         </div>
+            <button type="submit" class="btn__review--add">등록하기</button>
+         </form>
       </section>
    </body>
 </html>
