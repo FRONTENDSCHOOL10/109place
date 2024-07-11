@@ -1,75 +1,54 @@
+@use '/src/styles/common/index' as *;
 
 .share__container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   width: 80%;
+   width: 17.875rem;
    margin: 0 auto;
-   background-color: #f8f9fa;
-   border-radius: 1rem;
-   padding: 2rem 0;
-
+   border-radius: 0.5rem;
+   border: 0.0625rem solid $gray-30;
+   background-color: $gray-0;
    &--title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.3rem;
-      margin-bottom: 1.8rem;
-      font-weight: bold;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.875rem;
    }
-   &--icons {
+}
+button {
+   background: none;
+   border: none;
+   padding: 0;
+}
+
+.header {
+   display: flex;
+   justify-content: space-between;
+   border-bottom: $gray-70;
+   padding: 0.5rem 1rem;
+   border-bottom: 1px solid $gray-30;
+
+   & button {
+      background: none;
+      border: none;
       padding: 0;
-      width: 80%;
-      display: flex;
-      justify-content: space-between;
+      line-height: 1.875rem;
+      font-size: 1.25rem;
    }
 }
 
-.share__icons--icon {
-   width: 6rem;
+.share__container--icons {
+   display: flex;
+   justify-content: space-between;
+   gap: 0.5rem;
+   padding: 2rem 1rem;
+}
+
+.share__icons--link {
+   width: 3.5rem;
    display: flex;
    flex-direction: column;
-   align-items: center;
-   font-size: 1rem;
-   color: rgb(67, 67, 67);
-   border: none;
-   background-color: inherit;
-}
-.share__icons--link {
-   width: 3rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-bottom: 0.8rem;
-   background-color: white;
-   padding: 0.6rem 0.3rem;
-   border-radius: 1rem;
-   border: 0.05rem solid lightgrey;
-}
-
-.share__icons--image {
-   width: 80%;
-}
-
-.share__copy-url {
-   width: 80%;
+   gap: 0.5rem;
    justify-content: space-between;
-   display: flex;
-   background-color: white;
-   border-radius: 1rem;
-   border: solid 0.8px lightgrey;
-   margin-top: 1.8rem;
-
-   &--add {
-      color: #4997ec;
-      padding: 0.8rem 0.5rem;
-   }
-   &--btn {
-      padding: 0.8rem 0.5rem;
-      background-color: #f4f4f5;
-      border-top-right-radius: 1rem;
-      border-bottom-right-radius: 1rem;
-      color: #78787a;
-      border: 0rem solid #78787a;
-   }
+   align-items: center;
+   font-size: 0.75rem;
+   font-weight: 500;
+   color: $gray-70;
 }

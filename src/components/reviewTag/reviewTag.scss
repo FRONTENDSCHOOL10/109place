@@ -1,17 +1,13 @@
+@use '/src/styles/common/index' as *;
 
 .reviewTag {
    display: inline-flex;
-   background-color: #ebebee;
+   background-color: $gray-5;
    align-items: center;
-   border-radius: 0.5rem;
-   color: #555558;
-   margin-bottom: 0.3rem;
-   padding: 0.3rem;
-
-   &__emoji {
-      padding: 0 0.3rem 0 0.8rem;
-   }
-   &__text {
-      padding-right: 0.8rem;
-   }
+   border-radius: 0.125rem;
+   color: $gray-70;
+   margin-bottom: 0.25rem;
+   padding: 0.25rem;
+   gap: 0.25rem;
+   font-size: 0.75rem;
 }
