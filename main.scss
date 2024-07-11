@@ -1,0 +1,40 @@
+@use '/src/styles/common/index' as *;
+body {
+   width: 22.5rem;
+   // height: 40rem;
+   height : 100vh;
+   display: flex;
+   flex-flow: column;
+   align-items: center;
+   // justify-content: center;
+}
+.logo {
+   margin: 12.34375rem;
+   width: 12.38rem;
+   height: auto;
+   svg {
+      width: 100%;
+      height: auto;
+   }
+}
+.main__btn {
+   width: 20rem;
+   height: 3.5rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 0.5rem;
+   color: $gray-0;
+   background-color: $primary-50;
+}
+.temp-container{
+   display: flex;
+   flex-flow: row;
+   a{
+      margin: 1rem;
+      padding: 0.5rem 0.4rem;
+      border-radius: 0.5rem;
+      color: white;
+      background-color: $primary-50;
+   }
+}
