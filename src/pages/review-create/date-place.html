@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>date-place</title>
+      <script
+         src="https://kit.fontawesome.com/0d62736544.js"
+         crossorigin="anonymous"
+      ></script>
+      <script
+         type="module"
+         src="/src/pages/review-create/date-place.js"
+      ></script>
+   </head>
+   <body>
+      <header class="header">
+         <div class="header__btn">
+            <button>
+               <i class="fa-solid fa-arrow-left header__btn--icon"></i>
+            </button>
+            <button>
+               <i class="fa-solid fa-x header__btn--icon"></i>
+            </button>
+         </div>
+      </header>
+      <form>
+         <h1>
+            <span>(가게 이름)</span>
+            <span>방문 일을 확인해 주세요!</span>
+         </h1>
+         <label for="dateInput">날짜 선택</label>
+         <input type="date" id="dateInput" name="dateInput" />
+         <input type="submit" value="확인" />
+      </form>
+      <figure aria-label="지도로 보는 가게의 위치">
+         <!-- figure에 백그라운드 이미지 -->
+         <figcaption>
+            <span>(가게 이름)</span>
+            <span>(카테고리)</span>
+            <span>(주소)</span>
+         </figcaption>
+      </figure>
+   </body>
+</html>
