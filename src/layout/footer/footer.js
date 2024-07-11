@@ -10,7 +10,9 @@ export class Footer extends HTMLElement{
 
       <nav class="nav">
         <a href="/" class="nav__link">
-          <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+          <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M10.9571 3.63733L3.9571 7.91511C3.36259 8.27842 3 8.92494 3 9.62167V19.5C3 20.6046 3.89543 21.5 5 21.5H7.66667C8.40305 21.5 9 20.903 9 20.1667V16.5C9 14.8431 10.3431 13.5 12 13.5C13.6569 13.5 15 14.8431 15 16.5V20.1667C15 20.903 15.597 21.5 16.3333 21.5H19C20.1046 21.5 21 20.6046 21 19.5V9.62167C21 8.92494 20.6374 8.27842 20.0429 7.91511L13.0429 3.63733C12.4027 3.24608 11.5973 3.24608 10.9571 3.63733Z" stroke="#8E8E8E" stroke-width="1.5"></path>
+          </svg>
           <span class="nav__text">홈</span>
         </a>
         <a href="/" class="nav__link">
@@ -18,7 +20,10 @@ export class Footer extends HTMLElement{
           <p class="nav__text">저장</p>
         </a>
         <a href="/" class="nav__link">
-        <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+        <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="8" r="5.25" stroke="#8E8E8E" stroke-width="1.5"></circle>
+          <path d="M20 21.5C20 17.0817 16.4183 13.5 12 13.5C7.58172 13.5 4 17.0817 4 21.5" stroke="#8E8E8E" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
           <p class="nav__text">MY</p>
         </a>
       </nav>

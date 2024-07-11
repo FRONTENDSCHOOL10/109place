@@ -11,30 +11,32 @@
 
 <!-- 
   [버튼 커스텀]
-    => 원하는 커스텀 클래스 이름 추가하기
+    => 원하는 커스텀 클래스 이름 추가하기(모두 필수 속성)
 
-    1. 버튼 종류 (필수)
+    1. 버튼 종류
       btn__link
       btn__input
 
-    2. 색상 (필수)
-      btn--blue
-      btn--gray
-      btn--w-blue
-      btn--w-black
-      btn--w-red
+    2. 사이즈 (모서리, 폰트 크기, padding 높이)
+      btn--large
+      btn--small
 
-    3. 두께 (선택) _미 선택시 기본 상태 적용
-      btn--slim
+    3. 길이 width
+      btn-w--default
+      btn-w--short
+      btn-w--extra-short
 
-    4. 길이 (선택) _미 선택시 기본 상태 적용
-      btn--short
-      btn--extra-short
+    4. 상태 (버튼, 폰트 색상) => 피그마 시안 type-state
+      btn-p--default
+      btn-p--disabled
+      btn-s--default
+      btn-t--defaul
+
   -->
 
 
   <a href="/" class="btn__link">링크</a>
-  
+
   <button type="submit" class="btn__input">입력</button>
 
 </body>
