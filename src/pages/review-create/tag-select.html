@@ -4,7 +4,11 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>review-create-tag-select</title>
-      <link type="module" href="/src/pages/review-create/tag-select.js">
+      <script
+         src="https://kit.fontawesome.com/0d62736544.js"
+         crossorigin="anonymous"
+      ></script>
+      <script type="module" src="/src/pages/review-create/tag-select.js"></script>
    </head>
    <body>
         <header class="header">
@@ -18,6 +22,10 @@
             </div>
         </header>
         <section>
+            <h1>
+                <span>(장소)<span>
+                </span>()번째 방문이네요</span>
+            </h1>
             <form action="#">
                 <fieldset class="review__tag--column">
                     <legend class="review__tag--h1">어떻게 이용하셨나요?</legend>
@@ -77,6 +85,26 @@
                 </input>
                 <input type="checkbox" class="review__tag--input" id="takeout-delivery" name="takeout-delivery" class="review__tag">
                     <label class="review__tag--label" for="takeout-delivery">포장∙배달</label>
+                </input>
+                </fieldset>
+            </form>
+            <form action="#">
+                <fieldset class="review__tag--column">
+                <legend class="review__tag--h1">어떤 점이 좋았나요?</legend>
+                <input type="checkbox" id="food" name="food" class="review__tag--input">
+                    <label class="review__tag--label" for="food" >😋 음식이 맛있어요</label>
+                </input>
+                <input type="checkbox" id="fresh" name="fresh" class="review__tag--input">
+                    <label class="review__tag--label" for="fresh">🌱 재료가 신선해요</label>
+                </input>
+                <input type="checkbox" id="kind" name="kind" class="review__tag--input">
+                    <label class="review__tag--label" for="kind">💕 친절해요</label>
+                </input>
+                <input type="checkbox" id="quantities" name="quantities" class="review__tag--input">
+                    <label class="review__tag--label" for="quantities">🍚 양이 많아요</label>
+                </input>
+                <input type="checkbox" id="shop" name="shop" class="review__tag--input">
+                    <label class="review__tag--label" for="shop">👀 매장이 넓어요</label>
                 </input>
                 </fieldset>
             </form>
