@@ -1,0 +1,9 @@
+@use '/src/styles/common/index' as *;
+
+body {
+   padding: 0 1.25rem;
+}
+
+.my-page__header {
+   background-color: $primary-5;
+}
