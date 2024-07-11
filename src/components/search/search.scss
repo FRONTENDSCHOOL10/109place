@@ -1,48 +1,61 @@
+@use '/src/styles/common/index' as *;
+
 body{
-  padding:2rem;
+  width: 22.50rem;
+  height: 40rem;
+
   display: flex;
   flex-flow: column;
   gap: 2rem;
 }
 
 
-.search__link{
-  text-decoration: none;
+// 링크 검색창
+.search-link{
+  border: 0.1rem solid $gray-50;
+  border-radius: 0.4rem;
+  width: 16rem;
+
   color: inherit;
+  font-size: 0.82rem;
+  color: $gray-50;
 
-  border: 0.13rem solid #181818;
-  border-radius: 2rem;
-  color: lightgray;
-  
-  &--primary{
-    width: 23rem;
-    padding: 1rem 1rem;
-  }
-
-  &--secondary{
-    width: 21rem;
-    padding: 1.3rem 1rem;
-  }
-}
-
-.search{
-  border: 0.12rem solid #181818;
-  border-radius: 0.3rem;
-  width: 25rem;
-
-  display: flex;
+  display:flex;
+  justify-content: space-between;
   align-items: center;
 
+  padding: 0.58rem 0.7rem;
+}
+
+
+// 실제 검색창
+.search-form{
+  border: 0.1rem solid $gray-50;
+  border-radius: 0.4rem;
+
+  display: inline-flex;
+  padding: 0;
+  width: 19rem;
+
   &__input{
+    padding: 0.9rem 0.7rem;
+    width: 19rem;
     border: none;
-    padding: 1rem 10rem 1rem 1rem;
+    background-color: transparent;
+
+    &:focus{
+      outline: none;
+    }
+  }
+    
+  &:focus-within{
+    border: 0.1rem solid $primary-50;
   }
 
   &__btn{
-    padding: 0.3rem;
-    font-size: 1.5rem;
-
     border: none;
-    background-color: white;
+    background-color: transparent;
+
+    padding-right: 0.8rem;
   }
 }
