@@ -1,6 +1,6 @@
 @use '/src/styles/common/index' as *;
 
-// body .review--container 임의로 지정
+// body 임의로 지정
 body {
    width: 22.5rem;
    padding: 1.875rem;
@@ -20,7 +20,8 @@ body {
    position: relative;
 
    &__title {
-      color: var(--gray-gray-0, #fff);
+      align-self: stretch;
+      color: #fff;
       font-size: 0.875rem;
       font-style: normal;
       font-weight: 400;
