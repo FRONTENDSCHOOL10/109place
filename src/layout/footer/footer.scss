@@ -3,12 +3,12 @@
 .nav{
   display: flex;
   justify-content: space-around;
-  box-shadow: 0 -4px 6px -4px $gray-40;
+  box-shadow: 0rem -0.125rem .1875rem 0rem $gray-40;
 
   &__link{
     text-align: center;
-    padding: 0.5rem 2.8rem 0.2rem 2.8rem;
-    color: inherit;
+    padding: .4375rem 2.8rem 0.2rem 2.8rem;
+    // color: inherit;
   }
 
   &__icon{

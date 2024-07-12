@@ -9,21 +9,21 @@ export class Footer extends HTMLElement{
       <style>${css}</style>
 
       <nav class="nav">
-        <a href="/" class="nav__link">
+        <a href="/src/pages/homepage/homepage.html" class="nav__link">
           <svg role="img" aria-label="홈 이미지" class="nav__icon nav__home">
-            <use href="src/assets/stack.svg#icon_navigation_home_before" />
+            <use href="/src/assets/stack.svg#icon_navigation_home_before" />
           </svg>
           <p class="nav__text">홈</p>
         </a>
-        <a href="/" class="nav__link">
+        <a href="/src/pages/saved-places/saved-places.html" class="nav__link">
           <svg role="img" aria-label="저장 이미지" class="nav__icon nav__bookmark">
-            <use href="src/assets/stack.svg#icon_navigation_bookmark_before" />
+            <use href="/src/assets/stack.svg#icon_navigation_bookmark_before" />
           </svg>
           <p class="nav__text">저장</p>
         </a>
-        <a href="/" class="nav__link">
+        <a href="/src/pages/my-page/main/main.html" class="nav__link">
           <svg role="img" aria-label="마이 페이지 이미지" class="nav__icon nav__profile">
-            <use href="src/assets/stack.svg#icon_navigation_profile_before" />
+            <use href="/src/assets/stack.svg#icon_navigation_profile_before"/>
           </svg>
           <p class="nav__text">MY</p>
         </a>
