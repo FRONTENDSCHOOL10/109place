@@ -1,12 +1,13 @@
 @use '/src/styles/common/index' as *;
+@use '/src/components/button/button';
 body {
    width: 22.5rem;
-   // height: 40rem;
-   height : 100vh;
+   height: 100vh;
    display: flex;
    flex-flow: column;
    align-items: center;
-   // justify-content: center;
+   // button.scss 바디에 border 속성이 있어 일단 추가.
+   border: none;
 }
 .logo {
    margin: 12.34375rem;
@@ -17,20 +18,11 @@ body {
       height: auto;
    }
 }
-.main__btn {
-   width: 20rem;
-   height: 3.5rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   border-radius: 0.5rem;
-   color: $gray-0;
-   background-color: $primary-50;
-}
-.temp-container{
+
+.temp-container {
    display: flex;
    flex-flow: row;
-   a{
+   a {
       margin: 1rem;
       padding: 0.5rem 0.4rem;
       border-radius: 0.5rem;

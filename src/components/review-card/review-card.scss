@@ -1,0 +1,49 @@
+@use '/src/styles/common/index' as *;
+
+// body 임의로 지정
+body {
+   width: 22.5rem;
+   padding: 1.875rem;
+}
+
+.review--container {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.5rem;
+}
+
+.review--card {
+   width: 9.75rem;
+   height: 9.75rem;
+   border-radius: 1rem;
+   background-color: $primary-50;
+   position: relative;
+
+   &__title {
+      align-self: stretch;
+      color: #fff;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 1.3125rem */
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      display: flex;
+      flex-flow: column nowrap;
+      box-sizing: border-box;
+      gap: 0.3125rem;
+
+      :last-child {
+         font-weight: 700;
+      }
+   }
+}
+
+.no-image-span {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   width: 7.5rem;
+   translate: 0 -1.875rem;
+}
