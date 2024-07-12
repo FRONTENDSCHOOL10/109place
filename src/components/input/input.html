@@ -4,21 +4,36 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>input-component</title>
-      <link rel="stylesheet" href="/src/components/input/input.scss"/>
+      <link rel="stylesheet" href="/src/components/input/input.scss" />
    </head>
    <body>
-      <div class="input__container">
-         <label for="username" class="input__label">아이디</label>
-         <input
-            type="text"
-            id="username"
-            class="input--filed"
-            placeholder="아이디를 입력해주세요"
-            aria-describedby="username-error"
-         />
-         <p id="username-error" class="input--error hidden" role="alert">
-            아이디는 필수 입력 항목입니다.
-         </p>
-      </div>
+      <!-- name 맞춰 변경 -->
+      <form action="#" method="post" name="로그인">
+         <div class="input__container">
+            <!-- for 맞춰 변경 -->
+            <label for="userid" class="input__label">아이디</label>
+            <!-- type, id, aria-label, min, max 맞춰 변경 -->
+            <input
+               type="text"
+               id="userid"
+               class="input--filed"
+               placeholder="아이디를 입력해주세요"
+               aria-label="아이디 입력 필드: 최소 3글자부터 최대 10글자 이내로 입력하세요."
+               aria-describedby="value-error"
+               required
+               minlength="3"
+               maxlength="10"
+            />
+            <!-- 유효성 안 맞으면 hidden 제거 -->
+            <p
+               id="value-error"
+               class="input--error hidden"
+               role="alert"
+               aria-live="polite"
+            >
+               ❗️아이디는 필수 입력 항목입니다.
+            </p>
+         </div>
+      </form>
    </body>
 </html>

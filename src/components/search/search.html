@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous"/>
+  <title>search-component</title>
   <link rel="stylesheet" href="/src/components/search/search.scss" />
 </head>
 <body>
 
-  <a href="/" class="search__link search__link--primary">장소, 주소 검색</a>
+  <!-- 클릭 시 검색 리스트로 이동하는 검색 창 (링크) -->
+    <a href="/" class="search-link">
+      <span class="search-link__text">장소, 주소 검색</span>
+      <svg class="search__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="2.75" y="2.75" width="16" height="16" rx="8" stroke="#1D1D1D" stroke-width="1.5"></rect>
+        <path d="M17 17L21.4194 21.4194" stroke="#1D1D1D" stroke-width="1.5" stroke-linecap="round"></path>
+      </svg>
+    </a>
 
-  <a href="/" class="search__link search__link--secondary">장소, 주소 검색</a>
-
-  <div role="group" class="search">
-    <form action="" method="POST" class="search__form" id="search">
-      <label for="search" class="sr-only search__label">검색어</label>
-      <input type="search" id="search" placeholder="장소, 주소 검색" name="search" class="search__input" />
+    <!-- 검색 리스트에서 실제로 값을 입력 받는 검색창 (검색) -->
+    <form action="" method="POST" id="search" class="search-form">
+      <label for="search" class="sr-only search-form__label">검색어</label>
+      <input type="search" id="search" placeholder="장소, 주소 검색" name="search" class="search-form__input" />
         
-      <button type="submit" class="search__btn">
-        <span class="search__icon fa-solid fa-magnifying-glass"></span>
+      <button type="submit" class="search-form__btn">
+        <svg class="search__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="2.75" y="2.75" width="16" height="16" rx="8" stroke="#1D1D1D" stroke-width="1.5"></rect>
+          <path d="M17 17L21.4194 21.4194" stroke="#1D1D1D" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
       </button>
     </form>
-  </div> 
 
 </body>
 </html>

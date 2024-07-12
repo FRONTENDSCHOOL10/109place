@@ -1,34 +1,25 @@
 @use '/src/styles/common/index' as *;
 
-body{
-  width: 25rem;
-}
-
 .nav{
   display: flex;
   justify-content: space-around;
+  box-shadow: 0 -4px 6px -4px $gray-40;
 
   &__link{
     text-align: center;
-    padding: 1rem;
-    
-    text-decoration: none;
+    padding: 0.5rem 2.8rem 0.2rem 2.8rem;
     color: inherit;
-
-    &:hover{
-      border-top: 0.2rem solid #181818;
-      padding-top: 1rem - 0.2rem;
-    }
   }
 
   &__icon{
-    color: #181818;
-    font-size: 1.8rem;
-    padding: 0.2rem;
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
   }
 
   &__text{
-    margin: 0;
-    font-size: 0.9rem;
+    color: $gray-60;
+    font-family: "Pretendard GOV Variable";
+    font-size: .75rem;
+    font-weight: 500;
   }
 }

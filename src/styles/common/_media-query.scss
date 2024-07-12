@@ -1,0 +1,33 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-gov-dynamic-subset.min.css');
+
+* {
+   font-family:
+      'Pretendard GOV Variable',
+      'Pretendard GOV',
+      -apple-system,
+      BlinkMacSystemFont,
+      system-ui,
+      Roboto,
+      'Helvetica Neue',
+      'Segoe UI',
+      'Apple SD Gothic Neo',
+      'Noto Sans KR',
+      'Malgun Gothic',
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol',
+      sans-serif;
+}
+
+body {
+   background: var(--Color, #fff);
+   margin: 0 auto;
+   width: 100%;
+}
+
+@media (min-width: 45.5rem) {
+   body {
+      width: 45.5rem;
+      margin: 0 auto;
+   }
+}

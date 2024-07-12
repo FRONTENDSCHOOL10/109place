@@ -1,0 +1,32 @@
+@use '/src/styles/common/index' as *;
+@use '/src/components/button/button';
+body {
+   width: 22.5rem;
+   height: 100vh;
+   display: flex;
+   flex-flow: column;
+   align-items: center;
+   // button.scss 바디에 border 속성이 있어 일단 추가.
+   border: none;
+}
+.logo {
+   margin: 12.34375rem;
+   width: 12.38rem;
+   height: auto;
+   svg {
+      width: 100%;
+      height: auto;
+   }
+}
+
+.temp-container {
+   display: flex;
+   flex-flow: row;
+   a {
+      margin: 1rem;
+      padding: 0.5rem 0.4rem;
+      border-radius: 0.5rem;
+      color: white;
+      background-color: $primary-50;
+   }
+}

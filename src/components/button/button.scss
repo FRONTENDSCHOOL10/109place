@@ -1,20 +1,90 @@
+@use '/src/styles/common/index' as *;
+
 body{
   display: flex;
   flex-flow: column;
   gap: 2rem;
-  padding: 2rem;
 }
 
-main__btn{
+
+// 버튼 기본 구성
+.btn__link{
+  color: inherit;
+  text-align: center;
+}
+
+.btn__input{
+  border: none;
+  padding: 1.1rem;
+}
+
+
+// 사이즈 커스텀
+.btn--large{
+  font-size: 1.1875rem;
+  font-weight: 400;  
+  border-radius: .5rem;
+  padding: 1.3125rem 0;
+}
+
+
+.btn--small{
+  font-size: .9375rem;
+  font-weight: 400;  
+  border-radius: .375rem;
+  padding: .9063rem 0;
+}
+
+
+// 길이 커스텀
+.btn-w--default{
   width: 20rem;
-
-  
+}
+.btn-w--short{
+  width: 18rem;
+}
+.btn-w--extra-short{
+  width: 7.5rem;
+  padding: .875rem 0;
 }
 
-// main__btn--blue{
 
-// }
 
-// main__btn--white{
+// 상태 커스텀
+.btn-p--default{
+  background: $primary-50;
+  color: $gray-0;
 
-// }
+  font-family: "Pretendard GOV Variable";
+  font-size: 19rem;
+  font-weight: 400;
+}
+
+.btn-p--disabled{
+  background: $gray-30;
+  color: $gray-60;
+
+  font-family: "Pretendard GOV Variable";
+  font-size: 19rem;
+  font-weight: 400;
+}
+
+.btn-s--default{
+  background: $primary-5;
+  color: $primary-60;
+  border: .0625rem solid $primary-50;
+
+  font-family: "Pretendard GOV Variable";
+  font-size: 19rem;
+  font-weight: 400;
+}
+
+.btn-t--default{
+  background: $gray-0;
+  color: $gray-90;
+  border: .0625rem solid $gray-90;
+  
+  font-family: "Pretendard GOV Variable";
+  font-size: 19rem;
+  font-weight: 400;
+}

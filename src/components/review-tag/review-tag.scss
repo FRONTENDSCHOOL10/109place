@@ -1,0 +1,14 @@
+@use '/src/styles/common/index' as *;
+
+.review-tag {
+   display: inline-flex;
+   background-color: $gray-5;
+   align-items: center;
+   border-radius: 0.125rem;
+   color: $gray-70;
+   margin-bottom: 0.25rem;
+   padding: 0.25rem;
+   gap: 0.25rem;
+   font-size: 0.75rem;
+   vertical-align: center;
+}

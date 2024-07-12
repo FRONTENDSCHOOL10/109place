@@ -3,16 +3,44 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <script type="module" src="/src/components/input-count/input-count.html"></script>
+      <script
+         type="module"
+         src="/src/components/input-count/input-count.js"
+      ></script>
       <title>input-count-component</title>
    </head>
    <body>
-      <div class="input-count__component">
+      <!-- name 맞춰 변경 -->
+      <form
+         class="input-count__component"
+         action="#"
+         method="post"
+         name="리뷰작성"
+      >
+         <label for="review" class="input-count__label"
+            >리뷰를 작성해주세요</label
+         >
+         <!-- placeholder, maxlength 맞춰 변경 -->
          <textarea
+            id="review"
             class="input-count__input"
-            placeholder="리뷰를 작성해주세요!"
+            placeholder="리뷰를 보는 사용자와 사업자에게 상처가 되는 욕설, 비방, 명예훼손성 표현은 사용하지 말아주세요."
+            minlength="10"
+            maxlength="400"
+            rows="5"
+            aria-describedby="review-desc char-count"
+            aria-live="polite"
          ></textarea>
-         <div class="input-count__count">0 / 400</div>
-      </div>
+         <p id="review-desc" class="sr-only">
+            리뷰를 작성해주세요 : 최소 10자에서 최대 400자까지 입력할 수
+            있습니다.
+         </p>
+         <p id="char-count" class="input-count__c-container" aria-live="polite">
+            <!-- 0 / 400 -->
+            <span class="input-count__count">0</span>&nbsp;/&nbsp;<span
+               >400</span
+            >
+         </p>
+      </form>
    </body>
 </html>
