@@ -36,6 +36,14 @@ button {
    height: 2.5rem;
 }
 
+.right-exit {
+   margin-left: auto;
+   &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+   }
+}
+
 .share__container--icons {
    display: flex;
    justify-content: space-between;

@@ -18,4 +18,9 @@
 
 .right-exit {
    margin-left: auto;
+   &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      padding: 1rem;
+   }
 }
