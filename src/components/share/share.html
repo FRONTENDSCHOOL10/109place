@@ -15,12 +15,15 @@
       <div class="share__container" roll="grope">
 
          <header class="header">
+            
             <h1 class="share__container--title">공유하기</h1>
-            <div class="header__btn">
-               <button type="button" class="header__btn--right-exit" aria-label="닫기">
-                  <i class="fa-solid fa-x header__btn--icon"></i>
+
+               <button aria-label="닫기" class="right-exit">
+                  <svg role="img" aria-label="닫기" class="svg-icon">
+                     <use href="/src/assets/stack.svg#top_before_arrow" />
+                  </svg>
                </button>
-            </div>
+          
          </header>
 
          <div
@@ -28,33 +31,39 @@
             role="group"
             aria-label="Button Group"
          >
-            <button type="button" class="share__icons--icon" aria-label="블로그 이동하기">
-               <a href="_" class="share__icons--link">
-                  <img class="share__icons--image" src="_" alt="로고" />
-               
+         <button type="button" class="share__icons--icon" aria-label="링크복사">
+            <div class="share__icons--link" role="group">
+               <svg role="img" aria-label="링크 이동" class="svg-icon">
+                  <use href="/src/assets/stack.svg#icon_share" />
+               </svg>
                <span>블로그</span>
-            </a>
-            </button>
-            <button type="button" class="share__icons--icon" aria-label="카카오톡 이동하기">
-               <a href="_" class="share__icons--link">
-                  <img class="share__icons--image" src="_" alt="로고" />
-               
-               <span>카카오톡</span>
-            </a>
+           </div>
+         </button>
+            <button type="button" class="share__icons--icon" aria-label="링크복사">
+               <div class="share__icons--link" role="group">
+                  <svg role="img" aria-label="링크 이동" class="svg-icon">
+                     <use href="/src/assets/stack.svg#icon_share" />
+                  </svg>
+                  <span>카카오톡</span>
+              </div>
             </button>
        
-            <button type="button" class="share__icons--icon" aria-label="페이스북 이동하기">
-               <a href="_" class="share__icons--link">
-                  <img class="share__icons--image" src="_" alt="로고" />
-               <span>페이스북</span>
-            </a>
+            <button type="button" class="share__icons--icon" aria-label="링크복사">
+               <div class="share__icons--link" role="group">
+                  <svg role="img" aria-label="링크 이동" class="svg-icon">
+                     <use href="/src/assets/stack.svg#icon_share" />
+                  </svg>
+                  <span>페이스북</span>
+              </div>
             </button>
       
             <button type="button" class="share__icons--icon" aria-label="링크복사">
-               <a href="_" class="share__icons--link">
-                  <img class="share__icons--image" src="_" alt="로고" />
-               <span>링크복사</span>
-            </a>
+               <div class="share__icons--link" role="group">
+                  <svg role="img" aria-label="링크 복사" class="svg-icon">
+                     <use href="/src/assets/stack.svg#icon_share" />
+                  </svg>
+                  <span>링크복사</span>
+              </div>
             </button>
      
       </div>
