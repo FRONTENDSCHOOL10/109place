@@ -7,7 +7,7 @@ function handleCount() {
       this.value = this.value.substring(0, 400);
       textLength = 400;
    }
-   textCount.textContent = `${textLength}/400`;
+   textCount.textContent = `${textLength}`;
 }
 
 const textArea = document.querySelector('.input-count__input');
