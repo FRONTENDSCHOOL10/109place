@@ -1,4 +1,9 @@
 @use '/src/styles/common/index' as *;
+button {
+   background: none;
+   border: none;
+   padding: 0;
+}
 
 .share__container {
    width: 17.875rem;
@@ -6,16 +11,12 @@
    border-radius: 0.5rem;
    border: 0.0625rem solid $gray-30;
    background-color: $gray-0;
+
    &--title {
       font-size: 1.25rem;
       font-weight: 600;
-      line-height: 1.875rem;
+      // line-height: 1.875rem;
    }
-}
-button {
-   background: none;
-   border: none;
-   padding: 0;
 }
 
 .header {
@@ -25,12 +26,21 @@ button {
    padding: 0.5rem 1rem;
    border-bottom: 1px solid $gray-30;
 
-   & button {
-      background: none;
-      border: none;
-      padding: 0;
-      line-height: 1.875rem;
-      font-size: 1.25rem;
+   line-height: 1.875rem;
+   font-size: 1.25rem;
+   align-items: center;
+}
+
+.svg-icon {
+   width: 2.5rem;
+   height: 2.5rem;
+}
+
+.right-exit {
+   margin-left: auto;
+   &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
    }
 }
 
@@ -51,4 +61,9 @@ button {
    font-size: 0.75rem;
    font-weight: 500;
    color: $gray-70;
+
+   svg {
+      width: 2rem;
+      height: 2rem;
+   }
 }

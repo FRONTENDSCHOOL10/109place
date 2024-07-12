@@ -1,9 +1,6 @@
 @use '/src/styles/common/index' as *;
 
 .header {
-   padding: 1rem;
-}
-.header__btn {
    width: 100%;
    display: flex;
    justify-content: space-between;
@@ -12,13 +9,18 @@
       background: none;
       border: none;
       padding: 0;
-
-      &--icon {
-         font-weight: 600;
-         font-size: 1.2rem;
-      }
    }
-   &--right-exit {
-      margin-left: auto;
+}
+.svg-icon {
+   width: 2.5rem;
+   height: 2.5rem;
+}
+
+.right-exit {
+   margin-left: auto;
+   &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      padding: 1rem;
    }
 }

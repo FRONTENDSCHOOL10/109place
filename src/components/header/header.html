@@ -12,49 +12,39 @@
    </head>
    <body>
       <header class="header">
-         <div class="header__btn">
-            <button>
-               <i class="fa-solid fa-arrow-left header__btn--icon"></i>
-            </button>
-            <button>
-               <i class="fa-solid fa-x header__btn--icon"></i>
-            </button>
-         </div>
+         <button aria-label="뒤로가기">
+            <svg role="img" aria-label="뒤로가기" class="svg-icon">
+               <use href="/src/assets/stack.svg#top_before_arrow" />
+            </svg>
+         </button>
+
+         <button aria-label="닫기" class="right-exit">
+            <svg role="img" aria-label="닫기" class="svg-icon right-exit__icon">
+               <use href="/src/assets/stack.svg#Close" />
+            </svg>
+         </button>
       </header>
 
       <!-- 뒤로가기와 나가기 버튼이 버튼이 함께있는 헤더 -->
 
       <header class="header">
-         <div class="header__btn">
-            <button>
-               <i class="fa-solid fa-chevron-left header__btn--icon"></i>
-            </button>
-         </div>
+         <button aria-label="뒤로가기">
+            <svg role="img" aria-label="뒤로가기" class="svg-icon">
+               <use href="/src/assets/stack.svg#top_before_arrow" />
+            </svg>
+         </button>
       </header>
 
       <!-- 뒤로가기만있는 버튼 -->
 
       <header class="header">
-         <div class="header__btn">
-            <button class="header__btn--right-exit">
-               <i class="fa-solid fa-x header__btn--icon"></i>
-            </button>
-         </div>
+         <button aria-label="닫기" class="right-exit">
+            <svg role="img" aria-label="닫기" class="svg-icon right-exit__icon">
+               <use href="/src/assets/stack.svg#Close" />
+            </svg>
+         </button>
       </header>
 
       <!-- x만 있는 버튼 -->
-
-      <header class="header">
-         <div class="header__btn">
-            <button>
-               <i class="fa-solid fa-chevron-left header__btn--icon"></i>
-            </button>
-            <button>
-               <i class="fa-solid fa-x header__btn--icon"></i>
-            </button>
-         </div>
-      </header>
-
-      <!-- '< ' 모양 뒤로가기와 나가기버튼 -->
    </body>
 </html>
