@@ -1,11 +1,6 @@
 @use '/src/styles/common/index' as *;
 
 body{
-  width: 22.50rem;
-  height: 40rem;
-
-  border: 1px solid blue;
-
   display: flex;
   flex-flow: column;
   gap: 2rem;
@@ -20,10 +15,7 @@ body{
 
 .btn__input{
   border: none;
-  font-size: 1.06rem;
-  border-radius: 0.4rem;
   padding: 1.1rem;
-  width: 19.9rem;
 }
 
 
@@ -62,21 +54,37 @@ body{
 .btn-p--default{
   background: $primary-50;
   color: $gray-0;
+
+  font-family: "Pretendard GOV Variable";
+  font-size: 19rem;
+  font-weight: 400;
 }
 
 .btn-p--disabled{
   background: $gray-30;
   color: $gray-60;
+
+  font-family: "Pretendard GOV Variable";
+  font-size: 19rem;
+  font-weight: 400;
 }
 
 .btn-s--default{
   background: $primary-5;
   color: $primary-60;
   border: .0625rem solid $primary-50;
+
+  font-family: "Pretendard GOV Variable";
+  font-size: 19rem;
+  font-weight: 400;
 }
 
 .btn-t--default{
   background: $gray-0;
   color: $gray-90;
   border: .0625rem solid $gray-90;
+  
+  font-family: "Pretendard GOV Variable";
+  font-size: 19rem;
+  font-weight: 400;
 }

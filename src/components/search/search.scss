@@ -1,5 +1,14 @@
 @use '/src/styles/common/index' as *;
 
+
+@mixin font($color,$font-family,$font-size,$font-weight) {
+  color: $color;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+
 body{
   width: 22.50rem;
   height: 40rem;
@@ -12,36 +21,46 @@ body{
 
 // 링크 검색창
 .search-link{
-  border: 0.1rem solid $gray-50;
-  border-radius: 0.4rem;
-  width: 16rem;
-
-  color: inherit;
-  font-size: 0.82rem;
-  color: $gray-50;
+  padding: 1.125rem 1rem;
+  border-radius: .5rem;
+  border: .0625rem solid $gray-60;
+  width: 20rem;
 
   display:flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 0.58rem 0.7rem;
+  &__text{
+    @include font($gray-60, "Pretendard GOV Variable", 1.0625rem, 400);
+  }
 }
 
 
 // 실제 검색창
 .search-form{
-  border: 0.1rem solid $gray-50;
-  border-radius: 0.4rem;
+  border: .0625rem solid $gray-60;
+  border-radius: .5rem;
 
   display: inline-flex;
-  padding: 0;
-  width: 19rem;
+  padding: 1.125rem 1rem;
+  width: 17.75rem;
 
   &__input{
-    padding: 0.9rem 0.7rem;
+    padding: 0;
     width: 19rem;
     border: none;
     background-color: transparent;
+
+    &::-webkit-input-placeholder {
+      @include font($gray-60, "Pretendard GOV Variable", 1.0625rem, 400);
+    }
+    &::-ms-input-placeholder {
+      @include font($gray-60, "Pretendard GOV Variable", 1.0625rem, 400);
+    }
+    &::placeholder {
+      @include font($gray-60, "Pretendard GOV Variable", 1.0625rem, 400);
+    }
+
 
     &:focus{
       outline: none;
@@ -49,13 +68,11 @@ body{
   }
     
   &:focus-within{
-    border: 0.1rem solid $primary-50;
+    border: .125rem solid $primary-50;
   }
 
   &__btn{
     border: none;
     background-color: transparent;
-
-    padding-right: 0.8rem;
   }
 }

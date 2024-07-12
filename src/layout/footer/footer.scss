@@ -1,10 +1,9 @@
 @use '/src/styles/common/index' as *;
 
-
 .nav{
   display: flex;
   justify-content: space-around;
-  box-shadow: 0 -4px 6px -4px $gray-60;
+  box-shadow: 0 -4px 6px -4px $gray-40;
 
   &__link{
     text-align: center;
@@ -12,7 +11,15 @@
     color: inherit;
   }
 
+  &__icon{
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+  }
+
   &__text{
-    font-size: 0.75rem;
+    color: $gray-60;
+    font-family: "Pretendard GOV Variable";
+    font-size: .75rem;
+    font-weight: 500;
   }
 }
