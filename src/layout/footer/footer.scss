@@ -8,12 +8,18 @@
   &__link{
     text-align: center;
     padding: .4375rem 2.8rem 0.2rem 2.8rem;
-    // color: inherit;
+
+    &.active > .nav__icon,
+    &.active > .nav__text{
+      color: $primary-50;
+    }
   }
 
   &__icon{
     inline-size: 1.5rem;
     block-size: 1.5rem;
+
+    color: $gray-50;
   }
 
   &__text{

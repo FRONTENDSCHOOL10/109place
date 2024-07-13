@@ -29,7 +29,22 @@ export class Footer extends HTMLElement{
         </a>
       </nav>
       `
+
+      this.activeLink();
   }
+
+
+  activeLink(){
+    const links = this.shadowRoot.querySelectorAll('.nav__link');
+    const activeLink = window.location.pathname;
+
+    links.forEach(link => {
+      if(link.getAttribute('href') === activeLink){
+        link.classList.add('active');
+      }
+    });
+  }
+
 }
 
 customElements.define('c-footer',Footer);
