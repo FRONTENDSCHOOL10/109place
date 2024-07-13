@@ -9,45 +9,18 @@
 <body>
     <form action="#">
         <fieldset class="review__tag--column">
-        <legend class="review__tag--h1">어떤 점이 좋았나요?</legend>
-        <input type="checkbox" id="food" name="food" class="review__tag--input">
-            <label class="review__tag--label" for="food" >😋 음식이 맛있어요</label>
+            <legend class="review__tag--h1">어떻게 이용하셨나요?</legend>
+        <input type="checkbox" class="review__tag--input" id="without-reservation" name="without-reservation" class="review__tag">
+            <label class="review__tag--label" for="without-reservation">예약 없이</label>
         </input>
-        <input type="checkbox" id="fresh" name="fresh" class="review__tag--input">
-            <label class="review__tag--label" for="fresh">🌱 재료가 신선해요</label>
+        <input type="checkbox" class="review__tag--input" id="with-reservation" name="with-reservation" class="review__tag">
+            <label class="review__tag--label" for="with-reservation">예약 후</label>
         </input>
-        <input type="checkbox" id="kind" name="kind" class="review__tag--input">
-            <label class="review__tag--label" for="kind">💕 친절해요</label>
-        </input>
-        <input type="checkbox" id="quantities" name="quantities" class="review__tag--input">
-            <label class="review__tag--label" for="quantities">🍚 양이 많아요</label>
-        </input>
-        <input type="checkbox" id="shop" name="shop" class="review__tag--input">
-            <label class="review__tag--label" for="shop">👀 매장이 넓어요</label>
+        <input type="checkbox" class="review__tag--input" id="takeout-delivery" name="takeout-delivery" class="review__tag">
+            <label class="review__tag--label" for="takeout-delivery">포장/배달</label>
         </input>
         </fieldset>
     </form>
-    
-    
-    <form action="#">
-        <fieldset class="review__tag--column">
-        <legend class="review__tag--h1">누구와 함께했나요?</legend>
-        <input type="checkbox" class="review__tag--input" id="partner" name="partner" class="review__tag">
-            <label class="review__tag--label" for="partner">연인∙배우자</label>
-        </input>
-        <input type="checkbox" class="review__tag--input" id="friend" name="friend" class="review__tag">
-            <label class="review__tag--label" for="friend">친구</label>
-        </input>
-        <input type="checkbox" class="review__tag--input" id="colleague" name="colleague" class="review__tag">
-            <label class="review__tag--label" for="colleague">지인∙동료</label>
-        </input>
-        <input type="checkbox" class="review__tag--input" id="alone" name="alone" class="review__tag">
-            <label class="review__tag--label" for="alone">혼자</label>
-        </input>
-        </fieldset>
-    </form>
-    
-
     <form action="#">
         <fieldset class="review__tag--column">
             <legend class="review__tag--h1">대기 후 이용하셨나요?</legend>
@@ -57,31 +30,56 @@
         <input type="checkbox" class="review__tag--input" id="within10m" name="within10m" class="review__tag">
             <label class="review__tag--label" for="within10m">10분 이내</label>
         </input>
-        <input type="checkbox" class="review__tag--input" id="within30m" name="within30m" class="review__tag">
-            <label class="review__tag--label" for="within30m">30분 이내</label>
-        </input>
+       
         <input type="checkbox" class="review__tag--input" id="after30m" name="after30m" class="review__tag">
-            <label class="review__tag--label" for="after30m">30분 이후</label>
+            <label class="review__tag--label" for="after30m">30분 이상</label>
+        </input>
+        </fieldset>
+    </form>
+    <form action="#">
+        <fieldset class="review__tag--column">
+        <legend class="review__tag--h1">누구와 함께했나요?</legend>
+        <input type="checkbox" class="review__tag--input" id="partner" name="partner" class="review__tag">
+            <label class="review__tag--label" for="partner">연인</label>
+        </input>
+        <input type="checkbox" class="review__tag--input" id="friend" name="friend" class="review__tag">
+            <label class="review__tag--label" for="friend">친구</label>
+        </input>
+        <input type="checkbox" class="review__tag--input" id="colleague" name="colleague" class="review__tag">
+            <label class="review__tag--label" for="colleague">지인/동료</label>
+        </input>
+        <input type="checkbox" class="review__tag--input" id="alone" name="alone" class="review__tag">
+            <label class="review__tag--label" for="alone">혼자</label>
         </input>
         </fieldset>
     </form>
     
+
+    
+    
+    
+   
     
     <form action="#">
         <fieldset class="review__tag--column">
-            <legend class="review__tag--h1">어떻게 이용하셨나요?</legend>
-        <input type="checkbox" class="review__tag--input" id="without-reservation" name="without-reservation" class="review__tag">
-            <label class="review__tag--label" for="without-reservation">예약 없이</label>
+        <legend class="review__tag--h1">어떤 점이 좋았나요?</legend>
+        <input type="checkbox" id="quantities" name="quantities" class="review__tag--input">
+            <label class="review__tag--label" for="quantities">🍚 양이 많아요</label>
         </input>
-        <input type="checkbox" class="review__tag--input" id="with-reservation" name="with-reservation" class="review__tag">
-            <label class="review__tag--label" for="with-reservation">예약 후</label>
+        <input type="checkbox" id="fresh" name="fresh" class="review__tag--input">
+                <label class="review__tag--label" for="fresh">🥦 재료가 신선해요</label>
         </input>
-        <input type="checkbox" class="review__tag--input" id="takeout-delivery" name="takeout-delivery" class="review__tag">
-            <label class="review__tag--label" for="takeout-delivery">포장∙배달</label>
+        <input type="checkbox" id="food" name="food" class="review__tag--input">
+            <label class="review__tag--label" for="food" >😋 음식이 맛있어요</label>
+        </input>
+        <input type="checkbox" id="special" name="special" class="review__tag--input">
+            <label class="review__tag--label" for="special">🍷 특별한 메뉴가 있어요</label>
+        
+        <input type="checkbox" id="price" name="price" class="review__tag--input">
+            <label class="review__tag--label" for="price">👍 가성비가 좋아요</label>
         </input>
         </fieldset>
     </form>
-    
     
 </body>
 </html>
