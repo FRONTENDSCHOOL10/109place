@@ -1,0 +1,1 @@
+import '/src/pages/place-detail/place-detail.scss';

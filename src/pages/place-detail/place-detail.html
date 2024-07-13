@@ -5,9 +5,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
+  <script type="module" src="/src/pages/place-detail/place-detail.js"></script>
+  <script type="module" src="/src/layout/footer/footer.js"></script>
 </head>
 <body>
-  장소 상세 페이지
-</body>
+
+  <!-- 장소 상세 페이지 -->
+ 
+  <!-- Header -->
+  <header class="header">
+    <button aria-label="뒤로가기">
+       <svg role="img" aria-label="뒤로가기" class="svg-icon">
+          <use href="/src/assets/stack.svg#top_before_arrow" />
+       </svg>
+    </button>
+
+    <span>아민연남</span>
+    
+    <button aria-label="닫기" class="right-exit">
+       <svg role="img" aria-label="닫기" class="svg-icon right-exit__icon">
+          <use href="/src/assets/stack.svg#Close" />
+       </svg>
+    </button>
+  </header>
+
+
+  <!-- Section -->
+  <section>
+    <section class="place-img-container">
+      <div class="container container1">
+        <img src="./image-sample/메인.png" alt=""/>
+      </div>
+
+      <div class="container container2">
+        <img src="./image-sample/아보카도.png" alt="" class="place-img"/>
+        <img src="./image-sample/음료.png" alt="" class="place-img"/>
+        <img src="./image-sample/음료.png" alt="" class="place-img"/>
+        <img src="./image-sample/아보카도.png" alt="" class="place-img"/>
+      </div>
+    </section>
+
+    <div class="place-infor">
+      <span class="place-infor__name">아민연남</span>
+      <span class="place-infor__category">카페</span>
+      <div class="place-infor__reviews">
+        <span>리뷰</span>
+        <span class="place-infor__reviews-count">2.689</span>
+      </div>
+
+      <div></div>
+
+      <ul>
+        <li>
+          <svg role="img" aria-label="주소 이미지" class="">
+            <use href="/src/assets/stack.svg#icon_pin" />
+          </svg>
+          <p class="nav__text">서울특별시 마포구 동교로52길 10-7</p>
+        </li>
+        <li>
+          <svg role="img" aria-label="주소 이미지" class="call2">
+            <use href="/src/assets/stack.svg#icon_call2" />
+          </svg>
+          <p class="nav__text">영업 중</p>
+          <p class="nav__text">21:30에 영업 종료</p>
+        </li>
+        <li>
+          <svg role="img" aria-label="주소 이미지" class="i">
+            <use href="/src/assets/stack.svg#icon_clock" />
+          </svg>
+          <p class="nav__text">0507-14612407</p>
+        </li>
+      </ul>
+
+      <div></div>
+
+      
+
+
+    </div>
+  </section>
+
+  <c-footer></c-footer>
+  
+  <a href="/" class="search-link">
+    <span class="search-link__text">장소, 주소 검색</span>
+    <svg class="search__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <rect x="2.75" y="2.75" width="16" height="16" rx="8" stroke="#1D1D1D" stroke-width="1.5"></rect>
+      <path d="M17 17L21.4194 21.4194" stroke="#1D1D1D" stroke-width="1.5" stroke-linecap="round"></path>
+    </svg>
+  </a>
+
 </body>
 </html>
