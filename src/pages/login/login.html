@@ -1,1 +1,79 @@
-<!-- 로그인 페이지 -->
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script type="module" src="/src/pages/login/login.js"></script>
+      <title>login</title>
+   </head>
+   <body>
+      <h1>로그인</h1>
+      <form action="#" method="post" name="로그인" class="input__container">
+         <fieldset class="input__container login__container">
+            <legend class="sr-only">아이디 입력</legend>
+            <!-- for 맞춰 변경 -->
+            <label for="userid" class="input__label sr-only">아이디</label>
+            <!-- type, id, aria-label, min, max 맞춰 변경 -->
+            <input
+               type="text"
+               id="userid"
+               class="input--filed"
+               placeholder="아이디를 입력해주세요"
+               aria-label="아이디 입력 필드: 최소 3글자부터 최대 10글자 이내로 입력하세요."
+               aria-describedby="id-error"
+               required
+               minlength="3"
+               maxlength="10"
+            />
+            <!-- 유효성 안 맞으면 hidden 제거 -->
+            <p
+               id="id-error"
+               class="input--error hidden"
+               role="alert"
+               aria-live="polite"
+            >
+               ❗️아이디는 필수 입력 항목입니다.
+            </p>
+         </fieldset>
+         <fieldset class="input__container signup__container">
+            <legend class="sr-only">비밀번호 입력</legend>
+            <!-- for 맞춰 변경 -->
+            <label for="userpw" class="input__label sr-only">비밀번호</label>
+            <!-- type, id, aria-label, min, max 맞춰 변경 -->
+            <input
+               type="password"
+               id="userpw"
+               class="input--filed"
+               placeholder="비밀번호를 입력해주세요"
+               aria-label="비밀번호 입력 필드: 비밀번호를 입력해주세요"
+               aria-describedby="pw-error"
+               required
+               minlength="8"
+               maxlength="50"
+            />
+            <!-- 유효성 안 맞으면 hidden 제거 -->
+            <p
+               id="pw-error"
+               class="input--error hidden"
+               role="alert"
+               aria-live="polite"
+            >
+               ❗️비밀번호는 필수 입력 항목입니다.
+            </p>
+         </fieldset>
+         <button
+            type="submit"
+            class="btn btn__login btn__input btn--large btn-default btn-p--default"
+            aria-label="로그인: 홈페이지로 이동합니다."
+         >
+            로그인
+         </button>
+         <a
+            href="/src/pages/signup/signup.html"
+            class="btn btn__link btn__input btn--large btn-default btn-s--default"
+            aria-label="회원가입: 회원가입 페이지로 이동합니다."
+            >회원가입</a
+         >
+      </form>
+   </body>
+</html>
