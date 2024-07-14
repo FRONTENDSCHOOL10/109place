@@ -143,8 +143,6 @@ button {
 }
 .profile__review-count {
    color: var(--gray-50, #8e8e8e);
-   leading-trim: both;
-   text-edge: cap;
    font-family: 'Pretendard GOV Variable';
    font-size: 12px;
    font-style: normal;
@@ -157,7 +155,10 @@ button {
 /* -------------------------------------------------------------------------- */
 
 .my-page__section {
+   height: 100vw;
+   overflow-y: hidden;
    padding: 1.5rem 1.25rem;
+
    &--review-count {
       color: var(--gray-90, #1d1d1d);
       font-family: 'Pretendard GOV Variable';
