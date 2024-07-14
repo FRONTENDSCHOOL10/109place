@@ -5,74 +5,96 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>img-content</title>
       <script
-         src="https://kit.fontawesome.com/0d62736544.js"
-         crossorigin="anonymous"
-      ></script>
-      <script
          type="module"
          src="/src/pages/review-create/img-content.js"
       ></script>
    </head>
    <body>
       <header class="header">
-         <div class="header__btn">
-            <button>
-               <i class="fa-solid fa-arrow-left header__btn--icon"></i>
-            </button>
-            <button>
-               <i class="fa-solid fa-x header__btn--icon"></i>
-            </button>
-         </div>
+         <button aria-label="뒤로가기">
+            <svg role="img" aria-label="뒤로가기" class="svg-icon">
+               <use href="/src/assets/stack.svg#top_before_arrow" />
+            </svg>
+         </button>
+         <button aria-label="닫기" class="right-exit">
+            <svg role="img" aria-label="닫기" class="svg-icon right-exit__icon">
+               <use href="/src/assets/stack.svg#Close" />
+            </svg>
+         </button>
       </header>
+
+      <span>(상호명)</span>
+
       <section role="contentinfo">
-         <div class="reviewTag" role="group">
-            <div class="reviewTag__emoji">😜</div>
-            <div class="reviewTag__text">음식이 맛있어요</div>
+         <div class="review-tag" role="group" aria-label="재료가 신선해요">
+            <p>🥦 재료가 신선해요</p>
          </div>
 
-         <div class="reviewTag" role="group">
-            <div class="reviewTag__emoji">💗</div>
-            <div class="reviewTag__text">친절해요</div>
+         <div class="review-tag" role="group" aria-label="양이 많아요">
+            <p>🍚 양이 많아요</p>
          </div>
 
-         <div class="reviewTag" role="group">
-            <div class="reviewTag__emoji">🌱</div>
-            <div class="reviewTag__text">재료가 신선해요</div>
+         <div class="review-tag" role="group" aria-label="음식이 맛있어요">
+            <p>😋 음식이 맛있어요</p>
          </div>
 
-         <div class="reviewTag" role="group">
-            <div class="reviewTag__emoji">🍚</div>
-            <div class="reviewTag__text">양이 많아요</div>
+         <div class="review-tag" role="group" aria-label="가성비가 좋아요">
+            <p>👍 가성비가 좋아요</p>
          </div>
 
-         <div class="reviewTag" role="group">
-            <div class="reviewTag__emoji">👀</div>
-            <div class="reviewTag__text">매장이 넓어요</div>
+         <div class="review-tag" role="group" aria-label="특별한 메뉴가 있어요">
+            <p>🍷 특별한 메뉴가 있어요</p>
          </div>
       </section>
       <section aria-label="사진 선택란">
          <h1>사진을 추가해 주세요</h1>
          <form>
-            <label for="imageUpload">사진 선택하기</label>
+            <label for="image-upload">사진 선택하기</label>
             <input
                type="file"
-               id="imageUpload"
-               name="imageUpload"
+               id="imageu-pload"
+               name="image-upload"
                accept="image/*"
             />
             <button type="submit">사진 추가</button>
          </form>
       </section>
       <section aria-label="리뷰 작성란">
-         <h1>리뷰를 작성해 주세요</h1>
-         <!-- div 태그를 form으로 고치고 버튼을 안으로 넣음 -->
-         <form class="input-count__component">
+         <form
+            class="input-count__component"
+            action="#"
+            method="post"
+            name="리뷰작성"
+         >
+            <label for="review" class="input-count__label"
+               >리뷰를 작성해주세요</label
+            >
+            <!-- placeholder, maxlength 맞춰 변경 -->
             <textarea
+               id="review"
                class="input-count__input"
-               placeholder="리뷰를 작성해 주세요!"
+               placeholder="리뷰를 보는 사용자와 사업자에게 상처가 되는 욕설, 비방, 명예훼손성 표현은 사용하지 말아주세요."
+               minlength="10"
+               maxlength="400"
+               rows="5"
+               aria-describedby="review-desc char-count"
+               aria-live="polite"
             ></textarea>
-            <div class="input-count__count">0 / 400</div>
-            <button type="submit" class="btn__review--add">등록하기</button>
+            <p id="review-desc" class="sr-only">
+               리뷰를 작성해주세요 : 최소 10자에서 최대 400자까지 입력할 수
+               있습니다.
+            </p>
+            <p
+               id="char-count"
+               class="input-count__c-container"
+               aria-live="polite"
+            >
+               <!-- 0 / 400 -->
+               <span class="input-count__count">0</span>&nbsp;/&nbsp;<span
+                  >400</span
+               >
+            </p>
+            <button type="submit" class="btn__next">등록하기</button>
          </form>
       </section>
    </body>

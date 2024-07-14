@@ -1,3 +1,8 @@
 @use '/src/components/header/header' as *;
-@use '/src/components/button/button' as *;
-@use '/src/components/reviewTag/reviewTag.scss' as *;
+@use '/src/components/review-tag/review-tag' as *;
+@use '/src/components/input-count/input-count' as *;
+
+body {
+   display: flex;
+   flex-direction: column;
+}
