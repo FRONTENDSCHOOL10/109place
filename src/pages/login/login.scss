@@ -1,0 +1,41 @@
+@use '/src/styles/common/index' as *;
+@use '/src/components/button/button';
+@use '/src/components/input/input';
+
+$margin-bottom-small: 0.75rem;
+$margin-bottom-large: 12.5rem;
+$font-size: 2rem;
+
+body {
+   display: flex;
+   height: 100vh;
+   flex-flow: column;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+h1 {
+   font-size: $font-size;
+   align-self: flex-start;
+   margin-left: 1.25rem;
+   margin-bottom: 1.5rem;
+}
+.input {
+   &__container {
+      margin-bottom: $margin-bottom-small;
+   }
+}
+
+.signup__container {
+   margin-bottom: $margin-bottom-large;
+}
+.btn {
+   width: 20rem;
+   height: 3.5rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   &__login {
+      margin-bottom: 0.5rem;
+   }
+}
