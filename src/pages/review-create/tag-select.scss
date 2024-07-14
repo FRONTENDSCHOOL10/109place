@@ -1,9 +1,13 @@
 @use '/src/styles/common/index' as *;
-@use '/src/components/header/header.scss' as *;
-@use '/src/components/review-tag-btn/review-tag-btn.scss' as *;
+@use '/src/components/header/header' as *;
+@use '/src/components/review-tag-btn/review-tag-btn' as *;
 
 body {
    background: var(--gray-10, #f0f0f0);
+}
+
+button {
+   cursor: pointer;
 }
 
 .header > a {

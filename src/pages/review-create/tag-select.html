@@ -12,17 +12,15 @@
    <body>
       <div class="column--tag-select">
          <header class="header">
-            <a href="/src/pages/review-create/date-place.html">
-               <button aria-label="닫기" class="right-exit">
-                  <svg
-                     role="img"
-                     aria-label="닫기"
-                     class="svg-icon right-exit__icon"
-                  >
-                     <use href="/src/assets/stack.svg#Close" />
-                  </svg>
-               </button>
-            </a>
+            <button aria-label="닫기" class="right-exit">
+               <svg
+                  role="img"
+                  aria-label="닫기"
+                  class="svg-icon right-exit__icon"
+               >
+                  <use href="/src/assets/stack.svg#Close" />
+               </svg>
+            </button>
          </header>
          <section>
             <h1><span>(장소)</span><span>()번째 방문이네요</span></h1>
@@ -34,10 +32,9 @@
                      </legend>
                      <input
                         type="radio"
-                        class="review__tag--input"
+                        class="review__tag review__tag--input"
                         id="without-reservation"
                         name="how"
-                        class="review__tag"
                      />
                      <label
                         tabindex="0"
@@ -48,10 +45,9 @@
 
                      <input
                         type="radio"
-                        class="review__tag--input"
                         id="with-reservation"
                         name="how"
-                        class="review__tag"
+                        class="review__tag review__tag--input"
                      />
                      <label
                         tabindex="0"
@@ -62,10 +58,9 @@
 
                      <input
                         type="radio"
-                        class="review__tag--input"
                         id="takeout-delivery"
                         name="how"
-                        class="review__tag"
+                        class="review__tag review__tag--input"
                      />
                      <label
                         tabindex="0"
@@ -82,10 +77,9 @@
                      </legend>
                      <input
                         type="radio"
-                        class="review__tag--input"
                         id="not-wait"
+                        class="review__tag review__tag--input"
                         name="waiting"
-                        class="review__tag"
                      />
                      <label
                         tabindex="0"
@@ -95,10 +89,9 @@
                      >
                      <input
                         type="radio"
-                        class="review__tag--input"
+                        class="review__tag review__tag--input"
                         id="within10m"
                         name="waiting"
-                        class="review__tag"
                      />
                      <label
                         tabindex="0"
@@ -108,10 +101,9 @@
                      >
                      <input
                         type="radio"
-                        class="review__tag--input"
+                        class="review__tag review__tag--input"
                         id="after30m"
                         name="waiting"
-                        class="review__tag"
                      />
                      <label
                         tabindex="0"
@@ -129,10 +121,9 @@
                      </legend>
                      <input
                         type="checkbox"
-                        class="review__tag--input"
+                        class="review__tag review__tag--input"
                         id="partner"
                         name="partner"
-                        class="review__tag"
                      />
                      <label
                         tabindex="0"
@@ -143,10 +134,9 @@
 
                      <input
                         type="checkbox"
-                        class="review__tag--input"
+                        class="review__tag review__tag--input"
                         id="friend"
                         name="friend"
-                        class="review__tag"
                      />
                      <label tabindex="0" class="review__tag--label" for="friend"
                         >친구</label
@@ -154,10 +144,9 @@
 
                      <input
                         type="checkbox"
-                        class="review__tag--input"
+                        class="review__tag review__tag--input"
                         id="colleague"
                         name="colleague"
-                        class="review__tag"
                      />
                      <label
                         tabindex="0"
@@ -168,10 +157,9 @@
 
                      <input
                         type="checkbox"
-                        class="review__tag--input"
+                        class="review__tag review__tag--input"
                         id="alone"
                         name="alone"
-                        class="review__tag"
                      />
                      <label tabindex="0" class="review__tag--label" for="alone"
                         >혼자</label
@@ -243,9 +231,7 @@
                </form>
             </div>
          </section>
-         <a href="/src/pages/review-create/img-content.html">
-            <button type="submit" class="btn__next">다음</button>
-         </a>
+         <button type="submit" class="btn__next">다음</button>
       </div>
    </body>
 </html>
