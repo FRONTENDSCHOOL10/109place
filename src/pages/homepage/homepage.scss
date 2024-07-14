@@ -1,1 +1,32 @@
-// .
+@use '/src/styles/common/index' as *;
+@use '/src/components/search/search.scss';
+
+// 미디어쿼리 살리면서 중앙정렬하기 위해 일단 이렇게 해둠.
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+// 미디워쿼리가 유의미하려면 아래 빼야됨!
+.homepage {
+   &__container {
+      display: flex;
+      flex-flow: column;
+      //  alignitem center를 풀어야 푸터가 정상작동하는 신기한 현상 발견
+      align-items: center;
+      position: relative;
+      width: 22.5rem;
+      height: 37.25rem;
+   }
+   &__search {
+      position: absolute;
+      top: 0.5rem;
+      z-index: 1000;
+      background-color: #fff;
+   }
+   &__map {
+      width: 22.5rem;
+      height: 33.75rem;
+      z-index: 1;
+   }
+}
