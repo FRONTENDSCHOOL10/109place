@@ -11,24 +11,16 @@
    </head>
    <body>
       <header class="header">
-         <a href="/src/pages/search-detail/search-detail.html">
-            <button aria-label="뒤로가기">
-               <svg role="img" aria-label="뒤로가기" class="svg-icon">
-                  <use href="/src/assets/stack.svg#top_before_arrow" />
-               </svg>
-            </button>
-         </a>
-         <a href="/src/pages/homepage/homepage.html">
-            <button aria-label="닫기" class="right-exit">
-               <svg
-                  role="img"
-                  aria-label="닫기"
-                  class="svg-icon right-exit__icon"
-               >
-                  <use href="/src/assets/stack.svg#Close" />
-               </svg>
-            </button>
-         </a>
+         <button aria-label="뒤로가기" class="go-back">
+            <svg role="img" aria-label="뒤로가기" class="svg-icon">
+               <use href="/src/assets/stack.svg#top_before_arrow" />
+            </svg>
+         </button>
+         <button aria-label="닫기" class="right-exit">
+            <svg role="img" aria-label="닫기" class="svg-icon right-exit__icon">
+               <use href="/src/assets/stack.svg#Close" />
+            </svg>
+         </button>
       </header>
       <div class="column--date-place">
          <h1>
@@ -36,10 +28,17 @@
             <span>방문 일을 확인해 주세요!</span>
          </h1>
          <form>
-            <label tabindex="0" class="date-picker" for="dateInput"
-               >날짜 선택</label
-            >
-            <input type="date" id="dateInput" name="dateInput" required />
+            <label tabindex="0" class="date-picker" for="date-input"
+               >날짜 선택
+            </label>
+            <input
+               tabindex="0"
+               type="date"
+               id="date-input"
+               class="date-input--off"
+               name="date-input"
+               required
+            />
 
             <figure aria-label="지도로 보는 가게의 위치">
                <!-- figure에 백그라운드 이미지 -->
@@ -51,9 +50,7 @@
                   <span>(주소)</span>
                </figcaption>
             </figure>
-            <a href="/src/pages/review-create/tag-select.html">
-               <button type="submit" class="btn__next">리뷰 작성하기</button>
-            </a>
+            <button type="submit" class="btn__next">리뷰 작성하기</button>
          </form>
       </div>
    </body>
