@@ -50,15 +50,20 @@ button {
 /* -------------------------------------------------------------------------- */
 /*                             review--card style                             */
 /* -------------------------------------------------------------------------- */
-.parent-container {
-   display: flex;
-   justify-content: center; /* 가로 방향 가운데 정렬 */
-   align-items: center; /* 세로 방향 가운데 정렬 */
-}
+
 .review--container {
+   height: 50vw;
+   overflow-y: hidden;
+
+   &::-webkit-scrollbar {
+      display: none;
+   }
    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: 0.5rem;
+   &:hover {
+      overflow-y: auto;
+   }
 }
 
 .review--card {
@@ -155,9 +160,8 @@ button {
 /* -------------------------------------------------------------------------- */
 
 .my-page__section {
-   height: 100vw;
-   overflow-y: hidden;
-   padding: 1.5rem 1.25rem;
+   padding: 1.5rem 1.25rem 0 1.25rem;
+   position: relative;
 
    &--review-count {
       color: var(--gray-90, #1d1d1d);
@@ -194,4 +198,32 @@ button {
          }
       }
    }
+}
+/* -------------------------------------------------------------------------- */
+/*                                   footer                                   */
+/* -------------------------------------------------------------------------- */
+.footer--button-top {
+   display: flex;
+   justify-content: end;
+   position: absolute;
+   bottom: -1.25rem;
+   right: 1.25rem;
+}
+.svg-button-top {
+   width: 2.5rem;
+   height: 2.5rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 hide style                                 */
+/* -------------------------------------------------------------------------- */
+.hidden {
+   display: inline-block;
+   height: 0;
+   padding: 0;
+   overflow: hidden;
+}
+#element-hide {
+   opacity: 1;
+   transition: all 0.2s ease;
 }
