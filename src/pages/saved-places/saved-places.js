@@ -1,0 +1,1 @@
+import '/src/layout/footer/footer.js';
