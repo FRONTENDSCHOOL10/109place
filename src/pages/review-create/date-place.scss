@@ -55,9 +55,10 @@ figcaption {
    flex-direction: column;
    align-items: flex-start;
    width: 18rem;
-   height: 2.06rem;
-   border-bottom-left-radius: 0.5rem;
-   border-bottom-right-radius: 0.5rem;
+   height: auto;
+   border-bottom-left-radius: inherit;
+   border-bottom-right-radius: inherit;
+
    background: var(--Color, #fff);
 
    span {
@@ -92,4 +93,17 @@ input[type='date'] {
    border: none;
    padding: 5px;
    font-size: 16px;
+}
+
+.btn__next {
+   display: flex;
+   width: 20rem;
+   height: 3.5rem;
+   justify-content: center;
+   align-items: center;
+   border-radius: 0.5rem;
+   background: var(--primary-50, #246beb);
+   color: var(--gray-gray-0, var(--Color, #fff));
+   font-size: 1.1875rem;
+   border: none;
 }

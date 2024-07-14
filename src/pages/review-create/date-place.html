@@ -36,7 +36,9 @@
             <span>방문 일을 확인해 주세요!</span>
          </h1>
          <form>
-            <label class="date-picker" for="dateInput">날짜 선택</label>
+            <label tabindex="0" class="date-picker" for="dateInput"
+               >날짜 선택</label
+            >
             <input type="date" id="dateInput" name="dateInput" required />
 
             <figure aria-label="지도로 보는 가게의 위치">
@@ -50,7 +52,7 @@
                </figcaption>
             </figure>
             <a href="/src/pages/review-create/tag-select.html">
-               <button type="submit" class="btn__next">입력</button>
+               <button type="submit" class="btn__next">리뷰 작성하기</button>
             </a>
          </form>
       </div>
