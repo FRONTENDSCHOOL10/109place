@@ -4,6 +4,7 @@ const goBack = document.querySelector('.go-back');
 const exit = document.querySelector('.right-exit');
 const datePicker = document.querySelector('.date-picker');
 const dateInput = document.querySelector('.date-input--off');
+const btnNext = document.querySelector('.btn__next');
 
 const handleGoBack = () => {
    location.href = '/src/pages/search-detail/search-detail.html';
@@ -19,6 +20,11 @@ const handleDatePicker = () => {
    datePicker.innerText = '';
 };
 
+const handleBtnNext = () => {
+   location.href = '/src/pages/review-create/tag-select.html';
+};
+
 goBack.addEventListener('click', handleGoBack);
 exit.addEventListener('click', handleExit);
 datePicker.addEventListener('click', handleDatePicker);
+btnNext.addEventListener('click', handleBtnNext);
