@@ -8,7 +8,7 @@
       "build": "vite build",
       "preview": "vite preview",
       "clean": "rm -rf docs",
-      "wpocketbase": ".pocketbasepocketbase serve",
+      "wpocketbase": ".\\pocketbase\\pocketbase serve",
       "pocketbase": "pocketbase/pocketbase serve"
    },
    "devDependencies": {
