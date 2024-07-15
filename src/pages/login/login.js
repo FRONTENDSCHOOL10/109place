@@ -27,7 +27,8 @@ async function handleLogin(e) {
          console.log(pb.authStore.isValid);
          console.log(pb.authStore.token);
          console.log(pb.authStore.model.id);
-         //  location.href = '/src/pages/homepage/homepage.html';
+         //  홈페이지로 이동
+         location.href = '/src/pages/homepage/homepage.html';
       })
       .catch((error) => {
          console.log(error.data);
