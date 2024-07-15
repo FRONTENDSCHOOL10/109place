@@ -4,19 +4,15 @@ const myPageFooter = document.querySelector('.my-page__footer');
 const reviewContainer = document.querySelector('.review--container');
 const footerButtonTop = document.querySelector('.footer--button-top');
 
-const remToPx =
-   parseFloat(getComputedStyle(document.documentElement).fontSize) * 12.4375;
-
 const scrollHandler = () => {
-   const vhToPx = window.innerHeight;
    if (reviewContainer.scrollTop > 0) {
       myPageHeader.classList.add('hidden');
       myPageFooter.classList.add('hidden');
-      reviewContainer.style.height = `${vhToPx + remToPx}px`;
+      reviewContainer.style.height = `40.5rem`;
       footerButtonTop.classList.remove('hidden');
    } else {
       myPageHeader.classList.remove('hidden');
-      reviewContainer.style.height = `${vhToPx - remToPx}px`;
+      reviewContainer.style.height = `15.125rem`;
       myPageFooter.classList.remove('hidden');
       footerButtonTop.classList.add('hidden');
    }
