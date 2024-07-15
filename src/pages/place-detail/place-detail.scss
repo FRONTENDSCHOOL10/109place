@@ -59,6 +59,7 @@
     align-items: center;
 
     padding-top: 1.5rem;
+    gap: .5rem;
   }
 
   &__title > h1{
@@ -85,17 +86,28 @@
 
   &__details > li{
     display: flex;
+    gap: .25rem;
+    align-items: center;
+
+    padding: .25rem;
   }
 
   &__details{
     font-size: .875rem;
     font-weight: 400;
     color: $gray-70;
+
+    padding: .5rem 0 .75rem 0;
   }
 
   &__icon--small{
     inline-size: .6667rem;
     block-size: .6667rem;
+  }
+
+  &__icon--medium{
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
   }
 }
 
@@ -104,25 +116,19 @@
 
   display: flex;
   gap: 2.5rem;
+
+  p{
+    font-size: 12px;
+    font-weight: 500;
+    color: $gray-80;
+    padding-top: .1875rem;
+  }
 }
 
 .action-bar > button{
   width: 100%;
-}
-
-
-
-// 장식용 선
-.decorative-line--light{
-  width: 100%;
-  height: .0625rem;
-  background: $gray-10;
-}
-
-.decorative-line--bold{
-  width: 100%;
-  height: .5rem;
-  background: $gray-10;
+  border: none;
+  background-color: transparent;
 }
 
 
@@ -277,4 +283,17 @@
    height: .1875rem;
    background: $gray-30;
    border-radius: 50%;
+}
+
+// 장식용 선
+.decorative-line--light{
+  width: 100%;
+  height: .0625rem;
+  background: $gray-10;
+}
+
+.decorative-line--bold{
+  width: 100%;
+  height: .5rem;
+  background: $gray-10;
 }
