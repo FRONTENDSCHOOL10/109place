@@ -2,10 +2,6 @@
 @use '/src/components/button/button';
 @use '/src/components/input/input';
 
-$margin-bottom-small: 0.75rem;
-$margin-bottom-large: 12.5rem;
-$font-size: 2rem;
-
 body {
    display: flex;
    height: 100vh;
@@ -15,19 +11,23 @@ body {
    position: relative;
 }
 h1 {
-   font-size: $font-size;
+   font-size: 2rem;
    align-self: flex-start;
    margin-left: 1.25rem;
    margin-bottom: 1.5rem;
 }
 .input {
    &__container {
-      margin-bottom: $margin-bottom-small;
+      margin-bottom: 0.8rem;
    }
-}
-
-.signup__container {
-   margin-bottom: $margin-bottom-large;
+   &--require {
+      color: $primary-40;
+      align-self: stretch;
+   }
+   &__label {
+      display: flex; /* 레이블을 flex 컨테이너로 설정 */
+      justify-content: space-between;
+   }
 }
 .btn {
    width: 20rem;
@@ -35,7 +35,7 @@ h1 {
    display: flex;
    justify-content: center;
    align-items: center;
-   &__login {
-      margin-bottom: 0.5rem;
-   }
+}
+.checkpw__container {
+   margin-bottom: 2.5rem;
 }

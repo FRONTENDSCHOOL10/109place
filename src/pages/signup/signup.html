@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script type="module" src="/src/pages/signup/signup.js"></script>
+      <title>회원가입</title>
+   </head>
+   <body>
+      <h1>회원가입</h1>
+      <form action="#" method="post" name="로그인" class="input__container">
+         <!-- ------------ [ 아이디 ] ------------ -->
+         <fieldset class="input__container login__container">
+            <legend class="sr-only">아이디 입력</legend>
+            <label for="userid" class="input__label"
+               >아이디<span class="input--require"
+                  >영문 3글자 이상 10글자 이내</span
+               ></label
+            >
+            <input
+               type="text"
+               id="userid"
+               class="input--filed"
+               placeholder="영문 3자 이상"
+               aria-label="아이디 입력 필드: 최소 3글자부터 최대 10글자 이내로 입력하세요."
+               aria-describedby="id-error"
+               required
+               minlength="3"
+               maxlength="10"
+            />
+            <p
+               id="id-error"
+               class="input--error hidden"
+               role="alert"
+               aria-live="polite"
+            >
+               ❗️아이디는 필수 입력 항목입니다.
+            </p>
+         </fieldset>
+         <!-- ----------- [ 이메일 ] ------------ -->
+         <fieldset class="input__container signup__container">
+            <legend class="sr-only">이메일 입력</legend>
+            <label for="useremail" class="input__label">이메일</label>
+            <input
+               type="email"
+               id="useremail"
+               class="input--filed"
+               placeholder="인증 가능한 이메일 주소"
+               aria-label="이메일 입력 필드 : 이메일을 입력해주세요"
+               aria-describedby="email-error"
+               required
+            />
+            <p
+               id="email-error"
+               class="input--error hidden"
+               role="alert"
+               aria-live="polite"
+            >
+               ❗️이메일은 필수 입력 항목입니다.
+            </p>
+         </fieldset>
+         <!-- ----------- [ 비밀번호 ] ----------- -->
+         <fieldset class="input__container pw__container">
+            <legend class="sr-only">비밀번호 입력</legend>
+            <label for="userpw" class="input__label"
+               >비밀번호<span class="input--require"
+                  >특수 문자 포함 8자 이상</span
+               ></label
+            >
+            <input
+               type="password"
+               id="userpw"
+               class="input--filed"
+               placeholder="특수 문자 포함 8자 이상"
+               aria-label="비밀번호 입력 필드 : 특수 문자 포함 8자 이상"
+               aria-describedby="pw-error"
+               required
+            />
+            <p
+               id="pw-error"
+               class="input--error hidden"
+               role="alert"
+               aria-live="polite"
+            >
+               ❗️비밀번호는 필수 입력 항목입니다.
+            </p>
+         </fieldset>
+         <!-- --------- [ 비밀번호 확인 ] ---------- -->
+         <fieldset class="input__container checkpw__container">
+            <legend class="sr-only">비밀번호 확인</legend>
+            <label for="usercheckpw" class="input__label">비밀번호 확인</label>
+            <input
+               type="password"
+               id="usercheckpw"
+               class="input--filed"
+               placeholder="특수 문자 포함 8자 이상"
+               aria-label="비밀번호 확인 필드 : 입력했던 비밀번호를 다시 입력해주세요."
+               aria-describedby="checkpw-error"
+               required
+            />
+            <p
+               id="checkpw-error"
+               class="input--error hidden"
+               role="alert"
+               aria-live="polite"
+            >
+               ❗️입력한 비밀번호와 일치하지 않습니다.
+            </p>
+         </fieldset>
+
+         <!-- --------- [ 회원가입 버튼 ] ---------- -->
+         <!-- 유효성 인증 성공시 btn-p--default -->
+         <button
+            type="submit"
+            class="btn btn__signup btn__input btn--large btn-default btn-p--disabled"
+            aria-label="회원가입: 로그인 페이지로 이동합니다."
+            disabled
+         >
+            회원가입
+         </button>
+      </form>
+   </body>
+</html>
