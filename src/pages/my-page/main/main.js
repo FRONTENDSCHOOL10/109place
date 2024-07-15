@@ -1,8 +1,8 @@
 import pb from '/src/lib/utils/pocketbase';
 
-const resultList = await pb.collection('review').getList(1, 50);
+const reviewList = await pb.collection('review').getList(1, 50);
 const record = await pb.collection('users').getOne(pb.authStore.model.id);
-console.log(record);
+
 const myPageHeader = document.querySelector('.my-page__header');
 const myPageFooter = document.querySelector('.my-page__footer');
 const reviewContainer = document.querySelector('.review--container');
@@ -39,9 +39,9 @@ const clickTopMoveHandler = () => {
 
 const container = document.getElementById('container');
 
-reviewCount.textContent = `리뷰 ${resultList.items.length}`;
+reviewCount.textContent = `리뷰 ${reviewList.items.length}`;
 
-resultList.items.forEach((reviews) => {
+reviewList.items.forEach((reviews) => {
    const figure = document.createElement('figure');
    figure.className = 'review--card';
    figure.style.backgroundImage = `url(${reviews.image[0]})`;
