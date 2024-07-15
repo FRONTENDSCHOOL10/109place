@@ -1,1 +1,132 @@
-// 폴더사라짐방지
+@use '/src/styles/common/index' as *;
+/* -------------------------------------------------------------------------- */
+/*                                   header                                   */
+/* -------------------------------------------------------------------------- */
+.header {
+   display: flex;
+   height: 56px;
+   padding: 0rem 0.5rem 0rem 1rem;
+   justify-content: start;
+   align-items: center;
+   flex: 1 0 0;
+
+   & button {
+      background: none;
+      border: none;
+      padding: 0;
+   }
+}
+.svg-icon {
+   width: 2.5rem;
+   height: 2.5rem;
+}
+/* -------------------------------------------------------------------------- */
+/*                                   section                                  */
+/* -------------------------------------------------------------------------- */
+.article {
+   padding: 0 1.25rem;
+}
+.profile__user-name {
+   overflow: hidden;
+   color: var(--gray-90, #1d1d1d);
+   text-overflow: ellipsis;
+   font-family: 'Pretendard GOV Variable';
+   font-size: 1.25rem;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 1.75rem;
+}
+
+.review__detail--ficture {
+   width: 22.5rem;
+   height: 16.875rem;
+   background-color: gray;
+   position: relative;
+}
+.review-detail__swipe-container {
+   position: absolute;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   top: 7.6875rem;
+   left: 1rem;
+   right: 1rem;
+
+   svg {
+      width: 2rem;
+      height: 2rem;
+   }
+}
+.review-detail__parent-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-top: 1rem;
+}
+.review-detail__store-container {
+   display: flex;
+   align-items: center;
+   p {
+      color: var(--gray-90, #1d1d1d);
+      font-family: 'Pretendard GOV Variable';
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+   }
+   svg {
+      width: 1.25rem;
+      height: 1.25rem;
+   }
+}
+.review-detail__icon-container {
+   svg {
+      width: 1.5rem;
+      height: 1.5rem;
+   }
+}
+.review-detail__store-info {
+   border-bottom: 0.0625rem solid var(--gray-10, #f0f0f0);
+   display: flex;
+   gap: 0.25rem;
+   align-items: center;
+
+   svg {
+      width: 0.1875rem;
+   }
+   p {
+      color: var(--gray-60, #717171);
+      font-family: 'Pretendard GOV Variable';
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+   }
+}
+.review-detail__review-info {
+   display: flex;
+   align-items: center;
+   gap: 0.25rem;
+   p {
+      color: var(--gray-90, #1d1d1d);
+      font-family: 'Pretendard GOV Variable';
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 18px */
+   }
+   svg {
+      width: 0.1875rem;
+   }
+}
+#review-detail__waiting-time {
+   color: var(--gray-60, #717171);
+}
+.review-detail-content {
+   color: var(--gray-70, #555);
+   font-family: 'Pretendard GOV Variable';
+   font-size: 0.875rem;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 150%; /* 21px */
+}
