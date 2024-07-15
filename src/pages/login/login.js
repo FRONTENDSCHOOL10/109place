@@ -3,7 +3,6 @@ import pb from '/src/lib/utils/pocketbase';
 
 const loginBtn = document.querySelector('.btn__login');
 
-console.log(pb.authStore.isValid);
 function handleLoginError(error) {
    let message = '';
 
@@ -25,6 +24,10 @@ async function handleLogin(e) {
       .authWithPassword(userId, userPw)
       .then(() => {
          alert('로그인 되었습니다');
+         console.log(pb.authStore.isValid);
+         console.log(pb.authStore.token);
+         console.log(pb.authStore.model.id);
+         //  홈페이지로 이동
          location.href = '/src/pages/homepage/homepage.html';
       })
       .catch((error) => {
