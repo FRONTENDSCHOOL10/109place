@@ -1,0 +1,41 @@
+@use '/src/styles/common/index' as *;
+@use '/src/components/button/button';
+@use '/src/components/input/input';
+
+body {
+   display: flex;
+   height: 100vh;
+   flex-flow: column;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+h1 {
+   font-size: 2rem;
+   align-self: flex-start;
+   margin-left: 1.25rem;
+   margin-bottom: 1.5rem;
+}
+.input {
+   &__container {
+      margin-bottom: 0.8rem;
+   }
+   &--require {
+      color: $primary-40;
+      align-self: stretch;
+   }
+   &__label {
+      display: flex; /* 레이블을 flex 컨테이너로 설정 */
+      justify-content: space-between;
+   }
+}
+.btn {
+   width: 20rem;
+   height: 3.5rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.checkpw__container {
+   margin-bottom: 2.5rem;
+}

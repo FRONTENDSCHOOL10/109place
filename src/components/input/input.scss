@@ -38,7 +38,8 @@
    &--error {
       font-size: 0.75rem;
       color: $danger;
-      margin-top: 0.75rem;
+      position: absolute;
+      margin-top: 5.65rem;
    }
 }
 // 에러발생시 제거
