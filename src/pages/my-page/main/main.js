@@ -8,6 +8,7 @@ const remToPx =
    parseFloat(getComputedStyle(document.documentElement).fontSize) * 12.4375;
 
 const scrollHandler = () => {
+   const vhToPx = window.innerHeight;
    if (reviewContainer.scrollTop > 0) {
       myPageHeader.classList.add('hidden');
       myPageFooter.classList.add('hidden');
