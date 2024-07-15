@@ -1,1 +1,54 @@
-<!-- 리뷰 작성 첫페이지 -->
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script
+         type="module"
+         src="/src/pages/review-search/review-search.js"
+      ></script>
+      <title>리뷰 작성 시작</title>
+   </head>
+   <body>
+      <header class="header">
+         <button aria-label="닫기" class="right-exit">
+            <svg
+               role="img"
+               aria-label="닫기 버튼 : 마이페이지로 돌아갑니다."
+               class="svg-icon right-exit__icon"
+            >
+               <use href="/src/assets/stack.svg#Close" />
+            </svg>
+         </button>
+      </header>
+
+      <h1>다녀온 곳의<br />리뷰를 써 보세요!</h1>
+      <a href="/src/pages/search-detail/search-detail.html" class="search-link">
+         <span class="search-link__text">장소, 주소 검색</span>
+         <svg
+            class="search__icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+         >
+            <rect
+               x="2.75"
+               y="2.75"
+               width="16"
+               height="16"
+               rx="8"
+               stroke="#1D1D1D"
+               stroke-width="1.5"
+            ></rect>
+            <path
+               d="M17 17L21.4194 21.4194"
+               stroke="#1D1D1D"
+               stroke-width="1.5"
+               stroke-linecap="round"
+            ></path>
+         </svg>
+      </a>
+   </body>
+</html>
