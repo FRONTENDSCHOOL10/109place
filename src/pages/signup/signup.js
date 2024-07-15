@@ -79,23 +79,20 @@ function register() {
          password,
          passwordConfirm: checkPassword,
       };
-      console.log(data);
+
       await pb
          .collection('users')
          .create(data)
-         .catch((error) => alert('' + error));
-
-      // await pb
-      //    .collection('users')
-      //    .create(data)
-      //    .then(() => {
-      //       alert('회원 가입이 완료되었습니다! 로그인 페이지로 이동합니다!');
-      //       location.href = '/src/pages/login/login.html';
-      //    })
-      //    .catch((error) => {
-      //       alert('회원 가입에 실패했습니다. 다시 시도해주세요.' + error);
-      //       console.log(error);
-      //    });
+         .then(() => {
+            alert(
+               '🐶 회원 가입이 완료되었습니다! 로그인 페이지로 이동합니다! 🐶'
+            );
+            location.href = '/src/pages/login/login.html';
+         })
+         .catch((error) => {
+            alert('🐾 회원 가입에 실패했습니다. 다시 시도해주세요. 🐾' + error);
+            console.log(error);
+         });
    }
 
    userId.addEventListener('input', validation);
