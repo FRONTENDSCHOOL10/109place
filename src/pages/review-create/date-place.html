@@ -3,11 +3,15 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>date-place</title>
+      <script
+         type="text/javascript"
+         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=46e05c4fe5868f191b4502d48a8065c1&libraries=services"
+      ></script>
       <script
          type="module"
          src="/src/pages/review-create/date-place.js"
       ></script>
+      <title>date-place</title>
    </head>
    <body>
       <header class="header">
@@ -40,8 +44,7 @@
                required
             />
 
-            <figure aria-label="지도로 보는 가게의 위치">
-               <!-- figure에 백그라운드 이미지 -->
+            <figure id="map" aria-label="지도로 보는 가게의 위치">
                <figcaption>
                   <div>
                      <span>(가게 이름)</span>
