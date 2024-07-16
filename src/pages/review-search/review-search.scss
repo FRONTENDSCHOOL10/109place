@@ -2,14 +2,14 @@
 @use '/src/components/search/search';
 @use '/src/components/header/header';
 body {
-   width: 22.5rem;
    height: 100vh;
+   padding: 0 1.25rem 0 1.25rem;
+}
+.search__container {
    display: flex;
    flex-flow: column;
-   align-items: center;
-   border: none;
 }
-header {
+.header {
    margin-bottom: 5.5rem;
 }
 h1 {
