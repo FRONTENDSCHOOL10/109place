@@ -4,7 +4,6 @@ import pb from '/src/lib/utils/pocketbase';
    const user = await pb.collection('users').getOne(pb.authStore.model.id);
    const storeList = await pb.collection('stores').getList(1, 50);
 
-   // 포켓베이스 주소
    const BASE_URL = 'https://vanilla-109place.pockethost.io';
 
    const myPageHeader = document.querySelector('.my-page__header');
@@ -49,7 +48,6 @@ import pb from '/src/lib/utils/pocketbase';
    };
 
    const container = document.getElementById('container');
-   console.log(storeList.items[0].id);
 
    profileReviewCount.textContent = `리뷰 ${reviewList.items.length}`;
    reviewCount.textContent = `리뷰 ${reviewList.items.length}`;
