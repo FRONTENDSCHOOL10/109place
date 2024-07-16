@@ -13,6 +13,7 @@ import pb from '/src/lib/utils/pocketbase';
    const reviewCount = document.querySelector(
       '.my-page__section--review-count'
    );
+   const profileReviewCount = document.querySelector('.profile__review-count');
 
    profileImg.src = record.profile_picture;
    userName.textContent = record.username;
@@ -44,6 +45,7 @@ import pb from '/src/lib/utils/pocketbase';
    const container = document.getElementById('container');
    console.log(storeList.items[0].id);
 
+   profileReviewCount.textContent = `리뷰 ${reviewList.items.length}`;
    reviewCount.textContent = `리뷰 ${reviewList.items.length}`;
 
    reviewList.items.forEach((reviews) => {
