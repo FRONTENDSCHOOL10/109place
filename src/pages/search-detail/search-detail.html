@@ -1,1 +1,65 @@
-<!-- 검색 후 상세리스트 나오는 페이지 -->
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script
+         type="text/javascript"
+         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=46e05c4fe5868f191b4502d48a8065c1&libraries=services"
+      ></script>
+      <script
+         type="module"
+         src="/src/pages/search-detail/search-detail.js"
+      ></script>
+      <title>검색 상세</title>
+   </head>
+   <body>
+      <header class="header">
+         <button aria-label="뒤로가기" class="header__back">
+            <svg role="img" aria-label="뒤로가기" class="svg-icon">
+               <use href="/src/assets/stack.svg#top_before_arrow" />
+            </svg>
+         </button>
+         <form id="searchForm" class="search-form">
+            <label for="searchInput" class="sr-only search-form__label"
+               >검색어</label
+            >
+            <input
+               type="search"
+               id="searchInput"
+               placeholder="장소, 주소 검색"
+               name="search"
+               class="search-form__input"
+            />
+
+            <button type="submit" class="search-form__btn">
+               <svg
+                  class="search__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+               >
+                  <rect
+                     x="2.75"
+                     y="2.75"
+                     width="16"
+                     height="16"
+                     rx="8"
+                     stroke="#1D1D1D"
+                     stroke-width="1.5"
+                  ></rect>
+                  <path
+                     d="M17 17L21.4194 21.4194"
+                     stroke="#1D1D1D"
+                     stroke-width="1.5"
+                     stroke-linecap="round"
+                  ></path>
+               </svg>
+            </button>
+         </form>
+      </header>
+      <ul id="placesList"></ul>
+   </body>
+</html>
