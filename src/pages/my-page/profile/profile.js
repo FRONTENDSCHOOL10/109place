@@ -13,20 +13,21 @@ import pb from '/src/lib/utils/pocketbase';
 
    const profileImageUrl = `${BASE_URL}/api/files/users/${user.id}/${user.profile_picture}`;
 
-   function handleCount() {
-      let textLength = this.value.length;
+   function handleCount(e) {
+      const input = e.target;
+      const textLength = input.value.length;
+      const textCount = input.nextElementSibling.querySelector(
+         '.input-count__count'
+      );
 
-      if (textLength > 400) {
-         this.value = this.value.substring(0, 400);
-         textLength = 400;
-      }
       textCount.textContent = `${textLength}`;
    }
 
-   const textArea = document.querySelector('.input-count__input');
-   const textCount = document.querySelector('.input-count__count');
+   const textArea = document.querySelectorAll('.input-count__input');
    const textUserName = document.querySelector('.user-name__input');
-   textArea.addEventListener('input', handleCount);
+   textArea.forEach((item) => {
+      item.addEventListener('input', handleCount);
+   });
 
    myPageProfileImg.style.backgroundImage = `url(${profileImageUrl})`;
    textUserName.textContent = user.username;
