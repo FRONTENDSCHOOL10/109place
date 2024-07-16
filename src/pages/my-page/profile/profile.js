@@ -30,4 +30,11 @@ import pb from '/src/lib/utils/pocketbase';
 
    myPageProfileImg.style.backgroundImage = `url(${profileImageUrl})`;
    textUserName.textContent = user.username;
+
+   const headerBackBtn = document.querySelector('.profile__header--back-btn');
+
+   const clickBackHandler = () => {
+      location.href = `/src/pages/my-page/main/main.html`;
+   };
+   headerBackBtn.addEventListener('click', clickBackHandler);
 })();
