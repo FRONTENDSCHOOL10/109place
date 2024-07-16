@@ -1,1 +1,92 @@
-// 폴더사라짐방지
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>my page - review detail</title>
+      <link rel="stylesheet" href="/src/pages/my-page/review/review.scss" />
+      <script
+         type="module"
+         defer
+         src="/src/pages/my-page/review/review.js"
+      ></script>
+      <script type="module" src="/src/layout/footer/footer.js"></script>
+   </head>
+   <body>
+      <header class="header">
+         <button aria-label="뒤로가기">
+            <svg role="img" aria-label="뒤로가기" class="svg-icon">
+               <use href="/src/assets/stack.svg#top_before_arrow" />
+            </svg>
+         </button>
+         <p aria-label="닉네임" class="profile__user-name"></p>
+      </header>
+      <section>
+         <figure class="review__detail--ficture">
+            <div role="group" class="review-detail__swipe-container">
+               <svg role="img" aria-label="왼쪽으로 이동" class="svg-icon">
+                  <use href="/src/assets/stack.svg#_button_swipe_left" />
+               </svg>
+               <svg role="img" aria-label="오른쪽으로 이동" class="svg-icon">
+                  <use href="/src/assets/stack.svg#_button_swipe_right" />
+               </svg>
+            </div>
+         </figure>
+         <article class="article">
+            <div role="group" class="review-detail__parent-container">
+               <div role="group" class="review-detail__store-container">
+                  <p class="review-detail__store-name"></p>
+                  <svg role="img" aria-label="가게정보" class="svg-icon">
+                     <use href="/src/assets/stack.svg#icon_arrow_right" />
+                  </svg>
+               </div>
+               <div role="group" class="review-detail__icon-container">
+                  <svg
+                     role="img"
+                     aria-label="북마크"
+                     class="svg-icon book-mark"
+                  >
+                     <use href="/src/assets/stack.svg#icon_bookmark_after" />
+                  </svg>
+                  <svg role="img" aria-label="더보기" class="svg-icon">
+                     <use href="/src/assets/stack.svg#_icon_more" />
+                  </svg>
+               </div>
+            </div>
+            <div class="review-detail__store-info" aria-label="가게 정보">
+               <p class="review-detail__store-info--name">카페</p>
+               <svg
+                  role="img"
+                  aria-label="꾸밈버튼"
+                  class="svg-icon store-info__more-icon"
+               >
+                  <use href="/src/assets/stack.svg#Ellipse-5" />
+               </svg>
+               <p class="review-detail__store-info--address">서울시 연남동</p>
+            </div>
+
+            <div class="review-detail__review-info">
+               <p class="review-info--how"></p>
+               <svg
+                  role="img"
+                  aria-label="꾸밈버튼"
+                  class="svg-icon store-info__more-icon"
+               >
+                  <use href="/src/assets/stack.svg#Ellipse-5" />
+               </svg>
+               <p id="review-detail__waiting-time">대기시간</p>
+               <p class="review-info--delay"></p>
+               <svg
+                  role="img"
+                  aria-label="꾸밈버튼"
+                  class="svg-icon store-info__more-icon"
+               >
+                  <use href="/src/assets/stack.svg#Ellipse-5" />
+               </svg>
+               <p class="review-info--with"></p>
+            </div>
+            <p class="review-detail__content"></p>
+         </article>
+      </section>
+   </body>
+</html>

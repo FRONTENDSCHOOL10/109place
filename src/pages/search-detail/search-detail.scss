@@ -1,1 +1,41 @@
-// .
+@use '/src/styles/common/index' as *;
+@use '/src/components/header/header';
+@use '/src/components/search/search';
+
+body {
+   padding-top: 0.25rem;
+   height: 40rem;
+}
+.search-form__input {
+   box-sizing: border-box;
+}
+header {
+   margin-bottom: 1rem;
+}
+.info {
+   display: flex;
+   flex-flow: column;
+   justify-content: space-between;
+   background-color: $gray-10;
+   border: 1px solid #dee2e6;
+   padding: 10px;
+   margin-bottom: 10px;
+   border-radius: 5px;
+   &__name {
+      font-size: 1rem;
+      color: $gray-90;
+      margin-bottom: 5px;
+   }
+   &__category {
+      font-size: 0.8125rem;
+      align-self: flex-end;
+   }
+   &__address {
+      font-size: 0.875rem;
+      color: $gray-70;
+   }
+}
+
+#placesList {
+   overflow-y: hidden;
+}

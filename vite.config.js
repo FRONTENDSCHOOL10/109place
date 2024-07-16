@@ -9,6 +9,14 @@ export default defineConfig({
             main: resolve(__dirname, 'index.html'),
             homepage: resolve(__dirname, './src/pages/homepage/homepage.html'),
             mypagemain: resolve(__dirname, '/src/pages/my-page/main/main.html'),
+            mypageprofile: resolve(
+               __dirname,
+               '/src/pages/my-page/profile/profile.html'
+            ),
+            mypagereview: resolve(
+               __dirname,
+               '/src/pages/my-page/review/review.html'
+            ),
             reviewdate: resolve(
                __dirname,
                '/src/pages/review-create/date-place.html'

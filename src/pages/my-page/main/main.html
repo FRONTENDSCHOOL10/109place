@@ -5,7 +5,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>my page - main</title>
       <link rel="stylesheet" href="/src/pages/my-page/main/main.scss" />
-      <script defer src="/src/pages/my-page/main/main.js"></script>
+      <script
+         type="module"
+         defer
+         src="/src/pages/my-page/main/main.js"
+      ></script>
       <script type="module" src="/src/layout/footer/footer.js"></script>
    </head>
    <body>
@@ -22,7 +26,7 @@
                   aria-label="프로필 수정 이동하기"
                   class="my-page__header__profile--btn"
                >
-                  <p aria-label="닉네임">백구하나</p>
+                  <p aria-label="닉네임" class="profile__user-name"></p>
 
                   <svg
                      role="img"
@@ -48,7 +52,7 @@
       </header>
       <section class="my-page__section">
          <div class="review-count__container">
-            <p class="my-page__section--review-count">리뷰 180</p>
+            <p class="my-page__section--review-count"></p>
             <div role="group" class="my-page__section__toggle-btn">
                <button
                   aria-label="사진/영상 체크박스"
@@ -81,160 +85,7 @@
                </button>
             </div>
          </div>
-         <div class="review--container">
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span class="no-image-span">"이미지가 없는 카드의 멘트"</span>
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span class="no-image-span">"이미지가 없는 카드의 멘트"</span>
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-            <figure class="review--card">
-               <figcaption class="review--card__title">
-                  <span>가게 위치</span>
-                  <span>상호명</span>
-               </figcaption>
-            </figure>
-         </div>
+         <div class="review--container" id="container"></div>
          <footer class="footer--button-top hidden" id="element-hide">
             <svg role="img" aria-label="닫기" class="svg-icon svg-button-top">
                <use href="/src/assets/stack.svg#_button_top" />
