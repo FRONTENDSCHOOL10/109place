@@ -1,21 +1,20 @@
-// import PocketBase from 'pocketbase';
+import pb from '/src/lib/utils/pocketbase';
 
-// const pb = new PocketBase('https://vanilla-109place.pockethost.io');
+const reviewList = await pb.collection('review').getList(1, 50);
+const record = await pb.collection('users').getOne(pb.authStore.model.id);
 
-// ...
-
-// // fetch a paginated records list
-// const resultList = await pb.collection('review').getList(1, 50, {
-//     filter: 'created >= "2022-01-01 00:00:00" && someField1 != someField2',
-// });
-
-// console.log(resultList);
-
-const myPageSection = document.querySelector('.my-page__section');
 const myPageHeader = document.querySelector('.my-page__header');
 const myPageFooter = document.querySelector('.my-page__footer');
 const reviewContainer = document.querySelector('.review--container');
 const footerButtonTop = document.querySelector('.footer--button-top');
+const userName = document.querySelector('.profile__user-name');
+const profileImg = document.querySelector('.my-page__header__profile--img');
+const reviewCount = document.querySelector('.my-page__section--review-count');
+profileImg.src = record.profile_picture;
+userName.textContent = record.username;
+userName.addEventListener('click', () => {
+   location.href = `/src/pages/my-page/profile/profile.html`;
+});
 
 const scrollHandler = () => {
    if (reviewContainer.scrollTop > 0) {
@@ -38,6 +37,36 @@ const clickTopMoveHandler = () => {
    });
 };
 
+const container = document.getElementById('container');
+
+reviewCount.textContent = `리뷰 ${reviewList.items.length}`;
+
+reviewList.items.forEach((reviews) => {
+   const figure = document.createElement('figure');
+   figure.className = 'review--card';
+   figure.style.backgroundImage = `url(${reviews.image[0]})`;
+   const figcaption = document.createElement('figcaption');
+   figcaption.className = 'review--card__title';
+
+   const locationSpan = document.createElement('span');
+   locationSpan.textContent = reviews.review;
+
+   const nameSpan = document.createElement('span');
+   nameSpan.textContent = reviews.stores_id;
+
+   //    클릭 이벤트 추가
+   figure.addEventListener('click', () => {
+      location.href = `/src/pages/my-page/review/review.html?reviewId=${reviews.id}`;
+   });
+
+   figcaption.appendChild(locationSpan);
+   figcaption.appendChild(nameSpan);
+   figure.appendChild(figcaption);
+   container.appendChild(figure);
+});
+
 reviewContainer.addEventListener('scroll', scrollHandler);
 
 footerButtonTop.addEventListener('click', clickTopMoveHandler);
+
+//리뷰가 적을경우 리팩토링..ㄴ
