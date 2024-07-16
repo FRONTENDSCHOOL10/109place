@@ -15,7 +15,11 @@
    <body>
       <header class="header">
          <button aria-label="뒤로가기">
-            <svg role="img" aria-label="뒤로가기" class="svg-icon">
+            <svg
+               role="img"
+               aria-label="뒤로가기"
+               class="svg-icon review-detail__header--back-btn"
+            >
                <use href="/src/assets/stack.svg#top_before_arrow" />
             </svg>
          </button>
@@ -54,7 +58,7 @@
                </div>
             </div>
             <div class="review-detail__store-info" aria-label="가게 정보">
-               <p class="review-detail__store-info--name">카페</p>
+               <p class="review-detail__store-info--name"></p>
                <svg
                   role="img"
                   aria-label="꾸밈버튼"
@@ -62,7 +66,7 @@
                >
                   <use href="/src/assets/stack.svg#Ellipse-5" />
                </svg>
-               <p class="review-detail__store-info--address">서울시 연남동</p>
+               <p class="review-detail__store-info--address"></p>
             </div>
 
             <div class="review-detail__review-info">
@@ -86,6 +90,12 @@
                <p class="review-info--with"></p>
             </div>
             <p class="review-detail__content"></p>
+
+            <div
+               class="review-tag-container"
+               role="group"
+               aria-label="리뷰 키워드"
+            ></div>
          </article>
       </section>
    </body>

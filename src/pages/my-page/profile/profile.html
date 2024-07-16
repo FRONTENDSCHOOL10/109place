@@ -1,1 +1,88 @@
-//폴더사라짐방지
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>my page - main</title>
+      <link rel="stylesheet" href="/src/pages/my-page/profile/profile.scss" />
+      <script
+         type="module"
+         defer
+         src="/src/pages/my-page/profile/profile.js"
+      ></script>
+   </head>
+   <body>
+      <header class="header">
+         <button aria-label="뒤로가기">
+            <svg role="img" aria-label="뒤로가기" class="svg-icon profile__header--back-btn">
+               <use href="/src/assets/stack.svg#top_before_arrow" />
+            </svg>
+         </button>
+         <h1 class="my-page__profile--title">프로필 설정</h1>
+      </header>
+      <section class="my-page__profile__section">
+         <figure class="my-page__profile__section--img">
+            <svg role="img" aria-label="카메라" class="svg-icon">
+               <use href="/src/assets/stack.svg#icon_camera" />
+            </svg>
+         </figure>
+         <form
+         class="input-count__component"
+         action="#"
+         method="post"
+         name="리뷰작성"
+      >
+         <label for="review" class="input-count__label"
+            >닉네임</label
+         >
+         <!-- placeholder, maxlength 맞춰 변경 -->
+         <textarea
+            id="review"
+            class="input-count__input user-name__input"
+            placeholder=""
+            minlength="3"
+            maxlength="20"
+         ></textarea>
+
+         <p id="char-count" class="input-count__c-container" >
+            <!-- 0 / 400 -->
+            <span class="input-count__count">0</span>&nbsp;/&nbsp;<span
+               >20</span
+            >
+         </p>
+         <form
+         class="input-count__component"
+         action="#"
+         method="post"
+         name="리뷰작성"
+      >
+         <label for="review" class="input-count__label"
+            >소개</label
+         >
+         <!-- placeholder, maxlength 맞춰 변경 -->
+         <textarea
+            id="review"
+            class="input-count__input user-info__input"
+            placeholder=""
+            minlength="3"
+            maxlength="300"
+         ></textarea>
+
+         <p id="char-count" class="input-count__c-container" >
+            <!-- 0 / 300 -->
+            <span class="input-count__count">0</span>&nbsp;/&nbsp;<span
+               >300</span
+            >
+         </p>
+</form>
+<div class="leave-container"> <button type="submit" class="leave-button">탈퇴하기</button></div>
+         <button
+         type="submit"
+         class="btn__input btn-p--default btn-w--default"
+         id="btn--large"
+      >
+         입력
+      </button>
+        </section>
+   </body>
+</html>

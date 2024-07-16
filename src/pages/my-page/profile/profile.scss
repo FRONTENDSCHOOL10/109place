@@ -1,1 +1,150 @@
-// 폴더사라짐방지
+@use '/src/styles/common/index' as *;
+/* -------------------------------------------------------------------------- */
+/*                                   header                                   */
+/* -------------------------------------------------------------------------- */
+
+button {
+   background: none;
+   border: none;
+   padding: 0;
+}
+.header {
+   width: 100%;
+   display: flex;
+   justify-content: start;
+   align-items: center;
+   padding: 0 0.5rem 0 1rem;
+}
+.svg-icon {
+   width: 2.5rem;
+   height: 2.5rem;
+}
+
+.right-exit {
+   margin-left: auto;
+   &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      padding: 1rem;
+   }
+}
+
+.my-page__profile--title {
+   overflow: hidden;
+   color: var(--gray-90, #1d1d1d);
+   text-overflow: ellipsis;
+   font-family: 'Pretendard GOV Variable';
+   font-size: 1.25rem;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 1.75rem; /* 140% */
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   section                                  */
+/* -------------------------------------------------------------------------- */
+.my-page__profile__section {
+   padding: 1.5rem 1.25rem 2.5rem 1.25rem;
+   display: flex;
+   width: 22.5rem;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+   &--img {
+      width: 7rem;
+      height: 7rem;
+      flex-shrink: 0;
+      background-color: #1d1d1d;
+      border-radius: 112px;
+      background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+      position: relative;
+      svg {
+         width: 2rem;
+         position: absolute;
+         bottom: 0;
+         right: 0;
+      }
+   }
+}
+.input-count {
+   &__component {
+      position: relative;
+      width: 100%;
+      height: auto;
+   }
+   &__label {
+      color: var(--gray-gray-90, #1d1d1d);
+      font-family: 'Pretendard GOV Variable';
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 22.5px */
+   }
+   &__input {
+      margin-top: 0.75rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid $gray-60;
+      resize: none;
+      box-sizing: border-box;
+      width: 100%;
+      font-size: 1.0625rem;
+      overflow-y: auto;
+      margin-bottom: 0.75rem;
+      &::placeholder {
+         font-size: 1.0625rem;
+      }
+      &::-webkit-scrollbar {
+         display: none;
+      }
+   }
+   &__c-container {
+      position: absolute;
+      right: 0.625rem;
+      font-size: 0.9375rem;
+   }
+   &__count {
+      color: var(--system-danger-60, #d50136);
+   }
+}
+.leave-container {
+   width: 100%;
+   display: flex;
+   justify-content: start;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   button                                   */
+/* -------------------------------------------------------------------------- */
+
+.btn__input {
+   border: none;
+   padding: 1.1rem;
+}
+.btn-w--default {
+   width: 100%;
+}
+#btn--large {
+   font-size: 1.1875rem;
+   border-radius: 0.5rem;
+   padding: 1.3438rem;
+}
+
+.btn-p--default {
+   background: $primary-50;
+   color: $gray-0;
+
+   font-family: 'Pretendard GOV Variable';
+   font-size: 19rem;
+   font-weight: 400;
+}
+.leave-button {
+   color: var(--gray-80, #2d2d2d);
+   font-family: 'Pretendard GOV Variable';
+   font-size: 15px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 150%; /* 22.5px */
+   text-decoration-line: underline;
+}

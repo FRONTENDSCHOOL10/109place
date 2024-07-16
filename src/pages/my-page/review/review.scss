@@ -38,6 +38,9 @@
 }
 
 .review__detail--ficture {
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
    width: 22.5rem;
    height: 16.875rem;
    background-color: gray;
@@ -129,4 +132,18 @@
    font-style: normal;
    font-weight: 400;
    line-height: 150%; /* 21px */
+}
+
+.review-tag {
+   margin-top: 0.5rem;
+   display: inline-flex;
+   background-color: $gray-5;
+   align-items: center;
+   border-radius: 0.125rem;
+   color: $gray-70;
+   margin-bottom: 0.25rem;
+   padding: 0.25rem;
+   margin-right: 0.25rem;
+   font-size: 0.75rem;
+   vertical-align: center;
 }
