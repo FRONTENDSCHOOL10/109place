@@ -10,6 +10,7 @@ const footerButtonTop = document.querySelector('.footer--button-top');
 const userName = document.querySelector('.profile__user-name');
 const profileImg = document.querySelector('.my-page__header__profile--img');
 const reviewCount = document.querySelector('.my-page__section--review-count');
+
 profileImg.src = record.profile_picture;
 userName.textContent = record.username;
 userName.addEventListener('click', () => {
