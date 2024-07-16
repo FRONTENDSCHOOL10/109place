@@ -1,8 +1,11 @@
 import pb from '/src/lib/utils/pocketbase';
 (async () => {
    const reviewList = await pb.collection('review').getList(1, 50);
-   const record = await pb.collection('users').getOne(pb.authStore.model.id);
+   const user = await pb.collection('users').getOne(pb.authStore.model.id);
    const storeList = await pb.collection('stores').getList(1, 50);
+
+   // 포켓베이스 주소
+   const BASE_URL = 'https://vanilla-109place.pockethost.io';
 
    const myPageHeader = document.querySelector('.my-page__header');
    const myPageFooter = document.querySelector('.my-page__footer');
@@ -13,9 +16,13 @@ import pb from '/src/lib/utils/pocketbase';
    const reviewCount = document.querySelector(
       '.my-page__section--review-count'
    );
+   const profileReviewCount = document.querySelector('.profile__review-count');
 
-   profileImg.src = record.profile_picture;
-   userName.textContent = record.username;
+   const profileImageUrl = `${BASE_URL}/api/files/users/${user.id}/${user.profile_picture}`;
+
+   profileImg.src = profileImageUrl;
+
+   userName.textContent = user.username;
    userName.addEventListener('click', () => {
       location.href = `/src/pages/my-page/profile/profile.html`;
    });
@@ -44,12 +51,16 @@ import pb from '/src/lib/utils/pocketbase';
    const container = document.getElementById('container');
    console.log(storeList.items[0].id);
 
+   profileReviewCount.textContent = `리뷰 ${reviewList.items.length}`;
    reviewCount.textContent = `리뷰 ${reviewList.items.length}`;
 
    reviewList.items.forEach((reviews) => {
       const figure = document.createElement('figure');
       figure.className = 'review--card';
-      figure.style.backgroundImage = `url(${reviews.image[0]})`;
+
+      const reviewImageUrl = `${BASE_URL}/api/files/review/${reviews.id}/${reviews.image[0]}`;
+      figure.style.backgroundImage = `url(${reviewImageUrl})`;
+
       const figcaption = document.createElement('figcaption');
       figcaption.className = 'review--card__title';
 
