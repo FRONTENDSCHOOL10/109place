@@ -2,6 +2,7 @@ import pb from '/src/lib/utils/pocketbase';
 
 const reviewList = await pb.collection('review').getList(1, 50);
 const record = await pb.collection('users').getOne(pb.authStore.model.id);
+const storeList = await pb.collection('stores').getList(1, 50);
 
 const myPageHeader = document.querySelector('.my-page__header');
 const myPageFooter = document.querySelector('.my-page__footer');
@@ -39,6 +40,7 @@ const clickTopMoveHandler = () => {
 };
 
 const container = document.getElementById('container');
+console.log(storeList.items[0].id);
 
 reviewCount.textContent = `리뷰 ${reviewList.items.length}`;
 
@@ -50,10 +52,14 @@ reviewList.items.forEach((reviews) => {
    figcaption.className = 'review--card__title';
 
    const locationSpan = document.createElement('span');
-   locationSpan.textContent = reviews.review;
 
    const nameSpan = document.createElement('span');
-   nameSpan.textContent = reviews.stores_id;
+   storeList.items.forEach((stores) => {
+      if (reviews.stores_id === stores.id) {
+         locationSpan.textContent = stores.category;
+         nameSpan.textContent = stores.address;
+      }
+   });
 
    //    클릭 이벤트 추가
    figure.addEventListener('click', () => {
