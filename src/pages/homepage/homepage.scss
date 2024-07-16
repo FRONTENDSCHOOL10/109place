@@ -33,21 +33,20 @@ body {
 }
 
 // 임시 버튼 스타일링
-button {
+.map__control {
    position: absolute;
-   border: 1px solid gray;
-   padding: 0.3rem;
+   border: 1px solid $gray-60;
+   padding: 0.5rem;
    border-radius: 0.5rem;
    background-color: $gray-0;
    top: 30rem;
-   left: 18rem;
+   left: 19rem;
    z-index: 2000;
-   // Tooltip styles
-   &::after {
-      content: '원래 위치로 돌아가기'; 
+   &--reset::after {
+      content: '원위치'; 
       position: absolute;
       top: -2rem; 
-      left: 50%;
+      // left: 50%;
       transform: translateX(-50%);
       background-color: $primary-90;
       color: $gray-0;
