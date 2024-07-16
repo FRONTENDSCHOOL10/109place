@@ -38,10 +38,31 @@ button {
    border: 1px solid gray;
    padding: 0.3rem;
    border-radius: 0.5rem;
-   background-color: #ffffff;
+   background-color: $gray-0;
    top: 30rem;
    left: 18rem;
    z-index: 2000;
+   // Tooltip styles
+   &::after {
+      content: '원래 위치로 돌아가기'; 
+      position: absolute;
+      top: -2rem; 
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $primary-90;
+      color: $gray-0;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+   }
+
+   &:hover::after {
+      opacity: 1;
+   }
 }
 
 .info {
