@@ -1,0 +1,65 @@
+@use '/src/styles/common/index' as *;
+
+// 헤더
+.header{
+  display: flex;
+  padding: .875rem 1rem;
+  gap: .25rem;
+
+  h1{
+    @include set-font($gray-90,1.25rem,600);
+  }
+
+  span{
+    @include set-font($primary-50,1.25rem,600);
+  }
+}
+
+
+// 저장된 장소 리스트
+.saved-places{
+  padding: .5rem 1.25rem;
+}
+
+.place-text{
+  padding: 1rem 0;
+
+  &__title{
+    display:flex;
+    gap: .5rem;
+    padding-bottom: .75rem;
+  
+    h2{
+      @include set-font($gray-90,1rem,700);
+    }
+  
+    span{
+      @include set-font($gray-60,.8125rem,400);
+    }
+  }
+
+  p{
+    @include set-font($gray-70,.875rem,400);
+  }
+}
+
+.place-img{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  gap: .25rem;
+
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &--left{
+    border-radius: 1.25rem 0 0 1.25rem;
+  }
+
+  &--right{
+    border-radius: 0 1.25rem 1.25rem 0;
+  }
+}
