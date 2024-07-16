@@ -53,4 +53,32 @@ import pb from '/src/lib/utils/pocketbase';
          : `${selectReview.with[0]} / ${selectReview.with[1]}`;
 
    reviewContent.textContent = selectReview.review;
+
+   selectReview.keyword.forEach((key) => {
+      const reviewTagContainer = document.querySelector(
+         '.review-tag-container'
+      );
+      console.log(key);
+      const reviewTagContent = document.createElement('p');
+      const reviewTag = document.createElement('div');
+      reviewTag.className = 'review-tag';
+
+      if (key.includes('음식')) {
+         reviewTagContent.textContent = '😋 음식이 맛있어요';
+      }
+      if (key.includes('재료')) {
+         reviewTagContent.textContent = '🥦 재료가 신선해요';
+      }
+      if (key.includes('가성비')) {
+         reviewTagContent.textContent = '👍 가성비가 좋아요';
+      }
+      if (key.includes('메뉴')) {
+         reviewTagContent.textContent = '🍷 특별한 메뉴가 있어요';
+      }
+      if (key.includes('양')) {
+         reviewTagContent.textContent = '🍚 양이 많아요';
+      }
+      reviewTagContainer.appendChild(reviewTag);
+      reviewTag.appendChild(reviewTagContent);
+   });
 })();
