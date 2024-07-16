@@ -4,6 +4,7 @@
 // 미디어쿼리 살리면서 중앙정렬하기 위해 일단 이렇게 해둠.
 body {
    display: flex;
+   height: 40rem;
    justify-content: center;
    align-items: center;
 }

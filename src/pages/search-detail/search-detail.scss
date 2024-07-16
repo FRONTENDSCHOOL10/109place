@@ -4,6 +4,7 @@
 
 body {
    padding-top: 0.25rem;
+   width: 22.5rem;
    height: 40rem;
 }
 .search-form {
@@ -14,7 +15,6 @@ body {
 header {
    margin-bottom: 1rem;
    padding-bottom: 0.2rem;
-   padding-right: 0.5rem;
    box-shadow: 0rem 0.125rem 0.1rem $gray-40;
 }
 .info {
@@ -50,6 +50,6 @@ header {
 }
 
 #placesList {
-   height: 100%;
+   height: calc(40rem - 4rem);
    overflow-y: auto;
 }
