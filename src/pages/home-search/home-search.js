@@ -1,5 +1,13 @@
 /* eslint-disable no-undef */
-import '/src/pages/search-detail/search-detail.scss';
+
+import '/src/pages/home-search/home-search.scss';
+/* -------------------------------------------- */
+
+// 1. 누른 곳 좌표 나와야됨
+// 2. 그 좌표 가지고 홈페이지에서 마커 표시
+// 3. 홈페이지 -> 로컬 스토리지에 있는 home_search_x, home_search_y 이용해서 포커스 이동, 거기에 마커 표시!
+
+/* -------------------------------------------- */
 
 // 검색 객체
 const searchPlace = new kakao.maps.services.Places();

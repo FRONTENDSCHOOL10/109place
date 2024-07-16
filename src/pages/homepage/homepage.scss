@@ -42,3 +42,40 @@ button {
    left: 18rem;
    z-index: 2000;
 }
+
+.info {
+   align-items: flex-start;
+   background-color: $gray-0;
+   border-radius: 1rem;
+   display: flex;
+   flex-direction: column;
+   gap: 0.75rem;
+   padding: 1rem;
+   transform: translateY(-90%);
+   box-shadow: 0rem 0.125rem 0.1875rem 0rem $gray-40;
+   // pointer-events: none;
+   &__semi {
+      align-items: center;
+      display: inline-flex;
+      gap: 0.5rem;
+   }
+
+   &__name {
+      color: $primary-50;
+      font-size: 1rem;
+      font-weight: bold;
+      line-height: 1.5rem;
+   }
+
+   &__category {
+      color: $gray-60;
+      font-size: 0.8125rem;
+   }
+
+   &__address {
+      align-self: stretch;
+      color: $gray-70;
+      font-weight: 500;
+      font-size: 0.875rem;
+   }
+}
