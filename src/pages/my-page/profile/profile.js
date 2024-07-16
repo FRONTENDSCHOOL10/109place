@@ -1,9 +1,7 @@
 import pb from '/src/lib/utils/pocketbase';
 
 (async () => {
-   const reviewList = await pb.collection('review').getList(1, 50);
    const user = await pb.collection('users').getOne(pb.authStore.model.id);
-   const storeList = await pb.collection('stores').getList(1, 50);
 
    const BASE_URL = 'https://vanilla-109place.pockethost.io';
 
