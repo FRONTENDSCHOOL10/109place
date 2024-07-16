@@ -58,7 +58,6 @@ import pb from '/src/lib/utils/pocketbase';
       const reviewTagContainer = document.querySelector(
          '.review-tag-container'
       );
-      console.log(key);
       const reviewTagContent = document.createElement('p');
       const reviewTag = document.createElement('div');
       reviewTag.className = 'review-tag';
@@ -81,4 +80,13 @@ import pb from '/src/lib/utils/pocketbase';
       reviewTagContainer.appendChild(reviewTag);
       reviewTag.appendChild(reviewTagContent);
    });
+
+   const headerBackBtn = document.querySelector(
+      '.review-detail__header--back-btn'
+   );
+   const backBtnHandler = () => {
+      location.href = `/src/pages/my-page/main/main.html`;
+   };
+
+   headerBackBtn.addEventListener('click', backBtnHandler);
 })();
