@@ -32,7 +32,7 @@ kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
 
 /* ------------------- [ 마커 표시 ] ------------------ */
 
-let imageSrc = `${import.meta.env.BASE_URL}src/assets/stack.svg#maker_review`,
+let imageSrc = `/src/assets/stack.svg#maker_review`,
    imageSize = new kakao.maps.Size(64, 69),
    imageOption = { offset: new kakao.maps.Point(27, 69) };
 
