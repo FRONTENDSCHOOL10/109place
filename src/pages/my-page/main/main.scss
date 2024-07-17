@@ -52,9 +52,8 @@ button {
 /* -------------------------------------------------------------------------- */
 
 .review--container {
-   height: auto; /* 컨텐츠에 맞게 자동으로 높이 조정 */
-   max-height: 15.125rem; /* 최대 높이 설정 */
-   overflow-y: auto; /* 자동 스크롤 */
+   max-height: 15.125rem;
+   overflow-y: hidden;
    padding-bottom: 0.75rem;
    &::-webkit-scrollbar {
       display: none;

@@ -30,13 +30,17 @@ import pb from '/src/lib/utils/pocketbase';
       if (reviewContainer.scrollTop > 0) {
          myPageHeader.classList.add('hidden');
          myPageFooter.classList.add('hidden');
-         reviewContainer.style.height = `40.5rem`;
          footerButtonTop.classList.remove('hidden');
+
+         reviewContainer.style.height = 'auto';
+         reviewContainer.style.maxHeight = '30rem';
       } else {
          myPageHeader.classList.remove('hidden');
-         reviewContainer.style.height = `15.125rem`;
          myPageFooter.classList.remove('hidden');
          footerButtonTop.classList.add('hidden');
+
+         reviewContainer.style.height = `15.125rem`;
+         reviewContainer.style.maxHeight = `15.125rem`;
       }
    };
 
