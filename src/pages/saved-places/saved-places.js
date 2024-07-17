@@ -12,8 +12,7 @@ async function renderSavePlace(){
       filter: `user_id = "${userId}"`,
     });
   let placeInfo;
-  const BASE_URL = 'https://vanilla-109place.pockethost.io';
-
+  let imgUrl;
 
   const saveCountTemplate =`
     <span>${savePlace.items.length}</span>
@@ -25,6 +24,7 @@ async function renderSavePlace(){
 
   for(let item of savePlace.items){
     placeInfo = await pb.collection('stores').getOne(item.stores_id);
+    imgUrl = await getImgPath(placeInfo);
 
     const savePlaceTemplate =`
       <article class="saved-place">
@@ -38,8 +38,8 @@ async function renderSavePlace(){
         </div>
 
         <div class="place-img">
-          <img src="${BASE_URL}/api/files/${placeInfo.collectionId}/${placeInfo.id}/${imgs[0]}" alt="" class="place-img--left"/>
-          <img src="${BASE_URL}/api/files/${placeInfo.collectionId}/${placeInfo.id}/${imgs[0]}" alt="" class="place-img--right"/>
+          <img src="${imgUrl[0]}" alt="" class="place-img--left"/>
+          <img src="${imgUrl[1]}" alt="" class="place-img--right"/>
         </div>
       </article>
     `
@@ -49,3 +49,25 @@ async function renderSavePlace(){
 }
 
 renderSavePlace();
+
+
+
+async function getImgPath(placeData){
+  const BASE_URL = 'https://vanilla-109place.pockethost.io';
+  let placeImgData;
+  let imgUrl = [];
+
+  if(placeData.images[0]){
+    placeImgData = await pb.collection('stores_images').getOne(placeData.images[0]);
+  }
+
+  for(let i=0 ; i<2 ; i++){
+    if(!placeData.images[0]){
+      imgUrl[i] = '../../assets/dog.png';
+    }else{
+      imgUrl[i] = `${BASE_URL}/api/files/${placeImgData.collectionId}/${placeImgData.id}/${placeImgData.images[i]}`
+    }
+  }
+
+  return imgUrl;
+}
