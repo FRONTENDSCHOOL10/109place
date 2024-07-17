@@ -2,6 +2,8 @@
 import '/src/pages/homepage/homepage.scss';
 import { noNullParse } from '/src/lib/utils/getNoNullParse';
 import pb from '/src/lib/utils/pocketbase.js';
+import { needPlaceInfo } from '/src/lib/utils/Map/searchPlace';
+import { searchPlaceNoName } from '../../lib/utils/Map/searchPlaceNoName';
 
 // 원위치 버튼
 const resetBtn = document.querySelector('.map__control--reset');
@@ -95,7 +97,7 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMLEFT);
 
 resetBtn.addEventListener('click', handleReset);
 
-/* -- [ 지금 로그인 한 아이디가 가지고 있는 리뷰 적은 장소 표시하기 ] -- */
+/* ---------- [ 지금 로그인 한 아이디가 가지고 있는 리뷰 적은 장소 표시하기 ] ---------- */
 
 // 지금 로그인된 정보 불러오기
 // 로그인된 정보에서 user id 가져오기
@@ -105,17 +107,20 @@ resetBtn.addEventListener('click', handleReset);
 // address 로 주소 검색해서 store data 에서 x, y 가져오기
 //
 
+// 로그인 된 유저 정보
 function getUserEmail() {
    const user = pb.authStore.model;
    return user;
 }
+
+// 이메일로 유저 아이디 가져오기
 async function getUserIdByEmail(email) {
    const user = await pb
       .collection('users')
       .getFirstListItem(`email="${email}"`);
    return user ? user.id : null;
 }
-
+// 가게 아이디로 가게 정보 가져오기
 async function getStoreDetails(storeId) {
    try {
       const store = await pb.collection('stores').getOne(storeId);
@@ -126,6 +131,7 @@ async function getStoreDetails(storeId) {
    }
 }
 
+// 유저 아이디가 연동되어 있는 리뷰 필드에서 그 리뷰랑 연결된 가게 아이디 가져오기
 async function getStoresId(userId) {
    try {
       const reviews = await pb.collection('review').getFullList({
@@ -159,18 +165,46 @@ async function initializeMap() {
       }
 
       const storeAddresses = await getStoresId(userId);
-
-      var geocoder = new kakao.maps.services.Geocoder();
+      let geocoder = new kakao.maps.services.Geocoder();
 
       storeAddresses.forEach((place) => {
-         geocoder.addressSearch(place, function (result, status) {
+         geocoder.addressSearch(place, async function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
-               var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-               var marker = new kakao.maps.Marker({
+               // let sample = await searchPlaceNoName(place);
+               // console.log(sample);
+               // 리뷰 쓴 장소 이름, 주소, 카테고리 가져오기
+               let reviewPlaceInfo = await needPlaceInfo(place);
+               const markerPosition = new kakao.maps.LatLng(
+                  reviewPlaceInfo.y,
+                  reviewPlaceInfo.x
+               );
+               const marker = new kakao.maps.Marker({
                   map: map,
                   image: markerImageReview,
-                  position: coords,
+                  position: markerPosition,
+               });
+               displayMarker(result);
+
+               // 일단 이름만 보이게!
+               const info = `
+                  <div class="info info__review">
+                     <div class="info__semi">
+                        <p class="info__name">${reviewPlaceInfo.place_name}</p>
+                     </div>
+                  </div>
+`;
+               const customOverlay = new kakao.maps.CustomOverlay({
+                  position: markerPosition,
+                  content: info,
+                  yAnchor: 1,
+               });
+
+               kakao.maps.event.addListener(marker, 'mouseover', () => {
+                  customOverlay.setMap(map);
+               });
+
+               kakao.maps.event.addListener(marker, 'mouseout', () => {
+                  customOverlay.setMap(null);
                });
             }
          });
