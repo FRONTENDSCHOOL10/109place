@@ -1,98 +1,184 @@
 /* eslint-disable no-undef */
 import '/src/pages/homepage/homepage.scss';
+import { noNullParse } from '/src/lib/utils/getNoNullParse';
+import pb from '/src/lib/utils/pocketbase.js';
 
+// 원위치 버튼
+const resetBtn = document.querySelector('.map__control--reset');
 /* ------------------- [ 지도 생성 ] ------------------ */
-let container = document.getElementById('map');
-let options = {
-   center: new kakao.maps.LatLng(37.57089677546261, 126.9790586047037),
-   level: 3, //지도의 레벨(확대, 축소 정도)
+const defaultX = 126.9790586047037;
+const defaultY = 37.57089677546261;
+const container = document.getElementById('map');
+const options = {
+   center: new kakao.maps.LatLng(defaultY, defaultX),
+   level: 3, // 지도의 레벨(확대, 축소 정도)
 };
-let map = new kakao.maps.Map(container, options);
-
-/* -------------------- [ 임시 ] -------------------- */
-// const button = document.querySelector('button');
-// button.addEventListener('click', getInfo);
-
-// 현재 좌표 불러오는 함수
-// 지도에 클릭 이벤트를 등록합니다
-// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-
-/* ---------------- [ 클릭 좌표 가져오기 ] ---------------- */
-// 클릭하면 클릭한 좌표가 나옴!
-kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
-   // 클릭한 위도, 경도 정보를 가져옵니다
-   let latlng = mouseEvent.latLng;
-   marker.setPosition(latlng);
-   let message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-   message += '경도는 ' + latlng.getLng() + ' 입니다';
-
-   let resultDiv = document.getElementById('result');
-   console.log(message);
-});
+const map = new kakao.maps.Map(container, options);
 
 /* ------------------- [ 마커 표시 ] ------------------ */
-
-let imageSrc = `/src/assets/stack.svg#maker_review`,
-   imageSize = new kakao.maps.Size(64, 69),
-   imageOption = { offset: new kakao.maps.Point(27, 69) };
-
-let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-   markerPosition = map.getCenter();
-// 클릭한 곳에 마커 생성!
-let marker = new kakao.maps.Marker({
-   position: markerPosition,
-   image: markerImage,
-});
-
-marker.setMap(map);
-
+const imageSrc = '/src/assets/marker_search.svg';
+const reviewImgSrc = '/src/assets/marker_review.svg';
+const imageSize = new kakao.maps.Size(64, 69);
+const imageOption = { offset: new kakao.maps.Point(32, 69) };
+const markerImage = new kakao.maps.MarkerImage(
+   imageSrc,
+   imageSize,
+   imageOption
+);
+const markerImageReview = new kakao.maps.MarkerImage(
+   reviewImgSrc,
+   imageSize,
+   imageOption
+);
 /* -------------- [ 좌표 주소 가져오기 ] -------------- */
+if (localStorage.getItem('home_place_name')) {
+   const local = noNullParse([
+      'home_search_x',
+      'home_search_y',
+      'home_place_name',
+      'home_road_address_name',
+      'home_category',
+   ]);
 
-//todo : Serach detail 에서 검색한 거 주소 가져와서 마커 띄워주는 식으로 해야될듯
-//* 지금은 임의로 키워드 넣어서 표시되는 식으로 해둠.
+   map.setCenter(
+      new kakao.maps.LatLng(local.home_search_y, local.home_search_x)
+   );
 
-var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-// 장소 검색 객체를 생성합니다
-var ps = new kakao.maps.services.Places();
+   const info = `
+  <div class="info">
+    <div class="info__semi">
+      <p class="info__name">${local.home_place_name}</p>
+      ${local.home_category ? `<p class="info__category">${local.home_category}</p>` : ''}
+    </div>
+    ${local.home_road_address_name ? `<p class="info__address">${local.home_road_address_name}</p>` : ''}
+  </div>
+`;
 
-// 키워드로 장소를 검색합니다
-ps.keywordSearch('멋쟁이 사자처럼', placesSearchCB);
+   displayMarker(local, info);
 
-// 키워드 검색 완료 시 호출되는 콜백함수 입니다
-function placesSearchCB(data, status, pagination) {
-   if (status === kakao.maps.services.Status.OK) {
-      // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-      // LatLngBounds 객체에 좌표를 추가합니다
-      var bounds = new kakao.maps.LatLngBounds();
+   // 장소 상세 창으로 갈 버튼
+   const placeDetail = document.querySelector('.info');
 
-      for (var i = 0; i < data.length; i++) {
-         displayMarker(data[i]);
-         bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-      }
+   placeDetail.addEventListener('click', handleDetail);
+}
 
-      // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-      map.setBounds(bounds);
+function displayMarker(place, info) {
+   const markerPosition = new kakao.maps.LatLng(
+      place.home_search_y,
+      place.home_search_x
+   );
+   const marker = new kakao.maps.Marker({
+      map: map,
+      image: markerImage,
+      position: markerPosition,
+   });
+
+   // 커스텀 오버레이 생성
+   const customOverlay = new kakao.maps.CustomOverlay({
+      position: markerPosition,
+      content: info,
+      yAnchor: 1,
+   });
+   customOverlay.setMap(map);
+}
+
+/* -------------------- [ 지도 위치 초기화 버튼 ] -------------------- */
+function handleReset(e) {
+   e.preventDefault();
+   map.setCenter(new kakao.maps.LatLng(defaultY, defaultX));
+}
+function handleDetail() {
+   window.location.href = '/src/pages/place-detail/place-detail.html'; // 상세 페이지 URL로 변경
+}
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMLEFT);
+
+resetBtn.addEventListener('click', handleReset);
+
+/* -- [ 지금 로그인 한 아이디가 가지고 있는 리뷰 적은 장소 표시하기 ] -- */
+
+// 지금 로그인된 정보 불러오기
+// 로그인된 정보에서 user id 가져오기
+// 가져온 아이디로 이 아이디가 관계형 값으로 있는 리뷰 가져오기
+// 그 리뷰 필드 안에서 stores_id 가져오기
+// stores_id 가 아이디인 stores 필드에서 address 가져오기
+// address 로 주소 검색해서 store data 에서 x, y 가져오기
+//
+
+function getUserEmail() {
+   const user = pb.authStore.model;
+   return user;
+}
+async function getUserIdByEmail(email) {
+   const user = await pb
+      .collection('users')
+      .getFirstListItem(`email="${email}"`);
+   return user ? user.id : null;
+}
+
+async function getStoreDetails(storeId) {
+   try {
+      const store = await pb.collection('stores').getOne(storeId);
+      return store;
+   } catch (error) {
+      console.error(`Error fetching store details for ID ${storeId}:`, error);
+      return null;
    }
 }
 
-// 지도에 마커를 표시하는 함수입니다
-function displayMarker(place) {
-   // 마커를 생성하고 지도에 표시합니다
-   var marker = new kakao.maps.Marker({
-      map: map,
-      image: markerImage,
-      position: new kakao.maps.LatLng(place.y, place.x),
-   });
-
-   // 마커에 클릭이벤트를 등록합니다
-   kakao.maps.event.addListener(marker, 'click', function () {
-      // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-      infowindow.setContent(
-         //todo 이 부분 scss? 혹은 웹 컴포로 가능? 그럼 이거 scss 파일을 하나 더 만들어야 하나.
-         '<div style="padding:1rem;font-size:12px;">' +
-            place.place_name +
-            '</div>'
+async function getStoresId(userId) {
+   try {
+      const reviews = await pb.collection('review').getFullList({
+         filter: `users_id="${userId}"`,
+      });
+      const storesIds = reviews.map((review) => review.stores_id);
+      const uniqueStoreIds = [...new Set(storesIds)];
+      const storeDetailsPromises = uniqueStoreIds.map((storeId) =>
+         getStoreDetails(storeId)
       );
-      infowindow.open(map, marker);
-   });
+      const storeDetails = await Promise.all(storeDetailsPromises);
+
+      const storeAddresses = storeDetails
+         .filter((store) => store !== null)
+         .map((store) => store.address || 'Unknown');
+
+      return storeAddresses;
+   } catch (error) {
+      console.log('Error', error);
+   }
 }
+
+async function initializeMap() {
+   try {
+      const user = getUserEmail();
+      const userId = await getUserIdByEmail(user.email);
+
+      if (!userId) {
+         console.error('User ID not found.');
+         return;
+      }
+
+      const storeAddresses = await getStoresId(userId);
+
+      var geocoder = new kakao.maps.services.Geocoder();
+
+      storeAddresses.forEach((place) => {
+         geocoder.addressSearch(place, function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+               var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+               var marker = new kakao.maps.Marker({
+                  map: map,
+                  image: markerImageReview,
+                  position: coords,
+               });
+            }
+         });
+      });
+   } catch (error) {
+      console.error('Error initializing map:', error);
+   }
+}
+
+// 초기화 함수 호출
+initializeMap();

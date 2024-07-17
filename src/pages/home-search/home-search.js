@@ -1,5 +1,13 @@
 /* eslint-disable no-undef */
-import '/src/pages/search-detail/search-detail.scss';
+
+import '/src/pages/home-search/home-search.scss';
+/* -------------------------------------------- */
+
+// 1. 누른 곳 좌표 나와야됨
+// 2. 그 좌표 가지고 홈페이지에서 마커 표시
+// 3. 홈페이지 -> 로컬 스토리지에 있는 home_search_x, home_search_y 이용해서 포커스 이동, 거기에 마커 표시!
+
+/* -------------------------------------------- */
 
 // 검색 객체
 const searchPlace = new kakao.maps.services.Places();
@@ -21,7 +29,7 @@ function searchPlaces() {
 function placesSearchCB(data, status) {
    if (status === kakao.maps.services.Status.OK) {
       // data 안에 뭐 들었는지 확인하려고
-      // console.log(data);
+      console.log(data);
       displayPlaces(data);
    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
       alert('🔍 검색 결과가 존재하지 않습니다.');
@@ -84,29 +92,32 @@ function saveLocal(place) {
    const phone = place.phone;
    // 카테고리
    const category = place.category_group_name;
-   localStorage.setItem('place_name', JSON.stringify(placeName));
-   localStorage.setItem('road_address_name', JSON.stringify(roadAddressName));
-   localStorage.setItem('address_name', JSON.stringify(addressName));
-   localStorage.setItem('coor_x', JSON.stringify(coordinateX));
-   localStorage.setItem('coor_y', JSON.stringify(coordinateY));
-   localStorage.setItem('phone', JSON.stringify(phone));
-   localStorage.setItem('category', JSON.stringify(category));
-   window.location.href = '/src/pages/review-create/date-place.html';
+   localStorage.setItem('home_place_name', JSON.stringify(placeName));
+   localStorage.setItem(
+      'home_road_address_name',
+      JSON.stringify(roadAddressName)
+   );
+   localStorage.setItem('home_address_name', JSON.stringify(addressName));
+   localStorage.setItem('home_search_x', JSON.stringify(coordinateX));
+   localStorage.setItem('home_search_y', JSON.stringify(coordinateY));
+   localStorage.setItem('home_phone', JSON.stringify(phone));
+   localStorage.setItem('home_category', JSON.stringify(category));
+   window.location.href = '/src/pages/homepage/homepage.html';
 }
+
 function handleBack(e) {
    e.preventDefault();
    const removeKey = [
-      'place_name',
-      'road_address_name',
-      'address_name',
-      'coor_x',
-      'coor_y',
-      'phone',
-      'category',
+      'home_place_name',
+      'home_road_address_name',
+      'home_address_name',
+      'home_search_x',
+      'home_search_y',
+      'home_phone',
+      'home_category',
    ];
    removeKey.forEach((key) => localStorage.removeItem(key));
-
-   window.location.href = '/src/pages/review-search/review-search.html';
+   window.location.href = '/src/pages/homepage/homepage.html';
 }
 searchBtn.addEventListener('submit', handleSearch);
 backBtn.addEventListener('click', handleBack);
