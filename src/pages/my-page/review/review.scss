@@ -9,12 +9,6 @@
    justify-content: start;
    align-items: center;
    flex: 1 0 0;
-
-   & button {
-      background: none;
-      border: none;
-      padding: 0;
-   }
 }
 .svg-icon {
    width: 2.5rem;
@@ -23,6 +17,10 @@
 /* -------------------------------------------------------------------------- */
 /*                                   section                                  */
 /* -------------------------------------------------------------------------- */
+
+.review-detail__section {
+   position: relative;
+}
 .article {
    padding: 0 1.25rem;
 }
@@ -83,6 +81,7 @@
    }
 }
 .review-detail__icon-container {
+   position: relative;
    svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -146,4 +145,175 @@
    margin-right: 0.25rem;
    font-size: 0.75rem;
    vertical-align: center;
+}
+
+button {
+   background: none;
+   border: none;
+   padding: 0;
+}
+.button-container {
+   display: none;
+   width: 5.5rem;
+   flex-direction: column;
+   align-items: flex-start;
+
+   border-radius: 0.5rem;
+   border: 0.0625rem solid var(--gray-30, #d8d8d8);
+   background: var(--Color, #fff);
+   box-shadow: 0rem 0.125rem 0.125rem 0rem rgba(0, 0, 0, 0.12);
+
+   position: absolute;
+   right: 0rem;
+
+   bottom: -9rem;
+   &__btn {
+      display: flex;
+      padding: 12px;
+      align-items: center;
+      gap: 4px;
+      align-self: stretch;
+      border-bottom: 1px solid var(--gray-10, #f0f0f0);
+      &--text {
+         color: var(--gray-gray-90, #1d1d1d);
+         font-family: 'Pretendard GOV Variable';
+         font-size: 0.875rem;
+         font-style: normal;
+         font-weight: 400;
+         line-height: 150%; /* 21px */
+      }
+      &--text-red {
+         color: var(--danger, #eb003b);
+      }
+   }
+}
+
+.more-btn {
+   position: relative;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    share                                   */
+/* -------------------------------------------------------------------------- */
+
+.share__container {
+   display: none;
+   z-index: 5;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   position: absolute;
+   width: 17.875rem;
+   margin: 0 auto;
+   border-radius: 0.5rem;
+   border: 0.0625rem solid $gray-30;
+   background-color: $gray-0;
+
+   &--title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      // line-height: 1.875rem;
+   }
+}
+
+.share__header {
+   border-bottom: 1px solid $gray-30;
+}
+
+.svg-icon {
+   width: 2.5rem;
+   height: 2.5rem;
+}
+
+.right-exit {
+   margin-left: auto;
+   &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+   }
+}
+
+.share__container--icons {
+   display: flex;
+   justify-content: space-between;
+   gap: 0.5rem;
+   padding: 2rem 1rem;
+}
+
+.share__icons--link {
+   width: 3.5rem;
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 0.75rem;
+   font-weight: 500;
+   color: $gray-70;
+
+   svg {
+      width: 2rem;
+      height: 2rem;
+   }
+}
+
+.delete-container {
+   display: none;
+   position: absolute;
+
+   z-index: 5;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 18.5rem;
+
+   border-radius: 0.5rem;
+   border: 0.0625rem solid var(--gray-30, #d8d8d8);
+   background: var(--Color, #fff);
+
+   color: var(--gray-gray-90, #1d1d1d);
+   text-overflow: ellipsis;
+   font-family: 'Pretendard GOV Variable';
+   font-size: 1.0625rem;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 150%;
+
+   &__text {
+      display: flex;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      align-items: center;
+      gap: 0.625rem;
+      align-self: stretch;
+      overflow: hidden;
+   }
+   &__btn-container {
+      display: flex;
+      padding: 0rem 1.5rem 1rem 1.5rem;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+      align-self: stretch;
+   }
+   button {
+      display: flex;
+      height: 40px;
+      padding: 0px 12px;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      flex: 1 0 0;
+      border-radius: 6px;
+   }
+   .cancel-btn {
+      border: 1px solid var(--gray-gray-90, #1d1d1d);
+      background: var(--gray-gray-0, #fff);
+   }
+   .delete-btn {
+      background: var(--primary-50, #246beb);
+      color: var(--gray-gray-0, #fff);
+   }
+}
+.active {
+   display: block;
 }
