@@ -1,73 +1,13 @@
 import '/src/pages/place-detail/place-detail.scss';
 import pb from '/src/lib/utils/pocketbase';
-import { getStorage, setStorage } from "kind-tiger";
+import { deleteStorage, getStorage, insertBefore, insertAfter, insertFirst, insertLast } from "kind-tiger";
+
 
 // 리뷰 이미지 스와이퍼
 var swiper = new Swiper(".swiper", {
   slidesPerView: 1.8,
   spaceBetween: 6,
 });
-
-
-
-// 검색 페이지에서 검색한 가게 정보가 DB에 존재하는지 확인하는 함수
-async function matchLocalWithDB(){
-
-  // 검색 페이지에서 저장한 가게 이름과 주소 받아오기 (로컬 스토리지)
-  const searchData = {
-    name: '족발땡겨', //추후에 검색 페이지에서 로컬 스토리지에 저장한 데이터 받아오기
-    category: '고기',
-    address: '서울시 153-23',
-    phone_number: 12334454,
-    business_hours: '8:00~21:00'
-  };
-
-  // 포켓 베이스 접근
-  const storeRecordData = await pb
-    .collection('stores')
-    .getFullList();
-
-
-  const foundData = storeRecordData.filter( data => data.name === searchData.name && data.address === searchData.address);
-
-  if(!foundData.length){
-    insertData(searchData)
-  }
-
-  return foundData;
-}
-
-
-
-// stores 테이블에 Data 저장하는 함수
-async function insertData(searchData){
-
-  console.log(searchData);
-  // const name = 
-
-  // const data={
-  //   name = name,
-  //   category:,
-  //   address:p,
-  //   phone_number:p,
-  //   reviews_count:,
-  //   business_hours:,
-  //   images:,
-  // };
-
-  // await pb
-  //   .collection('stores')
-  //   .create(data);
-}
-
-
-
-
-
-
-// 전체 로직 실행
-matchLocalWithDB();
-
 
 
 
@@ -81,3 +21,64 @@ matchLocalWithDB();
 // 2. 데이터 존재 여부에 따라 해당 방법으로 렌더링
 //   1) 안에 있다면 -> 테이블에서 데이터 가져오기 -> 렌더링
 //   2) 안에 없다면 -> 지도에서 데이터 가져오기 -> 테이블 저장 -> 렌더링
+
+
+
+
+
+// 전체 로직
+async function renderPlaceInfoAll(){
+  const searchData = await getLocalStorageData();
+
+  matchLocalWithDB(searchData);
+
+  //리뷰 통계 렌더링
+  //리뷰 렌더링
+}
+
+renderPlaceInfoAll();
+
+
+//로컬 스토리지에서 데이터 꺼내오기
+async function getLocalStorageData(){
+  const name = await getStorage('place_name');
+  const address = await getStorage('road_address_name');
+  const phone = await getStorage('phone');
+
+  return {name,address,phone};
+}
+
+
+// 검색 페이지에서 검색한 가게 정보가 DB에 존재하는지 확인 (중복 체크)
+async function matchLocalWithDB(searchData){
+  const storeRecordData = await pb.collection('stores').getFullList();
+
+  const foundData = storeRecordData.filter( data => data.name === searchData.name && data.address === searchData.address);
+
+  !foundData.length ? insertData(searchData) : renderPlaceInfo(foundData);
+
+}
+
+
+// stores 테이블에 Data 저장하는 함수
+async function insertData(searchData){
+  const data = {
+    "name": searchData.name,
+    "address": searchData.address,
+    "phone_number": searchData.phone
+  };
+
+  await pb.collection('stores').create(data);
+}
+
+
+// 가게 정보 렌더링해주는 함수
+async function renderPlaceInfo(foundData){
+  console.log(foundData);
+
+  const template=`
+    <p>들어가라 얌마</p>
+  `
+
+  insertAfter('.header',template);
+}
