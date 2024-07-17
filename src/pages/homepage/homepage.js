@@ -3,7 +3,6 @@ import '/src/pages/homepage/homepage.scss';
 import { noNullParse } from '/src/lib/utils/getNoNullParse';
 import pb from '/src/lib/utils/pocketbase.js';
 import { needPlaceInfo } from '/src/lib/utils/Map/searchPlace';
-import { searchPlaceNoName } from '../../lib/utils/Map/searchPlaceNoName';
 import { getStorage } from 'kind-tiger';
 
 // 원위치 버튼
@@ -48,8 +47,8 @@ if (localStorage.getItem('home_place_name')) {
    );
 
    const info = `
-  <div class="info">
-    <div class="info__semi">
+  <div class="info" tabindex='2'>
+    <div class="info__semi" >
       <p class="info__name">${local.home_place_name}</p>
       ${local.home_category ? `<p class="info__category">${local.home_category}</p>` : ''}
     </div>
@@ -63,6 +62,13 @@ if (localStorage.getItem('home_place_name')) {
    const placeDetail = document.querySelector('.info');
 
    placeDetail.addEventListener('click', handleDetail);
+
+   // 엔터치면 들어갈 수 있게
+   placeDetail.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+         window.location.href = '/src/pages/place-detail/place-detail.html';
+      }
+   });
 }
 
 function displayMarker(place, info) {
