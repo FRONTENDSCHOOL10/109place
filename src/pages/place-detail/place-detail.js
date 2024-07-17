@@ -29,22 +29,20 @@ var swiper = new Swiper(".swiper", {
 // 전체 로직
 async function renderPlaceInfoAll(){
   const searchData = await getLocalStorageData();
-  let foundData = await matchLocalWithDB(searchData);
 
-  if(!foundData.length){
-    foundData = await matchLocalWithDB(searchData);
-  }
+  const placeData = await pb
+    .collection('stores')
+    .getList(1, 50, {
+      filter: `name = "${searchData.name}" && address = "${searchData.address}"`,
+    });
 
-  const collectionId = foundData[0].collectionId;
 
-  renderPlaceInfo(foundData[0]);
-  renderPlaceReview(foundData[0]);
-
-  //리뷰 통계 렌더링
-  //리뷰 렌더링
+  renderPlaceInfo(placeData.items[0]);
 }
 
+
 renderPlaceInfoAll();
+
 
 
 //로컬 스토리지에서 데이터 꺼내오기
@@ -56,53 +54,36 @@ async function getLocalStorageData(){
 }
 
 
-// 검색 페이지에서 검색한 가게 정보가 DB에 존재하는지 확인 (중복 체크)
-async function matchLocalWithDB(searchData){
-  const storeRecordData = await pb.collection('stores').getFullList();
-
-  const foundData = storeRecordData.filter( data => data.name === searchData.name && data.address === searchData.address);
-
-  if(!foundData.length){
-    insertData(searchData);
-  }
-
-  return foundData;
-}
-
-
-// stores 테이블에 Data 저장하는 함수
-async function insertData(searchData){
-  const data = {
-    "name": searchData.name,
-    "address": searchData.address
-  };
-
-  await pb.collection('stores').create(data);
-}
-
 
 // 가게 정보 렌더링
-async function renderPlaceInfo(foundData){
+async function renderPlaceInfo(placeData){
   const BASE_URL = 'https://vanilla-109place.pockethost.io';
-  const record = await pb.collection('stores_images').getOne('83de3obrq6n5j24');
+  const placeImgData = await pb.collection('stores_images').getOne(placeData.images[0]);
+  const imgCollectionId = placeImgData.collectionId;
+  const imgId = placeImgData.id;
+  const imgs = placeImgData.images;
+
+
+
+  // const url= `${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[0]}`;
 
 
   const headerTemplate =`
-    <span>${foundData.name}</span>
+    <span>${placeData.name}</span>
   `
 
 
   const placeImgTemplate = `
     <section class="place-img-container">
       <div class="container container1">
-        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[0]}" alt=""/>
+        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[0]}" alt=""/>
       </div>
 
       <div class="container container2">
-        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[1]}" alt="" class="place-img"/>
-        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[2]}" alt="" class="place-img"/>
-        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[3]}" alt="" class="place-img"/>
-        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[4]}" alt="" class="place-img"/>
+        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[1]}" alt="" class="place-img"/>
+        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[2]}" alt="" class="place-img"/>
+        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[3]}" alt="" class="place-img"/>
+        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[4]}" alt="" class="place-img"/>
       </div>
     </section>
 
@@ -111,12 +92,12 @@ async function renderPlaceInfo(foundData){
   const placeTextTemplate =`
         <div class="place-info">
         <div class="place-info__title">
-          <h1>${foundData.name}</h1>
-          <span class="place-info__category">${foundData.category}</span>
+          <h1>${placeData.name}</h1>
+          <span class="place-info__category">${placeData.category}</span>
         </div>
         <div class="place-info__reviews">
           <span>리뷰</span>
-          <span class="place-info__reviews-count">${foundData.reviews_count}</span>
+          <span class="place-info__reviews-count">${placeData.reviews_count}</span>
         </div>
 
         <div class="decorative-line--light"></div>
@@ -126,20 +107,20 @@ async function renderPlaceInfo(foundData){
             <svg role="img" aria-label="주소 이미지" class="place-info__icon--small">
               <use href="/src/assets/stack.svg#icon_pin" />
             </svg>
-            <p class="nav__text">${foundData.address}</p>
+            <p class="nav__text">${placeData.address}</p>
           </li>
           <li>
             <svg role="img" aria-label="시계 이미지" class="place-info__icon--small">
               <use href="/src/assets/stack.svg#icon_clock" />
             </svg>
             <p class="nav__text">영업 중</p>
-            <p class="nav__text">${foundData.business_hours}에 영업 종료</p>
+            <p class="nav__text">${placeData.business_hours}에 영업 종료</p>
           </li>
           <li>
             <svg role="img" aria-label="전화기 이미지" class="place-info__icon--small">
               <use href="/src/assets/stack.svg#icon_call2" />
             </svg>
-            <p class="nav__text">${foundData.phone_number}</p>
+            <p class="nav__text">${placeData.phone_number}</p>
           </li>
         </ul>
 
