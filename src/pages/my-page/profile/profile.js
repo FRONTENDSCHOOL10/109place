@@ -19,8 +19,11 @@ import pb from '/src/lib/utils/pocketbase';
       );
 
       textCount.textContent = `${textLength}`;
+      count.textContent = `${textLength}`;
    }
 
+   const count = document.querySelector('.input-count__count');
+   count.textContent = user.username.length;
    const textArea = document.querySelectorAll('.input-count__input');
    const textUserName = document.querySelector('.user-name__input');
    textArea.forEach((item) => {
@@ -36,4 +39,13 @@ import pb from '/src/lib/utils/pocketbase';
       location.href = `/src/pages/my-page/main/main.html`;
    };
    headerBackBtn.addEventListener('click', clickBackHandler);
+
+   //탈퇴하기 누르면 회원 탈퇴
+
+   const leaveButton = document.querySelector('.leave-button');
+
+   leaveButton.addEventListener('click', async () => {
+      await pb.collection('users').delete(user.id);
+      location.href = `/src/pages/my-page/main/main.html`;
+   });
 })();
