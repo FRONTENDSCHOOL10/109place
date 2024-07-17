@@ -198,13 +198,13 @@ async function initializeMap() {
                   content: info,
                   yAnchor: 1,
                });
+               kakao.maps.event.addListener(marker, 'click', () => {
+                  customOverlay.setMap(map); // 오버레이 표시
 
-               kakao.maps.event.addListener(marker, 'mouseover', () => {
-                  customOverlay.setMap(map);
-               });
-
-               kakao.maps.event.addListener(marker, 'mouseout', () => {
-                  customOverlay.setMap(null);
+                  // 5초 후에 오버레이 숨기기
+                  setTimeout(() => {
+                     customOverlay.setMap(null);
+                  }, 2000); // 5000 밀리초 = 5초
                });
             }
          });
