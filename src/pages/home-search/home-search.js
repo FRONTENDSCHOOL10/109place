@@ -51,9 +51,6 @@ function displayPlaces(places) {
    }
 
    lisePlace.appendChild(fragment);
-   if (places.length > 0) {
-      lisePlace.firstChild.focus();
-   }
 }
 
 function getListItem(index, places) {

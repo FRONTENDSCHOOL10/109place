@@ -44,10 +44,7 @@ function displayPlaces(places) {
    }
 
    lisePlace.appendChild(fragment);
-   // 엔터치면 바로 첫항목으로 가게
-   if (places.length > 0) {
-      lisePlace.firstChild.focus();
-   }
+  
 }
 
 function getListItem(index, places) {
