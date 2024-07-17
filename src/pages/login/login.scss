@@ -22,7 +22,11 @@ h1 {
 }
 .input {
    &__container {
-      margin-bottom: $margin-bottom-small;
+      margin-bottom: 1.2rem;
+   }
+   &--error {
+      align-self: flex-end;
+      margin-top: 3.6875rem;
    }
 }
 
