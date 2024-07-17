@@ -2,7 +2,7 @@
 @use '/src/components/button/button';
 body {
    width: 22.5rem;
-   height: 100vh;
+   height: 40rem;
    display: flex;
    flex-flow: column;
    align-items: center;
@@ -10,12 +10,14 @@ body {
    border: none;
 }
 .logo {
-   margin: 12.34375rem;
-   width: 12.38rem;
-   height: auto;
-   svg {
-      width: 100%;
-      height: auto;
+   display: flex;
+   flex-flow: column;
+   &__text {
+      margin-top: 6.25rem;
+      margin-bottom: 8.3125rem;
+   }
+   &__img {
+      margin-bottom: 4.5rem;
    }
 }
 
