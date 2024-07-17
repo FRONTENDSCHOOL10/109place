@@ -115,6 +115,11 @@ import pb from '/src/lib/utils/pocketbase';
          });
       }
    });
+   const shareExitBtn = document.querySelector('.share-exit');
+   const clickBack = () => {
+      shareContainer.classList.remove('active');
+   };
+   shareExitBtn.addEventListener('click', clickBack);
 
    const deleteBtn = document.querySelector('.delete-btn');
 

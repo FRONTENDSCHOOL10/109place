@@ -120,4 +120,10 @@ import pb from '/src/lib/utils/pocketbase';
          console.error('Error updating record:', error);
       }
    });
+
+   const exitBtn = document.querySelector('.review-update__exit');
+   const reviewBackHandler = () => {
+      location.href = `/src/pages/my-page/review/review.html?reviewId=${urlParams.get('reviewId')}`;
+   };
+   exitBtn.addEventListener('click', reviewBackHandler);
 })();
