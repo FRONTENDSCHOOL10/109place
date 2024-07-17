@@ -18,15 +18,18 @@ h1 {
 }
 .input {
    &__container {
-      margin-bottom: 0.8rem;
+      margin-bottom: 1.5rem;
    }
    &--require {
       color: $primary-40;
       align-self: stretch;
    }
    &__label {
-      display: flex; /* 레이블을 flex 컨테이너로 설정 */
+      display: flex;
       justify-content: space-between;
+   }
+   &--error {
+      align-self: flex-end;
    }
 }
 .btn {
