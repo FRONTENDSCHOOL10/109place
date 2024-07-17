@@ -6,14 +6,9 @@ body {
    background: var(--gray-10, #f0f0f0);
 }
 
-button {
-   cursor: pointer;
-}
-
-.header > a {
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
+.header {
+   height: 3.5rem;
+   align-items: center;
 }
 
 .column--tag-select {
