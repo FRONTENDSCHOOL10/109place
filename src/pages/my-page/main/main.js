@@ -33,7 +33,7 @@ import pb from '/src/lib/utils/pocketbase';
          footerButtonTop.classList.remove('hidden');
 
          reviewContainer.style.height = 'auto';
-         reviewContainer.style.maxHeight = '30rem';
+         reviewContainer.style.maxHeight = '29.9rem';
       } else {
          myPageHeader.classList.remove('hidden');
          myPageFooter.classList.remove('hidden');
