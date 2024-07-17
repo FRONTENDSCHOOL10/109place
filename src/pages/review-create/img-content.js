@@ -1,10 +1,17 @@
 import '/src/pages/review-create/img-content.scss';
 import pb from '/src/lib/utils/pocketbase';
+import '/src/components/input-count/input-count.js';
 
 async function imgContent() {
    const textarea = document.querySelector('textarea');
    const btnSubmit = document.querySelector('.btn__submit');
    const fileInput = document.querySelector('.upload-button');
+   const shopName = document.querySelector('.shop-name');
+   const visitDate = document.querySelector('.visit-date');
+   const howData = document.querySelector('.data-how');
+   const delayData = document.querySelector('.data-delay');
+   const withwhoData = document.querySelector('.data-withwho');
+   const keywordData = document.querySelector('.data-keyword');
 
    // Create a new FormData object
    let formData = new FormData();
@@ -69,5 +76,19 @@ async function imgContent() {
    }
 
    btnSubmit.addEventListener('click', handleBtnSubmit);
+
+   //리뷰 데이터 화면에 뿌리기
+
+   const place_name = localStorage.getItem('place_name');
+
+   let str = place_name;
+   let newStr = str.replace(/"/g, '');
+
+   shopName.innerText = newStr;
+   visitDate.innerText = date;
+   howData.innerText = how + ' 이용';
+   delayData.innerText = delay;
+   withwhoData.innerText = withwho;
+   keywordData.innerText = keyword;
 }
 imgContent();
