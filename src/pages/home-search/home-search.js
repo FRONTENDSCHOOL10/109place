@@ -51,6 +51,9 @@ function displayPlaces(places) {
    }
 
    lisePlace.appendChild(fragment);
+   if (places.length > 0) {
+      lisePlace.firstChild.focus();
+   }
 }
 
 function getListItem(index, places) {
@@ -58,16 +61,23 @@ function getListItem(index, places) {
    let itemStr = `
   <div class="info">
   <div class="info__container">
-    <p class="info__name">${places.place_name}</p>
-    ${places.category_group_name ? `<p class="info__category">${places.category_group_name}</p>` : ''}</div>
-    ${places.road_address_name ? `<p class="info__address">${places.road_address_name}</p>` : ''}
+    <p class="info__name" aria-label="이 장소의 이름:${places.place_name}">${places.place_name}</p>
+    ${places.category_group_name ? `<p class="info__category"  aria-label="이 장소의 카테고리:${places.category_group_name}">${places.category_group_name}</p>` : ''}</div>
+    ${places.road_address_name ? `<p class="info__address" aria-label="이 장소의 주소 : ${places.road_address_name}">${places.road_address_name}</p>` : ''}
   </div>
 `;
    infoPlace.className = 'item';
    infoPlace.innerHTML = itemStr;
+   // tabindex 속성 추가하여 포커스를 받을 수 있도록 설정
+   infoPlace.tabIndex = 0;
 
    infoPlace.addEventListener('click', () => {
       saveLocal(places);
+   });
+   infoPlace.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+         saveLocal(places);
+      }
    });
    return infoPlace;
 }
