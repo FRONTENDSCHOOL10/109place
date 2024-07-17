@@ -2,24 +2,82 @@
 @use '/src/components/review-tag/review-tag' as *;
 @use '/src/components/input-count/input-count' as *;
 
+.header {
+   align-items: center;
+   height: 3.5rem;
+
+   > span {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.75rem;
+   }
+}
+
 body {
    display: flex;
    flex-direction: column;
 }
 
-.column--img-content2 {
-   display: flex;
+.column--review-tag {
    width: 20rem;
-   height: 100vh;
+   display: flex;
+   gap: 0.25rem;
+   align-items: flex-start;
+   align-content: flex-start;
+   align-self: stretch;
+   flex-wrap: wrap;
+}
+
+.column--image-upload {
+   background-color: #f0f0f0;
+   padding: 20px;
+   width: 200px;
+   text-align: center;
+   margin: 0 auto;
+   > h1 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-align: start;
+   }
+}
+
+input[type='file'] {
+   &::file-selector-button {
+      background-image: none;
+      background-color: transparent;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      width: 100%;
+      height: 2.5rem;
+      border-radius: 0.375rem;
+      border: 1px solid var(--gray-gray-90, #1d1d1d);
+      background: var(--gray-gray-0, #fff);
+   }
+
+   &::file-selector-value {
+      opacity: 0;
+      position: absolute;
+   }
+}
+
+.upload-label {
+   display: none;
+}
+
+.column--create-data {
+   display: flex;
    flex-direction: column;
    align-items: center;
    gap: 1rem;
    background: var(--gray-10, #f0f0f0);
+   padding: 2rem 0;
 }
 
 .btn__next {
    display: flex;
-   width: 17.5rem;
+   width: 100%;
    height: 3.5rem;
    justify-content: center;
    align-items: center;
@@ -28,4 +86,47 @@ body {
    border: none;
    padding: 0rem 1.25rem;
    background: var(--gray-30, #d8d8d8);
+}
+
+.column--image-upload {
+   border-radius: 1rem;
+   background: var(--Color, #fff);
+   width: 18rem;
+   height: 4.88rem;
+}
+
+.input-count__component {
+   padding: 1.5rem 1rem;
+   border-radius: 1rem;
+   background: var(--Color, #fff);
+   margin-bottom: 2rem;
+}
+
+.input-count__c-container {
+   position: initial;
+   text-align: end;
+}
+
+.review-data {
+   font-size: 0.875rem;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 150%;
+   display: flex;
+   gap: 8px;
+   &--gray {
+      color: var(--gray-60, #717171);
+   }
+   &--black {
+      color: var(--gray-90, #1d1d1d);
+   }
+
+   &--info {
+      display: flex;
+      flex-direction: column;
+   }
+}
+
+.contentinfo {
+   padding: 2rem 1.25rem 1.5rem 1.25rem;
 }

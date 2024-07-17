@@ -23,7 +23,7 @@ async function handleLogin(e) {
       .collection('users')
       .authWithPassword(userId, userPw)
       .then(() => {
-         alert('로그인 되었습니다');
+         alert('🐾 로그인 되었습니다 🐾');
          console.log(pb.authStore.isValid);
          console.log(pb.authStore.token);
          console.log(pb.authStore.model.id);

@@ -25,7 +25,7 @@
          </button>
          <p aria-label="닉네임" class="profile__user-name"></p>
       </header>
-      <section>
+      <section class="review-detail__section">
          <figure class="review__detail--ficture">
             <div role="group" class="review-detail__swipe-container">
                <svg role="img" aria-label="왼쪽으로 이동" class="svg-icon">
@@ -52,9 +52,20 @@
                   >
                      <use href="/src/assets/stack.svg#icon_bookmark_after" />
                   </svg>
-                  <svg role="img" aria-label="더보기" class="svg-icon">
+                  <svg role="img" aria-label="더보기" class="svg-icon more-btn">
                      <use href="/src/assets/stack.svg#_icon_more" />
                   </svg>
+                  <div role="group" class="button-container">
+                     <button class="button-container__btn">
+                        <p class="button-container__btn--text">공유하기</p>
+                     </button>
+                     <button class="button-container__btn">
+                        <p class="button-container__btn--text">수정하기</p>
+                     </button>
+                     <button class="button-container__btn">
+                        <p class="button-container__btn--text-red">삭제하기</p>
+                     </button>
+                  </div>
                </div>
             </div>
             <div class="review-detail__store-info" aria-label="가게 정보">
@@ -97,6 +108,86 @@
                aria-label="리뷰 키워드"
             ></div>
          </article>
+         <div class="share__container" roll="grope">
+            <header class="header share__header">
+               <h1 class="share__container--title">공유하기</h1>
+
+               <button aria-label="닫기" class="right-exit">
+                  <svg
+                     role="img"
+                     aria-label="닫기"
+                     class="svg-icon right-exit__icon"
+                  >
+                     <use href="/src/assets/stack.svg#Close" />
+                  </svg>
+               </button>
+            </header>
+
+            <div
+               class="share__container--icons"
+               role="group"
+               aria-label="Button Group"
+            >
+               <button
+                  type="button"
+                  class="share__icons--icon"
+                  aria-label="링크복사"
+               >
+                  <div class="share__icons--link" role="group">
+                     <svg role="img" aria-label="링크 이동" class="svg-icon">
+                        <use href="/src/assets/stack.svg#icon_blog" />
+                     </svg>
+                     <span>블로그</span>
+                  </div>
+               </button>
+               <button
+                  type="button"
+                  class="share__icons--icon"
+                  aria-label="링크복사"
+               >
+                  <div class="share__icons--link" role="group">
+                     <svg role="img" aria-label="링크 이동" class="svg-icon">
+                        <use href="/src/assets/stack.svg#icon_kakao" />
+                     </svg>
+                     <span>카카오톡</span>
+                  </div>
+               </button>
+
+               <button
+                  type="button"
+                  class="share__icons--icon"
+                  aria-label="링크복사"
+               >
+                  <div class="share__icons--link" role="group">
+                     <svg role="img" aria-label="링크 이동" class="svg-icon">
+                        <use href="/src/assets/stack.svg#icon_facebook" />
+                     </svg>
+                     <span>페이스북</span>
+                  </div>
+               </button>
+
+               <button
+                  type="button"
+                  class="share__icons--icon"
+                  aria-label="링크복사"
+               >
+                  <div class="share__icons--link" role="group">
+                     <svg role="img" aria-label="링크 복사" class="svg-icon">
+                        <use href="/src/assets/stack.svg#icon_link" />
+                     </svg>
+                     <span>링크복사</span>
+                  </div>
+               </button>
+            </div>
+         </div>
+
+         <div class="delete-container">
+            <p class="delete-container__text">리뷰를 삭제하시겠습니까?</p>
+            <div class="delete-container__btn-container">
+               <button type="submit" class="btn__input cancel-btn">취소</button>
+               <button type="submit" class="btn__input delete-btn">삭제</button>
+            </div>
+         </div>
       </section>
    </body>
 </html>

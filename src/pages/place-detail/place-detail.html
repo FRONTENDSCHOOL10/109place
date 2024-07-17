@@ -22,8 +22,6 @@
           <use href="/src/assets/stack.svg#top_before_arrow" />
        </svg>
     </button>
-
-    <span>아민연남</span>
     
     <button aria-label="닫기" class="right-exit">
        <svg role="img" aria-label="닫기" class="svg-icon right-exit__icon">
@@ -37,58 +35,14 @@
   <section class="place-information">
     
     <!-- 가게 이미지 -->
-    <section class="place-img-container">
-      <div class="container container1">
-        <img src="./image-sample/메인.png" alt=""/>
-      </div>
-
-      <div class="container container2">
-        <img src="./image-sample/아보카도.png" alt="" class="place-img"/>
-        <img src="./image-sample/음료.png" alt="" class="place-img"/>
-        <img src="./image-sample/음료.png" alt="" class="place-img"/>
-        <img src="./image-sample/아보카도.png" alt="" class="place-img"/>
-      </div>
-    </section>
+    <!-- placeImgTemplate -->
 
 
     <section class="place-info-container">
       <!-- 가게 정보 -->
-      <div class="place-info">
-        <div class="place-info__title">
-          <h1>아민연남</h1>
-          <span class="place-info__category">카페</span>
-        </div>
-        <div class="place-info__reviews">
-          <span>리뷰</span>
-          <span class="place-info__reviews-count">2.689</span>
-        </div>
+      <!-- placeTextTemplate -->
 
-        <div class="decorative-line--light"></div>
 
-        <ul class="place-info__details">
-          <li>
-            <svg role="img" aria-label="주소 이미지" class="place-info__icon--small">
-              <use href="/src/assets/stack.svg#icon_pin" />
-            </svg>
-            <p class="nav__text">서울특별시 마포구 동교로52길 10-7</p>
-          </li>
-          <li>
-            <svg role="img" aria-label="전화기 이미지" class="place-info__icon--small">
-              <use href="/src/assets/stack.svg#icon_clock" />
-            </svg>
-            <p class="nav__text">영업 중</p>
-            <p class="nav__text">21:30에 영업 종료</p>
-          </li>
-          <li>
-            <svg role="img" aria-label="시계 이미지" class="place-info__icon--small">
-              <use href="/src/assets/stack.svg#icon_call2" />
-            </svg>
-            <p class="nav__text">0507-14612407</p>
-          </li>
-        </ul>
-
-        <div class="decorative-line--light"></div>
-      </div>
 
       <!-- 부가 기능 바 (전화, 저장, 공유) -->
       <div class="action-bar">
@@ -186,72 +140,7 @@
 
 
     <!-- 사용자 리뷰 -->
-
-    <article class="place-reviews__content">
-      <!-- 리뷰 작성자 정보 -->
-      <figure class="user-profile">
-        <a href="/src/pages/my-page/main/main.html">
-          <img src="./image-sample/아보카도.png" alt="리뷰 작성자 프로필 이미지" />
-
-          <div>
-            <figcaption aria-label="리뷰 작성자">백구하나</figcaption>
-            <p>리뷰 60</p>
-          </div>
-        </a>
-      </figure>
-
-      <!-- 리뷰 사진 (스와이퍼) -->
-      <div class="riview-img swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="./image-sample/image 26.png" alt="" /></div>
-          <div class="swiper-slide"><img src="./image-sample/image 27.png" alt="" /></div>
-          <div class="swiper-slide"><img src="./image-sample/음료.png" alt="" /></div>
-          <div class="swiper-slide"><img src="./image-sample/아보카도.png" alt="" /></div>
-        </div>
-      </div>
-
-
-      <!-- 리뷰 -->
-      <div class="review-text">
-        <div class="review-text__visit-detail">
-          <span>예약 후 이동</span>
-          <div class="dot-separator"></div>
-          <span class="fixed-text">대기시간</span>
-          <span>바로 입장</span>
-          <div class="dot-separator"></div>
-          <span>지인/동료</span>
-        </div>
-
-        <p class="review-text__content">지중해 음식을 평소에도 너무 좋아해서 자주 찾아다니는데 너무 맛있는거 있쬬~~ 아보카도 짱이에요~ 추가해서 꼭 드시고 예약하고 가면 웨이팅 없어서 좋아요!! 진짜 맛있어요! 추천ㄱㄱ</p>
-
-        <div class="review-text__tag">
-          <div class="review-tag" role="group" aria-label="재료가 신선해요">
-            <p>🥦 재료가 신선해요</p>
-          </div>
-   
-          <div class="review-tag" role="group" aria-label="양이 많아요">
-            <p>🍚 양이 많아요</p>
-          </div>
-
-          <div class="review-tag" role="group" aria-label="재료가 신선해요">
-            <p>🥦 재료가 신선해요</p>
-          </div>
- 
-          <div class="review-tag" role="group" aria-label="양이 많아요">
-            <p>🍚 양이 많아요</p>
-          </div>
-
-          <div class="review-tag" role="group" aria-label="재료가 신선해요">
-            <p>🥦 재료가 신선해요</p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </article>
-
-    <div class="decorative-line--light"></div>
+    <!-- placeReviewTemplate -->
 
   </section>
 
