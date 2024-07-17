@@ -1,45 +1,47 @@
-import '/src/pages/review-create/img-content.scss';
 import pb from '/src/lib/utils/pocketbase';
 
-async () => {
+(async () => {
    const record = await pb.collection('users').getOne(pb.authStore.model.id);
 
+   console.log(record);
    const urlParams = new URLSearchParams(window.location.search);
 
    const selectReview = await pb
       .collection('review')
       .getOne(urlParams.get('reviewId'));
-   const stores = await pb.collection('stores').getOne(selectReview.stores_id);
-   const BASE_URL = 'https://vanilla-109place.pockethost.io';
-   const reviewImageUrl = `${BASE_URL}/api/files/review/${selectReview.id}/${selectReview.image[0]}`;
 
-   const image = new FormData();
+   console.log(selectReview);
+   //    const stores = await pb.collection('stores').getOne(selectReview.stores_id);
+   //    const BASE_URL = 'https://vanilla-109place.pockethost.io';
+   //    const reviewImageUrl = `${BASE_URL}/api/files/review/${selectReview.id}/${selectReview.image[0]}`;
 
-   const textarea = document.querySelector('textarea');
-   const fileInput = document.querySelector('.upload-button');
+   //    const image = new FormData();
 
-   const handleReview = (e) => {
-      console.log(e.target.value);
-      localStorage.setItem('review', e.target.value);
-   };
+   //    const textarea = document.querySelector('textarea');
+   //    const fileInput = document.querySelector('.upload-button');
 
-   fileInput.addEventListener('change', function () {
-      for (let file of fileInput.files) {
-         image.append('image', file);
-      }
-   });
+   //    const handleReview = (e) => {
+   //       console.log(e.target.value);
+   //       localStorage.setItem('review', e.target.value);
+   //    };
 
-   image.append('title', 'Hello world!');
+   //    fileInput.addEventListener('change', function () {
+   //       for (let file of fileInput.files) {
+   //          image.append('image', file);
+   //       }
+   //    });
 
-   // // set some other regular text field value
-   // formData.append('title', 'Hello world!');
+   //    image.append('title', 'Hello world!');
 
-   await pb.collection('review').create(image);
+   //    // // set some other regular text field value
+   //    // formData.append('title', 'Hello world!');
 
-   textarea.addEventListener('input', handleReview);
-   // imageUpload.addEventListener('change', handleImg);
+   //    //    await pb.collection('review').create(image);
 
-   const updateStoreName = document.querySelector('.review-update--store-name');
-   updateStoreName.textContent = stores.name;
-   console.log(stores.name);
-};
+   //    textarea.addEventListener('input', handleReview);
+   //    // imageUpload.addEventListener('change', handleImg);
+
+   //    const updateStoreName = document.querySelector('.review-update--store-name');
+   //    updateStoreName.textContent = stores.name;
+   //    console.log(stores.name);
+})();
