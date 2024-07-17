@@ -47,41 +47,46 @@ import pb from '/src/lib/utils/pocketbase';
       });
    };
 
+   let reviewsLength = 0;
+
    const container = document.getElementById('container');
 
-   profileReviewCount.textContent = `리뷰 ${reviewList.items.length}`;
-   reviewCount.textContent = `리뷰 ${reviewList.items.length}`;
-
    reviewList.items.forEach((reviews) => {
-      const figure = document.createElement('figure');
-      figure.className = 'review--card';
+      if (reviews.users_id === user.id) {
+         const figure = document.createElement('figure');
+         figure.className = 'review--card';
+         const reviewImageUrl = `${BASE_URL}/api/files/review/${reviews.id}/${reviews.image[0]}`;
+         figure.style.backgroundImage = `url(${reviewImageUrl})`;
 
-      const reviewImageUrl = `${BASE_URL}/api/files/review/${reviews.id}/${reviews.image[0]}`;
-      figure.style.backgroundImage = `url(${reviewImageUrl})`;
+         const figcaption = document.createElement('figcaption');
+         figcaption.className = 'review--card__title';
 
-      const figcaption = document.createElement('figcaption');
-      figcaption.className = 'review--card__title';
+         const locationSpan = document.createElement('span');
 
-      const locationSpan = document.createElement('span');
+         const nameSpan = document.createElement('span');
+         storeList.items.forEach((stores) => {
+            if (reviews.stores_id === stores.id) {
+               locationSpan.textContent = stores.category;
+               nameSpan.textContent = stores.address;
+            }
+         });
 
-      const nameSpan = document.createElement('span');
-      storeList.items.forEach((stores) => {
-         if (reviews.stores_id === stores.id) {
-            locationSpan.textContent = stores.category;
-            nameSpan.textContent = stores.address;
-         }
-      });
+         //    클릭 이벤트 추가
+         figure.addEventListener('click', () => {
+            location.href = `/src/pages/my-page/review/review.html?reviewId=${reviews.id}`;
+         });
 
-      //    클릭 이벤트 추가
-      figure.addEventListener('click', () => {
-         location.href = `/src/pages/my-page/review/review.html?reviewId=${reviews.id}`;
-      });
+         figcaption.appendChild(locationSpan);
+         figcaption.appendChild(nameSpan);
+         figure.appendChild(figcaption);
+         container.appendChild(figure);
 
-      figcaption.appendChild(locationSpan);
-      figcaption.appendChild(nameSpan);
-      figure.appendChild(figcaption);
-      container.appendChild(figure);
+         reviewsLength += 1;
+      }
    });
+
+   profileReviewCount.textContent = `리뷰 ${reviewsLength}`;
+   reviewCount.textContent = `리뷰 ${reviewsLength}`;
 
    reviewContainer.addEventListener('scroll', scrollHandler);
 
