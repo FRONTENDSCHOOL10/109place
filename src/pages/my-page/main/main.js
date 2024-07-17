@@ -16,6 +16,7 @@ import pb from '/src/lib/utils/pocketbase';
       '.my-page__section--review-count'
    );
    const profileReviewCount = document.querySelector('.profile__review-count');
+   const reviewCreate = document.querySelector('.review-create');
 
    const profileImageUrl = `${BASE_URL}/api/files/users/${user.id}/${user.profile_picture}`;
 
@@ -24,6 +25,12 @@ import pb from '/src/lib/utils/pocketbase';
    userName.textContent = user.username;
    userName.addEventListener('click', () => {
       location.href = `/src/pages/my-page/profile/profile.html`;
+   });
+   profileImg.addEventListener('click', () => {
+      location.href = `/src/pages/my-page/profile/profile.html`;
+   });
+   reviewCreate.addEventListener('click', () => {
+      location.href = `/src/pages/review-create/date-place.html`;
    });
 
    const scrollHandler = () => {
