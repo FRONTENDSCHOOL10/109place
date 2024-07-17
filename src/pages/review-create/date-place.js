@@ -11,20 +11,10 @@ let options = {
 
 let map = new kakao.maps.Map(container, options);
 
-const goBack = document.querySelector('.go-back');
-const exit = document.querySelector('.right-exit');
 const datePicker = document.querySelector('.date-picker');
 const dateInput = document.querySelector('.date-input--off');
 const btnNext = document.querySelector('.btn__next');
 const date = document.querySelector('#date-input');
-
-const handleGoBack = () => {
-   location.href = '/src/pages/search-detail/search-detail.html';
-};
-
-const handleExit = () => {
-   location.href = '/src/pages/homepage/homepage.html';
-};
 
 const handleDatePicker = () => {
    dateInput.classList.add('date-input--on');
@@ -41,8 +31,6 @@ const handleBtnNext = () => {
    location.href = '/src/pages/review-create/tag-select.html';
 };
 
-goBack.addEventListener('click', handleGoBack);
-exit.addEventListener('click', handleExit);
 datePicker.addEventListener('click', handleDatePicker);
 date.addEventListener('input', handleDate);
 btnNext.addEventListener('click', handleBtnNext);
