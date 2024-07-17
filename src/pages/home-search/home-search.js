@@ -68,7 +68,6 @@ function getListItem(index, places) {
 `;
    infoPlace.className = 'item';
    infoPlace.innerHTML = itemStr;
-   // tabindex 속성 추가하여 포커스를 받을 수 있도록 설정
    infoPlace.tabIndex = 0;
 
    infoPlace.addEventListener('click', () => {

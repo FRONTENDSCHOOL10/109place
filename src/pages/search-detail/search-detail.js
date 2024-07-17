@@ -44,6 +44,10 @@ function displayPlaces(places) {
    }
 
    lisePlace.appendChild(fragment);
+   // 엔터치면 바로 첫항목으로 가게
+   if (places.length > 0) {
+      lisePlace.firstChild.focus();
+   }
 }
 
 function getListItem(index, places) {
@@ -51,17 +55,24 @@ function getListItem(index, places) {
    let itemStr = `
   <div class="info">
   <div class="info__container">
-    <p class="info__name">${places.place_name}</p>
-    ${places.category_group_name ? `<p class="info__category">${places.category_group_name}</p>` : ''}</div>
-    ${places.road_address_name ? `<p class="info__address">${places.road_address_name}</p>` : ''}
+    <p class="info__name" aria-label="이 장소의 이름:${places.place_name}">${places.place_name}</p>
+    ${places.category_group_name ? `<p class="info__category"  aria-label="이 장소의 카테고리:${places.category_group_name}">${places.category_group_name}</p>` : ''}</div>
+    ${places.road_address_name ? `<p class="info__address" aria-label="이 장소의 주소 : ${places.road_address_name}">${places.road_address_name}</p>` : ''}
   </div>
 `;
    infoPlace.className = 'item';
    infoPlace.innerHTML = itemStr;
+   infoPlace.tabIndex = 0;
 
    infoPlace.addEventListener('click', () => {
       saveLocal(places);
       renderPlaceInfoAll();
+   });
+   infoPlace.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+         saveLocal(places);
+         renderPlaceInfoAll();
+      }
    });
    return infoPlace;
 }
