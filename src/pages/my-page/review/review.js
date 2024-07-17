@@ -89,4 +89,33 @@ import pb from '/src/lib/utils/pocketbase';
    };
 
    headerBackBtn.addEventListener('click', backBtnHandler);
+
+   const moreIcon = document.querySelector('.more-btn');
+   const moreBtn = document.querySelector('.button-container');
+   const moreClickHandler = () => {
+      moreBtn.classList.toggle('active');
+   };
+
+   moreIcon.addEventListener('click', moreClickHandler);
+
+   const moreBtnContainer = document.querySelectorAll('.button-container__btn');
+   const shareContainer = document.querySelector('.share__container');
+   const deleteContainer = document.querySelector('.delete-container');
+   moreBtnContainer.forEach((btn, idx) => {
+      if (idx === 0) {
+         btn.addEventListener('click', () => {
+            shareContainer.classList.toggle('active');
+         });
+      }
+      if (idx === 1) {
+         btn.addEventListener('click', () => {
+            location.href = `/src/pages/my-page/review/review-update.html`;
+         });
+      }
+      if (idx === 2) {
+         btn.addEventListener('click', () => {
+            deleteContainer.classList.toggle('active');
+         });
+      }
+   });
 })();

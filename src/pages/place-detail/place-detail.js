@@ -1,6 +1,6 @@
 import '/src/pages/place-detail/place-detail.scss';
 import pb from '/src/lib/utils/pocketbase';
-import { deleteStorage, getStorage, insertBefore, insertAfter, insertFirst, insertLast } from "kind-tiger";
+import { getPbImageURL , deleteStorage, getStorage, insertBefore, insertAfter, insertFirst, insertLast } from "kind-tiger";
 
 
 // 리뷰 이미지 스와이퍼
@@ -29,8 +29,16 @@ var swiper = new Swiper(".swiper", {
 // 전체 로직
 async function renderPlaceInfoAll(){
   const searchData = await getLocalStorageData();
+  let foundData = await matchLocalWithDB(searchData);
 
-  matchLocalWithDB(searchData);
+  if(!foundData.length){
+    foundData = await matchLocalWithDB(searchData);
+  }
+
+  const collectionId = foundData[0].collectionId;
+
+  renderPlaceInfo(foundData[0]);
+  renderPlaceReview(foundData[0]);
 
   //리뷰 통계 렌더링
   //리뷰 렌더링
@@ -41,11 +49,10 @@ renderPlaceInfoAll();
 
 //로컬 스토리지에서 데이터 꺼내오기
 async function getLocalStorageData(){
-  const name = await getStorage('place_name');
-  const address = await getStorage('road_address_name');
-  const phone = await getStorage('phone');
+  const name = await getStorage('home_place_name');
+  const address = await getStorage('home_road_address_name');
 
-  return {name,address,phone};
+  return {name,address};
 }
 
 
@@ -55,8 +62,11 @@ async function matchLocalWithDB(searchData){
 
   const foundData = storeRecordData.filter( data => data.name === searchData.name && data.address === searchData.address);
 
-  !foundData.length ? insertData(searchData) : renderPlaceInfo(foundData);
+  if(!foundData.length){
+    insertData(searchData);
+  }
 
+  return foundData;
 }
 
 
@@ -64,21 +74,162 @@ async function matchLocalWithDB(searchData){
 async function insertData(searchData){
   const data = {
     "name": searchData.name,
-    "address": searchData.address,
-    "phone_number": searchData.phone
+    "address": searchData.address
   };
 
   await pb.collection('stores').create(data);
 }
 
 
-// 가게 정보 렌더링해주는 함수
+// 가게 정보 렌더링
 async function renderPlaceInfo(foundData){
-  console.log(foundData);
+  const BASE_URL = 'https://vanilla-109place.pockethost.io';
+  const record = await pb.collection('stores_images').getOne('83de3obrq6n5j24');
 
-  const template=`
-    <p>들어가라 얌마</p>
+
+  const headerTemplate =`
+    <span>${foundData.name}</span>
   `
 
-  insertAfter('.header',template);
+
+  const placeImgTemplate = `
+    <section class="place-img-container">
+      <div class="container container1">
+        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[0]}" alt=""/>
+      </div>
+
+      <div class="container container2">
+        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[1]}" alt="" class="place-img"/>
+        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[2]}" alt="" class="place-img"/>
+        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[3]}" alt="" class="place-img"/>
+        <img src="${BASE_URL}/api/files/${record.collectionId}/${record.id}/${record.images[4]}" alt="" class="place-img"/>
+      </div>
+    </section>
+
+  `
+
+  const placeTextTemplate =`
+        <div class="place-info">
+        <div class="place-info__title">
+          <h1>${foundData.name}</h1>
+          <span class="place-info__category">${foundData.category}</span>
+        </div>
+        <div class="place-info__reviews">
+          <span>리뷰</span>
+          <span class="place-info__reviews-count">${foundData.reviews_count}</span>
+        </div>
+
+        <div class="decorative-line--light"></div>
+
+        <ul class="place-info__details">
+          <li>
+            <svg role="img" aria-label="주소 이미지" class="place-info__icon--small">
+              <use href="/src/assets/stack.svg#icon_pin" />
+            </svg>
+            <p class="nav__text">${foundData.address}</p>
+          </li>
+          <li>
+            <svg role="img" aria-label="시계 이미지" class="place-info__icon--small">
+              <use href="/src/assets/stack.svg#icon_clock" />
+            </svg>
+            <p class="nav__text">영업 중</p>
+            <p class="nav__text">${foundData.business_hours}에 영업 종료</p>
+          </li>
+          <li>
+            <svg role="img" aria-label="전화기 이미지" class="place-info__icon--small">
+              <use href="/src/assets/stack.svg#icon_call2" />
+            </svg>
+            <p class="nav__text">${foundData.phone_number}</p>
+          </li>
+        </ul>
+
+        <div class="decorative-line--light"></div>
+      </div>
+  `
+
+  insertAfter('button',headerTemplate);
+  insertFirst('.place-information',placeImgTemplate);
+  insertBefore('.action-bar',placeTextTemplate);
 }
+
+
+
+
+
+
+// 가게 리뷰 렌더링
+async function renderPlaceReview(foundData){
+
+   const placeReviewTemplate = `
+    <article class="place-reviews__content">
+
+        <!-- 리뷰 작성자 정보 -->
+        <figure class="user-profile">
+          <a href="/src/pages/my-page/main/main.html">
+            <img src="./image-sample/아보카도.png" alt="리뷰 작성자 프로필 이미지" />
+
+            <div>
+              <figcaption aria-label="리뷰 작성자">백구하나</figcaption>
+              <p>리뷰 60</p>
+            </div>
+          </a>
+        </figure>
+
+        <!-- 리뷰 사진 (스와이퍼) -->
+        <div class="riview-img swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./image-sample/image 26.png" alt="" /></div>
+            <div class="swiper-slide"><img src="./image-sample/image 27.png" alt="" /></div>
+            <div class="swiper-slide"><img src="./image-sample/음료.png" alt="" /></div>
+            <div class="swiper-slide"><img src="./image-sample/아보카도.png" alt="" /></div>
+          </div>
+        </div>
+
+
+        <!-- 리뷰 -->
+        <div class="review-text">
+          <div class="review-text__visit-detail">
+            <span>예약 후 이동</span>
+            <div class="dot-separator"></div>
+            <span class="fixed-text">대기시간</span>
+            <span>바로 입장</span>
+            <div class="dot-separator"></div>
+            <span>지인/동료</span>
+          </div>
+
+          <p class="review-text__content">지중해 음식을 평소에도 너무 좋아해서 자주 찾아다니는데 너무 맛있는거 있쬬~~ 아보카도 짱이에요~ 추가해서 꼭 드시고 예약하고 가면 웨이팅 없어서 좋아요!! 진짜 맛있어요! 추천ㄱㄱ</p>
+
+          <div class="review-text__tag">
+            <div class="review-tag" role="group" aria-label="재료가 신선해요">
+              <p>🥦 재료가 신선해요</p>
+            </div>
+    
+            <div class="review-tag" role="group" aria-label="양이 많아요">
+              <p>🍚 양이 많아요</p>
+            </div>
+
+            <div class="review-tag" role="group" aria-label="재료가 신선해요">
+              <p>🥦 재료가 신선해요</p>
+            </div>
+  
+            <div class="review-tag" role="group" aria-label="양이 많아요">
+              <p>🍚 양이 많아요</p>
+            </div>
+
+            <div class="review-tag" role="group" aria-label="재료가 신선해요">
+              <p>🥦 재료가 신선해요</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    <div class="decorative-line--light"></div>
+   `
+
+   insertAfter('.place-reviews__header',placeReviewTemplate);
+}
+
+// insertBefore, insertAfter, insertFirst, insertLast

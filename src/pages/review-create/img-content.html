@@ -10,39 +10,46 @@
       ></script>
    </head>
    <body>
-      <div class="column--img-content1">
-         <header class="header">
-            <button aria-label="뒤로가기">
-               <svg role="img" aria-label="뒤로가기" class="svg-icon">
-                  <use href="/src/assets/stack.svg#top_before_arrow" />
-               </svg>
-            </button>
-            <button aria-label="닫기" class="right-exit">
-               <svg
-                  role="img"
-                  aria-label="닫기"
-                  class="svg-icon right-exit__icon"
-               >
-                  <use href="/src/assets/stack.svg#Close" />
-               </svg>
-            </button>
-         </header>
-
+      <header class="header">
+         <a
+            href="/src/pages/review-create/tag-select.html"
+            aria-label="뒤로가기"
+         >
+            <svg role="img" aria-label="뒤로가기" class="svg-icon">
+               <use href="/src/assets/stack.svg#top_before_arrow" />
+            </svg>
+         </a>
          <span>(상호명)</span>
-
-         <section role="contentinfo">
-            <h2></h2>
+         <a
+            href="/src/pages/homepage/homepage.html"
+            aria-label="닫기"
+            class="right-exit"
+         >
+            <svg role="img" aria-label="닫기" class="svg-icon right-exit__icon">
+               <use href="/src/assets/stack.svg#Close" />
+            </svg>
+         </a>
+      </header>
+      <div role="contentinfo" class="contentinfo">
+         <div class="review-data--info">
+            <div class="review-data">
+               <span class="review-data--black">(0000.00.00)(금)</span
+               ><span class="review-data--gray">(1) 번째 방문</span>
+            </div>
+            <div class="review-data">
+               <span class="review-data--gray">이용 방법</span
+               ><span class="review-data--black">(예약 후) 이용</span>
+               <span class="review-data--gray">대기 시간</span
+               ><span class="review-data--black">(바로 입장)</span>
+            </div>
+            <div class="review-data">
+               <span class="review-data--gray">동행</span
+               ><span class="review-data--black">(지인/동료)</span>
+            </div>
+         </div>
+         <div class="column--review-tag">
             <div class="review-tag" role="group" aria-label="재료가 신선해요">
                <p>🥦 재료가 신선해요</p>
-            </div>
-            <div class="review-tag" role="group" aria-label="양이 많아요">
-               <p>🍚 양이 많아요</p>
-            </div>
-            <div class="review-tag" role="group" aria-label="음식이 맛있어요">
-               <p>😋 음식이 맛있어요</p>
-            </div>
-            <div class="review-tag" role="group" aria-label="가성비가 좋아요">
-               <p>👍 가성비가 좋아요</p>
             </div>
             <div
                class="review-tag"
@@ -51,24 +58,26 @@
             >
                <p>🍷 특별한 메뉴가 있어요</p>
             </div>
-         </section>
+         </div>
       </div>
-      <div class="column--img-content2">
-         <section aria-label="사진 선택란">
+
+      <div class="column--create-data">
+         <div aria-label="사진 선택란" class="column--image-upload">
             <h1>사진을 추가해 주세요</h1>
             <form>
-               <label for="image-upload">사진 선택하기</label>
+               <label for="image-upload" class="upload-label">사진 추가</label>
                <input
                   type="file"
                   id="image-upload"
                   name="image-upload"
-                  accept="image/*"
+                  accept="image/png image/svg image/jpg"
+                  class="upload-button"
+                  multiple="true"
                />
-               <button type="submit">사진 추가</button>
             </form>
-         </section>
+         </div>
 
-         <section aria-label="리뷰 작성란">
+         <div aria-label="리뷰 작성란">
             <form
                class="input-count__component"
                action="#"
@@ -103,9 +112,9 @@
                      >400</span
                   >
                </p>
-               <button type="submit" class="btn__next">등록하기</button>
             </form>
-         </section>
+            <button type="submit" class="btn__next">등록하기</button>
+         </div>
       </div>
    </body>
 </html>
