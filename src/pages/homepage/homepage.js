@@ -4,6 +4,7 @@ import { noNullParse } from '/src/lib/utils/getNoNullParse';
 import pb from '/src/lib/utils/pocketbase.js';
 import { needPlaceInfo } from '/src/lib/utils/Map/searchPlace';
 import { searchPlaceNoName } from '../../lib/utils/Map/searchPlaceNoName';
+import { getStorage } from 'kind-tiger';
 
 // 원위치 버튼
 const resetBtn = document.querySelector('.map__control--reset');
@@ -216,3 +217,48 @@ async function initializeMap() {
 
 // 초기화 함수 호출
 initializeMap();
+
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+
+// 전체 로직
+async function renderPlaceInfoAll() {
+   const searchData = await getLocalStorageData();
+   let foundData = await matchLocalWithDB(searchData);
+}
+
+renderPlaceInfoAll();
+
+//로컬 스토리지에서 데이터 꺼내오기
+async function getLocalStorageData() {
+   const name = await getStorage('home_place_name');
+   const address = await getStorage('home_road_address_name');
+
+   return { name, address };
+}
+
+// 검색 페이지에서 검색한 가게 정보가 DB에 존재하는지 확인 (중복 체크)
+async function matchLocalWithDB(searchData) {
+   const storeRecordData = await pb.collection('stores').getFullList();
+
+   const foundData = storeRecordData.filter(
+      (data) =>
+         data.name === searchData.name && data.address === searchData.address
+   );
+
+   if (!foundData.length) {
+      insertData(searchData);
+   }
+   return foundData;
+}
+
+// stores 테이블에 Data 저장하는 함수
+async function insertData(searchData) {
+   const data = {
+      name: searchData.name,
+      address: searchData.address,
+   };
+
+   await pb.collection('stores').create(data);
+}
