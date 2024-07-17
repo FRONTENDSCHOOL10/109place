@@ -16,56 +16,134 @@ function register() {
    const userEmail = $('#useremail');
    const userCheckPw = $('#usercheckpw');
    const signupBtn = $('.btn__signup');
+
+   // 아이디 유효성 검사
    function isValidId(id) {
-      return id.length >= 3;
+      const idRegex = /^[a-zA-Z0-9]{3,10}$/;
+      const isIdOk = idRegex.test(id);
+      const idError = document.querySelector('#id-type-error');
+      if (!isIdOk) {
+         idError.classList.remove('hidden');
+      } else {
+         idError.classList.add('hidden');
+      }
+      return isIdOk;
    }
+
+   // 이메일 유효성 검사
    function isValidEmail(email) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
+      const isEmailOk = emailRegex.test(email);
+      const emailError = document.querySelector('#email-type-error');
+      if (!isEmailOk) {
+         emailError.classList.remove('hidden');
+      } else {
+         emailError.classList.add('hidden');
+      }
    }
+
+   // 비밀번호 유효성 검사
    function isValidPassword(password) {
       const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
       return passwordRegex.test(password);
    }
+
+   // 비밀번호 확인란과 비밀번호 일치 여부 검사
    function checkPasswordMatch() {
-      if (
-         userCheckPw.value !== '' &&
-         userPw.value !== userCheckPw.value
-         //  비밀번화 확인란에 포커스 & 확인란이 비지 않았음 & 확인란과 비밀번호가 불일치 -> 에러메시지 일어나야함 -> false
-      ) {
-         // 불일치 -> hidden 지워서 에러메시지 띄우기
+      if (userCheckPw.value !== '' && userPw.value !== userCheckPw.value) {
          $('#checkpw-error').classList.remove('hidden');
          return false;
       } else {
-         // 일치 에러메시지 숨기기
          $('#checkpw-error').classList.add('hidden');
          return true;
       }
    }
-   function validation() {
+
+   // 아이디와 이메일 중복 여부 확인 및 HTML 요소의 에러 메시지 처리
+   async function isDuplicateIdOrEmail(id, email) {
+      // HTML 요소 선택
+      const idErrorElement = document.getElementById('id-duplicate-error');
+      const emailErrorElement = document.getElementById(
+         'email-duplicate-error'
+      );
+
+      // 아이디와 이메일 중복 검사
+      const filterId = `username='${id}'`;
+      const filterEmail = `email='${email}'`;
+
+      try {
+         // 아이디로 필터링된 사용자 목록 가져오기
+         const usersById = await pb.collection('users').getFullList({
+            filter: filterId,
+         });
+
+         // 이메일로 필터링된 사용자 목록 가져오기
+         const usersByEmail = await pb.collection('users').getFullList({
+            filter: filterEmail,
+         });
+
+         // 중복 여부 확인
+         const idDuplicate = usersById.length > 0;
+         const emailDuplicate = usersByEmail.length > 0;
+
+         // 중복된 경우 에러 메시지 표시
+         if (idDuplicate) {
+            idErrorElement.classList.remove('hidden');
+         } else {
+            idErrorElement.classList.add('hidden');
+         }
+
+         if (emailDuplicate) {
+            emailErrorElement.classList.remove('hidden');
+         } else {
+            emailErrorElement.classList.add('hidden');
+         }
+         return idDuplicate && emailDuplicate;
+      } catch (error) {
+         console.error('중복 검사 중 오류 발생:', error);
+      }
+   }
+
+   // 검증 및 버튼 활성화/비활성화
+   async function validation() {
       const isIdValid = isValidId(userId.value);
       const isEmailValid = isValidEmail(userEmail.value);
       const isPasswordValid = isValidPassword(userPw.value);
       const isPasswordsMatch = checkPasswordMatch();
-      // 아이디 양식 맞음 & 이메일 양식 맞음 & 비밀번호 양식 맞음 & 비밀번호, 비밀번호 확인란 일치함
+
+      // 중복 여부 확인
+      const isDuplicate = await isDuplicateIdOrEmail(
+         userId.value,
+         userEmail.value
+      );
+      console.log(isDuplicate);
+
+      // 버튼 활성화/비활성화
       if (
          isIdValid &&
          isEmailValid &&
          isPasswordValid &&
          isPasswordsMatch &&
-         userCheckPw.value !== ''
+         userCheckPw.value !== '' &&
+         !isDuplicate
       ) {
          signupBtn.removeAttribute('disabled');
-         //  활성화
          signupBtn.classList.remove('btn-p--disabled');
          signupBtn.classList.add('btn-p--default');
       } else {
          signupBtn.setAttribute('disabled', true);
-         //  비활성화
          signupBtn.classList.add('btn-p--disabled');
          signupBtn.classList.remove('btn-p--default');
       }
    }
+
+   // 포커스 아웃 이벤트를 통해 검증 수행
+   userId.addEventListener('blur', validation);
+   userEmail.addEventListener('blur', validation);
+   userPw.addEventListener('blur', validation);
+   userCheckPw.addEventListener('blur', validation);
+
+   // 회원가입 처리
    async function handleSignup(e) {
       e.preventDefault();
       const id = userId.value;
@@ -95,10 +173,8 @@ function register() {
          });
    }
 
-   userId.addEventListener('input', validation);
-   userPw.addEventListener('input', validation);
-   userEmail.addEventListener('input', validation);
-   userCheckPw.addEventListener('input', validation);
+   // 회원가입 버튼 클릭 시 처리
    signupBtn.addEventListener('click', handleSignup);
 }
+
 register();
