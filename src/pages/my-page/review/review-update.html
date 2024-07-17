@@ -16,14 +16,6 @@
    </head>
    <body>
       <header class="header">
-         <a
-            href="/src/pages/review-create/tag-select.html"
-            aria-label="뒤로가기"
-         >
-            <svg role="img" aria-label="뒤로가기" class="svg-icon">
-               <use href="/src/assets/stack.svg#top_before_arrow" />
-            </svg>
-         </a>
          <span class="review-update--store-name"></span>
          <a
             href="/src/pages/homepage/homepage.html"
@@ -38,38 +30,38 @@
       <div role="contentinfo" class="contentinfo">
          <div class="review-data--info">
             <div class="review-data">
-               <span class="review-data--black">(0시발0.00.00)(금)</span
-               ><span class="review-data--gray">(1) 번째 방문</span>
+               <span class="review-data--black review-data__date"></span
+               ><span class="review-data--gray review-data__visit"></span>
             </div>
             <div class="review-data">
                <span class="review-data--gray">이용 방법</span
-               ><span class="review-data--black">(예약 후) 이용</span>
+               ><span class="review-data--black review-data__how"></span>
                <span class="review-data--gray">대기 시간</span
-               ><span class="review-data--black">(바로 입장)</span>
+               ><span class="review-data--black review-data__delay"></span>
             </div>
             <div class="review-data">
                <span class="review-data--gray">동행</span
-               ><span class="review-data--black">(지인/동료)</span>
+               ><span class="review-data--black review-data__with"></span>
             </div>
          </div>
-         <div class="column--review-tag">
-            <div class="review-tag" role="group" aria-label="재료가 신선해요">
-               <p>🥦 재료가 신선해요</p>
-            </div>
-            <div
-               class="review-tag"
-               role="group"
-               aria-label="특별한 메뉴가 있어요"
-            >
-               <p>🍷 특별한 메뉴가 있어요</p>
-            </div>
-         </div>
+         <div
+            class="review-tag-container"
+            role="group"
+            aria-label="리뷰 키워드"
+         ></div>
       </div>
 
       <div class="column--create-data">
          <div aria-label="사진 선택란" class="column--image-upload">
-            <h1>사진을 추가해 주세요</h1>
-            <form>
+            <div src="" alt="음식 사진" class="review-upload__img"></div>
+            <svg
+               role="img"
+               aria-label="사진 업로드"
+               class="svg-icon store-info__more-icon photo-upload"
+            >
+               <use href="/src/assets/stack.svg#icon24_photo" />
+            </svg>
+            <form class="sr-only">
                <label for="image-upload" class="upload-label">사진 추가</label>
                <input
                   type="file"

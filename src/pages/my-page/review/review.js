@@ -47,10 +47,7 @@ import pb from '/src/lib/utils/pocketbase';
 
    waitingTime.textContent = selectReview.delay;
 
-   reviewWith.textContent =
-      selectReview.with.length === 1
-         ? selectReview.with[0]
-         : `${selectReview.with[0]} / ${selectReview.with[1]}`;
+   reviewWith.textContent = selectReview.withwho;
 
    reviewContent.textContent = selectReview.review;
 
@@ -109,7 +106,7 @@ import pb from '/src/lib/utils/pocketbase';
       }
       if (idx === 1) {
          btn.addEventListener('click', () => {
-            location.href = `/src/pages/my-page/review/review-update.html`;
+            location.href = `/src/pages/my-page/review/review-update.html?reviewId=${urlParams.get('reviewId')}`;
          });
       }
       if (idx === 2) {
@@ -118,4 +115,14 @@ import pb from '/src/lib/utils/pocketbase';
          });
       }
    });
+
+   const deleteBtn = document.querySelector('.delete-btn');
+
+   const deleteReview = async () => {
+      console.log('hi');
+      await pb.collection('review').delete(urlParams.get('reviewId'));
+      location.href = `/src/pages/my-page/main/main.html`;
+   };
+
+   deleteBtn.addEventListener('click', deleteReview);
 })();
