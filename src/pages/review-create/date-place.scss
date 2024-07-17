@@ -1,8 +1,9 @@
 @use '/src/styles/common/index' as *;
 @use '/src/components/header/header.scss';
 
-button {
-   cursor: pointer;
+.header {
+   height: 3.5rem;
+   align-items: center;
 }
 
 h1 {
