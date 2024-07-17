@@ -13,6 +13,9 @@ let exitBtn = document.querySelector('#exitBtn');
 
 async function setPlaceName() {
    placeName.textContent = await getStorage('place_name');
+   placeName.setAttribute("aria-label",`${placeName.textContent}의 리뷰를 남겨주셨어요!`);
+   placeName.focus(); // placeName 요소에 포커스 설정
+   placeName.setAttribute('aria-live', 'polite'); 
 }
 
 // 장소 정보 아이디 제거하는 함수

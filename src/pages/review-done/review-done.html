@@ -1,54 +1,58 @@
 <!doctype html>
 <html lang="ko">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <script
-         type="module"
-         src="/src/pages/review-done/review-done.js"
-      ></script>
-      <title>리뷰 작성 완료</title>
-   </head>
-   <body>
-      <!-- X 버튼 -->
-      <header class="header">
-         <a
-            aria-label="닫기"
-            class="right-exit"
-            id ="exitBtn"
-            href="#"
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <script type="module" src="/src/pages/review-done/review-done.js"></script>
+   <title>리뷰 작성 완료</title>
+</head>
+<body>
+   <!-- X 버튼 -->
+   <header class="header">
+      <a
+         aria-label="닫기"
+         class="right-exit"
+         id="exitBtn"
+         tabindex="1" 
+         href="#"
+      >
+         <svg
+            role="img"
+            aria-label="닫기 버튼 : 마이페이지로 돌아갑니다."
+            class="svg-icon right-exit__icon"
          >
-            <svg
-               role="img"
-               aria-label="닫기 버튼 : 마이페이지로 돌아갑니다."
-               class="svg-icon right-exit__icon"
-            >
-               <use href="/src/assets/stack.svg#Close" />
-            </svg>
-         </a>
-      </header>
+            <use href="/src/assets/stack.svg#Close" />
+         </svg>
+      </a>
+   </header>
 
-      <section class="done">
-         <h1>리뷰 쓰기 완료!</h1>
-         <span class="done__comment">
-            <p class="done__comment__emoji">🐶</p>
-            <section class="done__comment__text">
-               <div class="done__comment__text__first">
-                  <p class="done__comment__text__place">'아민 연남'</p>
-                  <p>&nbsp;의</p>
-               </div>
-               <p>리뷰를 남겨주셨어요!</p>
-            </section>
-         </span>
-      </section>
+   <section class="done">
+      <h1 tabindex="2">리뷰 쓰기 완료!</h1>
+      <span class="done__comment">
+         <p class="done__comment__emoji">🐶</p>
+         <section class="done__comment__text">
+            <div class="done__comment__text__first">
+               <p class="done__comment__text__place" tabindex="3">'아민 연남'</p>
+               <p>의</p>
+            </div>
+            <p>리뷰를 남겨주셨어요!</p>
+         </section>
+      </span>
+   </section>
 
-      <div class="btn__container">
-         <a href="#" id="recentReview" class="btn btn__link btn--large btn-default btn-p--default"
-            >방금 쓴 리뷰 보러 가기</a
-         >
-         <a href="#" id="newReview" class="btn btn__link btn--large btn-default btn-s--default"
-            >다른 리뷰 작성하기</a
-         >
-      </div>
-   </body>
+   <div class="btn__container">
+      <a
+         href="#"
+         id="recentReview"
+         class="btn btn__link btn--large btn-default btn-p--default"
+         tabindex="4"
+      >방금 쓴 리뷰 보러 가기</a>
+      <a
+         href="#"
+         id="newReview"
+         class="btn btn__link btn--large btn-default btn-s--default"
+         tabindex="5" 
+      >다른 리뷰 작성하기</a>
+   </div>
+</body>
 </html>
