@@ -10,6 +10,7 @@
       <title>리뷰 작성 완료</title>
    </head>
    <body>
+      <!-- X 버튼 -->
       <header class="header">
          <a
             aria-label="닫기"
@@ -26,8 +27,27 @@
          </a>
       </header>
 
-      <section class="search__container">
-         <h1>다녀온 곳의<br />리뷰를 써 보세요!</h1>
+      <section class="done">
+         <h1>리뷰 쓰기 완료!</h1>
+         <span class="done__comment">
+            <p class="done__comment__emoji">🐶</p>
+            <section class="done__comment__text">
+               <div class="done__comment__text__first">
+                  <p class="done__comment__text__place">'아민 연남'</p>
+                  <p>&nbsp;의</p>
+               </div>
+               <p>리뷰를 남겨주셨어요!</p>
+            </section>
+         </span>
       </section>
+
+      <div class="btn__container">
+         <a href="/" class="btn btn__link btn--large btn-default btn-p--default"
+            >방금 쓴 리뷰 보러 가기</a
+         >
+         <a href="/" class="btn btn__link btn--large btn-default btn-s--default"
+            >다른 리뷰 작성하기</a
+         >
+      </div>
    </body>
 </html>
