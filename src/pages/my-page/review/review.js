@@ -100,7 +100,7 @@ import pb from '/src/lib/utils/pocketbase';
 
    const moreBtnContainer = document.querySelectorAll('.button-container__btn');
    const shareContainer = document.querySelector('.share__container');
-
+   const deleteContainer = document.querySelector('.delete-container');
    moreBtnContainer.forEach((btn, idx) => {
       if (idx === 0) {
          btn.addEventListener('click', () => {
@@ -114,7 +114,7 @@ import pb from '/src/lib/utils/pocketbase';
       }
       if (idx === 2) {
          btn.addEventListener('click', () => {
-            console.log('리뷰삭제하기!!');
+            deleteContainer.classList.toggle('active');
          });
       }
    });
