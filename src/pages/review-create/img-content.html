@@ -17,6 +17,9 @@
                   <use href="/src/assets/stack.svg#top_before_arrow" />
                </svg>
             </button>
+
+            <span>(상호명)</span>
+
             <button aria-label="닫기" class="right-exit">
                <svg
                   role="img"
@@ -27,8 +30,6 @@
                </svg>
             </button>
          </header>
-
-         <span>(상호명)</span>
 
          <section role="contentinfo">
             <h2></h2>
@@ -54,17 +55,18 @@
          </section>
       </div>
       <div class="column--img-content2">
-         <section aria-label="사진 선택란">
+         <section aria-label="사진 선택란" class="column--image-upload">
             <h1>사진을 추가해 주세요</h1>
             <form>
-               <label for="image-upload">사진 선택하기</label>
+               <label for="image-upload" class="upload-label">사진 추가</label>
                <input
                   type="file"
                   id="image-upload"
                   name="image-upload"
                   accept="image/*"
+                  class="upload-button"
                />
-               <button type="submit">사진 추가</button>
+               <button type="submit">확인</button>
             </form>
          </section>
 

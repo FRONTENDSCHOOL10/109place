@@ -7,6 +7,27 @@ body {
    flex-direction: column;
 }
 
+.header {
+   align-items: center;
+
+   > span {
+      font-size: 1.25rem;
+      font-weight: 600;
+   }
+}
+
+.column--image-upload {
+   background-color: #f0f0f0;
+   padding: 20px;
+   text-align: center;
+   width: 200px;
+   margin: 0 auto;
+}
+
+.upload-button {
+   display: none;
+}
+
 .column--img-content2 {
    display: flex;
    width: 20rem;
