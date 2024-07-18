@@ -13,16 +13,13 @@ async function imgContent() {
    const withwhoData = document.querySelector('.data-withwho');
    const keywordData = document.querySelector('.data-keyword');
 
-   // Create a new FormData object
    let formData = new FormData();
 
-   // Handle review input and store it in localStorage
    const handleReview = (e) => {
       localStorage.setItem('review', e.target.value);
    };
    textarea.addEventListener('input', handleReview);
 
-   // Retrieve stored data from localStorage
    const date = localStorage.getItem('date');
    const withwho = localStorage.getItem('withwho');
    const how = localStorage.getItem('how');
@@ -31,21 +28,20 @@ async function imgContent() {
    const review = localStorage.getItem('review');
    const stores_id = JSON.parse(localStorage.getItem('stores_id'));
 
-   // Handle file input changes and append files to FormData
    fileInput.addEventListener('change', function () {
       for (let file of fileInput.files) {
          formData.append('image', file);
       }
    });
-   // Get user details
+
    let user;
+
    try {
       user = await pb.collection('users').getOne(pb.authStore.model.id);
    } catch (error) {
       console.error('Error fetching user data:', error);
    }
 
-   // Append additional data to FormData
    formData.append('date', date);
    formData.append('withwho', withwho);
    formData.append('how', how);
@@ -57,19 +53,16 @@ async function imgContent() {
       formData.append('users_id', user.id);
    }
 
-   // Handle form submission
    async function handleBtnSubmit(e) {
       e.preventDefault();
 
-      // Log FormData for debugging
       for (let [key, value] of formData.entries()) {
          console.log(key, value);
       }
 
       try {
          await pb.collection('review').create(formData);
-         // Redirect or handle successful creation
-         // location.href = '/src/pages/review-done/review-done.html';
+         alert('등록완료');
       } catch (error) {
          console.error('Error creating review:', error);
       }
@@ -78,7 +71,6 @@ async function imgContent() {
    btnSubmit.addEventListener('click', handleBtnSubmit);
 
    //리뷰 데이터 화면에 뿌리기
-
    const place_name = localStorage.getItem('place_name');
 
    let str = place_name;
@@ -90,5 +82,26 @@ async function imgContent() {
    delayData.innerText = delay;
    withwhoData.innerText = withwho;
    keywordData.innerText = keyword;
+
+   fileInput.addEventListener('change', function () {
+      for (let file of fileInput.files) {
+         formData.append('image', file);
+      }
+
+      // 이미지 프리뷰 추가
+      const preview = document.getElementById('preview');
+      const reader = new FileReader();
+
+      reader.onloadend = function () {
+         preview.classList.add('preview-img--on');
+         preview.src = reader.result;
+      };
+
+      if (fileInput.files[0]) {
+         reader.readAsDataURL(fileInput.files[0]);
+      } else {
+         preview.src = '';
+      }
+   });
 }
 imgContent();

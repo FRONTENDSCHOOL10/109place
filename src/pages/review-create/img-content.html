@@ -29,9 +29,7 @@
       <div role="contentinfo" class="contentinfo">
          <div class="review-data--info">
             <div class="review-data">
-               <span class="review-data--black visit-date"
-                  >(0000.00.00)(금)</span
-               >
+               <span class="review-data--black visit-date"></span>
                <!-- visit-count 데이터 선택 -->
                <span class="review-data--gray">2번째 방문</span>
             </div>
@@ -59,16 +57,25 @@
 
       <div class="column--create-data">
          <div aria-label="사진 선택란" class="column--image-upload">
-            <h1>사진을 추가해 주세요</h1>
-            <form>
-               <label for="image-upload" class="upload-label">사진 추가</label>
+            <form class="imgimg">
+               <label for="image-upload" class="upload-label"
+                  >사진을 추가해 주세요</label
+               >
                <input
                   type="file"
                   id="image-upload"
                   name="image-upload"
+                  required
                   accept="image/png image/svg image/jpg"
                   class="upload-button"
                   multiple="true"
+               />
+               <img
+                  id="preview"
+                  src="#"
+                  alt="Image Preview"
+                  style="max-width: 3rem; max-height: 3rem"
+                  class="preview-img"
                />
             </form>
          </div>
@@ -92,6 +99,7 @@
                   maxlength="400"
                   rows="5"
                   aria-describedby="review-desc char-count"
+                  required
                   aria-live="polite"
                ></textarea>
                <p id="review-desc" class="sr-only">
