@@ -16,8 +16,9 @@
          <a
             href="/src/pages/home-search/home-search.html"
             class="search-link homepage__search"
+            tabindex="1"
          >
-            <span class="search-link__text">장소, 주소 검색</span>
+            <span class="search-link__text" aria-label="장소의 이름이나 주소를 검색해보세요.">장소, 주소 검색</span>
             <svg
                class="search__icon"
                xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +45,7 @@
             </svg>
          </a>
          <section id="map" class="homepage__map"></section>
-         <button class="map__control map__control--reset">&nbsp;🎯&nbsp;</button>
+         <button class="map__control map__control--reset" aria-label="원위치 버튼: 초기 위치로 돌아갑니다.">&nbsp;🎯&nbsp;</button>
          <c-footer></c-footer>
       </div>
    </body>
