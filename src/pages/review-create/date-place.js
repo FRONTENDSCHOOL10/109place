@@ -3,7 +3,7 @@ import '/src/pages/review-create/date-place.scss';
 
 //지도 api
 
-const address = localStorage.getItem('road_address_name');
+const address = localStorage.getItem('home_address_name');
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
    mapOption = {
@@ -40,7 +40,7 @@ const btnNext = document.querySelector('.btn__next');
 const date = document.querySelector('#date-input');
 const shopName = document.querySelector('.shop-name');
 
-const place_name = localStorage.getItem('place_name');
+const place_name = localStorage.getItem('home_place_name');
 
 shopName.innerText = place_name;
 

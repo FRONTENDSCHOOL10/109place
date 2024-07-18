@@ -70,7 +70,7 @@ async function imgContent() {
    btnSubmit.addEventListener('click', handleBtnSubmit);
 
    //리뷰 데이터 화면에 뿌리기
-   const place_name = localStorage.getItem('place_name');
+   const place_name = localStorage.getItem('home_place_name');
 
    let str = place_name;
    let newStr = str.replace(/"/g, '');
