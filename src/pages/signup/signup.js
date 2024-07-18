@@ -40,6 +40,7 @@ function register() {
       } else {
          emailError.classList.add('hidden');
       }
+      return isEmailOk;
    }
 
    // 비밀번호 유효성 검사
