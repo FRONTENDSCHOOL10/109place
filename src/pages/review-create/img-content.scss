@@ -120,41 +120,41 @@ input[type='file'] {
    bottom: 16rem;
    text-align: end;
 
+   .preview-img {
+      display: none;
 
-.preview-img {
-   display: none;
+      &--on {
+         display: flex;
+         width: 16.5rem;
+      }
+   }
 
-   &--on {
+   .review-data {
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
       display: flex;
-      width: 16.5rem;
-   }
-}
+      gap: 8px;
+      &--gray {
+         color: var(--gray-60, #717171);
+      }
+      &--black {
+         color: var(--gray-90, #1d1d1d);
+      }
 
-.review-data {
-   font-size: 0.875rem;
-   font-style: normal;
-   font-weight: 400;
-   line-height: 150%;
-   display: flex;
-   gap: 8px;
-   &--gray {
-      color: var(--gray-60, #717171);
-   }
-   &--black {
-      color: var(--gray-90, #1d1d1d);
+      &--info {
+         display: flex;
+         flex-direction: column;
+      }
    }
 
-   &--info {
-      display: flex;
-      flex-direction: column;
+   .contentinfo {
+      padding: 2rem 1.25rem 1.5rem 1.25rem;
    }
-}
 
-.contentinfo {
-   padding: 2rem 1.25rem 1.5rem 1.25rem;
-}
-
-.btn__submit {
-   background: var(--primary-50, #246beb);
-   color: var(--gray-gray-0, var(--Color, #fff));
+   .btn__submit {
+      background: var(--primary-50, #246beb);
+      color: var(--gray-gray-0, var(--Color, #fff));
+   }
 }
