@@ -1,60 +1,25 @@
-<div align=center>
-  <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=246BEB&text=109&nbsp;플레이스&animation=fadeIn" alt="header">
-</div>
-
-<h2  align=center>🐶 Vanilla Project 9조 🐶</h2>
-<h4  align=center>🚨 구사일생 - 구해조 🚨</h4>
-
-
-<!-- markdown -->
-<div align="center">
-  <table>
-    <thead>
-      <tr>
-        <th>이름</th>
-        <th>MBTI</th>
-        <th>역할</th>
-        <th>깃허브 페이지</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>안재명</td>
-        <td>INTJ</td>
-        <td>스크럼 마스터 🛠️</td>
-        <td><a href="https://github.com/username">GitHub</a></td>
-      </tr>
-      <tr>
-        <td>박새롬</td>
-        <td>INFP</td>
-        <td>발표자</td>
-        <td><a href="https://github.com/username">GitHub</a></td>
-      </tr>
-      <tr>
-        <td>엄신혜</td>
-        <td>ENFP</td>
-        <td>PPT 작성자</td>
-        <td><a href="https://github.com/username">GitHub</a></td>
-      </tr>
-      <tr>
-        <td>이민제</td>
-        <td>ISFP</td>
-        <td>데일리 스크럼 기록자</td>
-        <td><a href="https://github.com/username">GitHub</a></td>
-      </tr>
-      <tr>
-        <td>이예린</td>
-        <td>INFJ</td>
-        <td>노션, 깃허브 페이지 관리자</td>
-        <td><a href="https://github.com/username">GitHub</a></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+<h1  align=center>🐶 109 Place 🐶</h1>
 
 </br>
-<div align="center">
+
+<figure class="thrid">
+  <img src="https://github.com/user-attachments/assets/40a6eaf9-f027-486f-bb33-002a0cf630ad"/>&nbsp;
+  <img src="https://github.com/user-attachments/assets/b6927a36-956f-45dc-85ff-6a0d9ca0a438"/>&nbsp;
+</figure>
+
+</br>
+
+<h2>01. 프로젝트 소개</h2>
+<p>원하는 장소를 검색하고, 방문한 장소의 리뷰를 작성할 수 있는 모바일 웹브라우저이다.</p>
+<p>리뷰를 작성해 백구와 함께 지도에 발도장을 남기고, 좋아하는 장소를 저장해보자!</p>
+
+<h2>02. 개발 환경 </h2>
+<p>디자인: Figma</p>
+<p>개발 언어: HTML, SCSS, JacaScript</p>
+<p>데이터베이스: Pocketbase</p>
+<p>기타: Vite, Git, Pockethost, 카카오 지도 api</p>
+
+<div align="">
   <img src="https://img.shields.io/badge/HTML-E34F26?style=flat&logo=HTML5&logoColor=white" />&nbsp;
   <img src="https://img.shields.io/badge/SCSS-CC6699?style=flat&logo=Sass&logoColor=white" />&nbsp;
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />&nbsp;
@@ -62,4 +27,14 @@
   <img src="https://img.shields.io/badge/vite-646CFF?style=flat&logo=vite&logoColor=white" />&nbsp;
   <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white" />&nbsp;
 </div>
- <!-- <a href="/" > <h3>:dog: 페이지 </h3> </a> -->
+
+<h2>03. 주요 기능 </h2>
+<p>- 로그인, 회원가입, 탈퇴가 가능하다.</p>
+<p>- 지도에서 원하는 장소를 검색하고, 장소에 대한 정보와 리뷰를 확인할 수 있다. </p>
+<p>- 리뷰를 작성한 장소, 저장한 장소를 지도에서 마커로 확인할 수 있다.</p>
+<p>- 리뷰 작성,수정,삭제가 가능하다.</p>
+<p>- 원하는 장소를 저장할 수 있다.</p>
+<p>- 마이페이지에서 작성한 리뷰와 저장한 장소를 관리할 수 있다.</p>
+
+<h2>04. 배포 사이트 </h2>
+https://109place.netlify.app/
