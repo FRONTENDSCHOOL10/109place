@@ -27,8 +27,9 @@ body {
    align-self: stretch;
    flex-wrap: wrap;
 }
-
+///////////
 .column--image-upload {
+   display: flex;
    background-color: #f0f0f0;
    padding: 20px;
    width: 200px;
@@ -44,6 +45,7 @@ body {
 
 input[type='file'] {
    &::file-selector-button {
+      display: flex;
       background-image: none;
       background-color: transparent;
       -webkit-box-shadow: none;
@@ -62,8 +64,17 @@ input[type='file'] {
    }
 }
 
+.imgimg {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+}
+
 .upload-label {
-   display: none;
+   font-size: 1.25rem;
+   font-weight: bold;
+   margin-bottom: 1rem;
+   text-align: start;
 }
 
 .column--create-data {
@@ -85,7 +96,6 @@ input[type='file'] {
    font-size: 1.1875rem;
    border: none;
    padding: 0rem 1.25rem;
-   background: var(--gray-30, #d8d8d8);
 }
 
 .column--image-upload {
@@ -105,6 +115,15 @@ input[type='file'] {
 .input-count__c-container {
    position: initial;
    text-align: end;
+}
+
+.preview-img {
+   display: none;
+
+   &--on {
+      display: flex;
+      width: 16.5rem;
+   }
 }
 
 .review-data {

@@ -15,7 +15,7 @@
                <use href="/src/assets/stack.svg#top_before_arrow" />
             </svg>
          </a>
-         <span>(상호명)</span>
+         <span class="shop-name"></span>
          <a
             href="/src/pages/homepage/homepage.html"
             aria-label="닫기"
@@ -29,46 +29,53 @@
       <div role="contentinfo" class="contentinfo">
          <div class="review-data--info">
             <div class="review-data">
-               <span class="review-data--black">(0000.00.00)(금)</span
-               ><span class="review-data--gray">(1) 번째 방문</span>
+               <span class="review-data--black visit-date"></span>
+               <!-- visit-count 데이터 선택 -->
+               <span class="review-data--gray">2번째 방문</span>
             </div>
             <div class="review-data">
                <span class="review-data--gray">이용 방법</span
-               ><span class="review-data--black">(예약 후) 이용</span>
+               ><span class="review-data--black data-how"></span>
                <span class="review-data--gray">대기 시간</span
-               ><span class="review-data--black">(바로 입장)</span>
+               ><span class="review-data--black data-delay"></span>
             </div>
             <div class="review-data">
                <span class="review-data--gray">동행</span
-               ><span class="review-data--black">(지인/동료)</span>
+               ><span class="review-data--black data-withwho"></span>
             </div>
          </div>
          <div class="column--review-tag">
-            <div class="review-tag" role="group" aria-label="재료가 신선해요">
-               <p>🥦 재료가 신선해요</p>
-            </div>
             <div
-               class="review-tag"
+               class="review-tag data-keyword"
                role="group"
-               aria-label="특별한 메뉴가 있어요"
+               aria-label="재료가 신선해요"
             >
-               <p>🍷 특별한 메뉴가 있어요</p>
+               <p>🥦 재료가 신선해요</p>
             </div>
          </div>
       </div>
 
       <div class="column--create-data">
          <div aria-label="사진 선택란" class="column--image-upload">
-            <h1>사진을 추가해 주세요</h1>
-            <form>
-               <label for="image-upload" class="upload-label">사진 추가</label>
+            <form class="imgimg">
+               <label for="image-upload" class="upload-label"
+                  >사진을 추가해 주세요</label
+               >
                <input
                   type="file"
                   id="image-upload"
                   name="image-upload"
+                  required
                   accept="image/png image/svg image/jpg"
                   class="upload-button"
                   multiple="true"
+               />
+               <img
+                  id="preview"
+                  src="#"
+                  alt="Image Preview"
+                  style="max-width: 3rem; max-height: 3rem"
+                  class="preview-img"
                />
             </form>
          </div>
@@ -92,6 +99,7 @@
                   maxlength="400"
                   rows="5"
                   aria-describedby="review-desc char-count"
+                  required
                   aria-live="polite"
                ></textarea>
                <p id="review-desc" class="sr-only">
