@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Place Detail Page</title>
+  <title>109place</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   
@@ -17,17 +17,17 @@
  
   <!-- Header -->
   <header class="header">
-    <button aria-label="뒤로가기">
-       <svg role="img" aria-label="뒤로가기" class="svg-icon">
-          <use href="/src/assets/stack.svg#top_before_arrow" />
-       </svg>
-    </button>
-    
-    <button aria-label="닫기" class="right-exit">
-       <svg role="img" aria-label="닫기" class="svg-icon right-exit__icon">
-          <use href="/src/assets/stack.svg#Close" />
-       </svg>
-    </button>
+    <a href="/src/pages/homepage/homepage.html" aria-label="뒤로가기" class="back-btn">
+      <svg role="img" aria-label="뒤로가기" class="svg-icon">
+        <use href="/src/assets/stack.svg#top_before_arrow" />
+      </svg>
+    </a>
+
+    <a href="/src/pages/homepage/homepage.html" aria-label="뒤로가기"  class="right-exit">
+      <svg role="img" aria-label="닫기" class="svg-icon right-exit__icon">
+        <use href="/src/assets/stack.svg#Close" />
+     </svg>
+    </a>
   </header>
 
 
@@ -95,19 +95,40 @@
 
     <div class="review-tag-container">
       <div class="review-tag">
-        <div class="review-tag--ratio">
-          <span class="review-tag__name">🍚 양이 많아요</span>
+        <div class="review-tag--ratio ratio1">
+          <span class="review-tag__name">🥦 재료가 신선해요</span>
         </div>
-        <span class="review-tag--count">65</span>
+        <span class="review-tag--count">5</span>
       </div>
 
       <div class="review-tag">
-        <div class="review-tag--ratio">
-          <span class="review-tag__name">🥦 재료가 신선해요</span>
+        <div class="review-tag--ratio ratio2">
+          <span class="review-tag__name">🍚 양이 많아요</span>
         </div>
-        <span class="review-tag--count">65</span>
+        <span class="review-tag--count">3</span>
+      </div>
+      
+      <div class="review-tag">
+        <div class="review-tag--ratio ratio3">
+          <span class="review-tag__name">😋 음식이 맛있어요</span>
+        </div>
+        <span class="review-tag--count">2</span>
       </div>
 
+      <div class="review-tag">
+        <div class="review-tag--ratio ratio4">
+          <span class="review-tag__name">👍 가성비가 좋아요</span>
+        </div>
+        <span class="review-tag--count">1</span>
+      </div>
+
+      <div class="review-tag">
+        <div class="review-tag--ratio ratio5">
+          <span class="review-tag__name">🍷 특별한 메뉴가 있어요</span>
+        </div>
+        <span class="review-tag--count">0</span>
+      </div>
+    
     </div>
   
   </section>

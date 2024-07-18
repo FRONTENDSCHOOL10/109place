@@ -3,11 +3,11 @@ import '/src/pages/homepage/homepage.scss';
 import { noNullParse } from '/src/lib/utils/getNoNullParse';
 import pb from '/src/lib/utils/pocketbase.js';
 import { needPlaceInfo } from '/src/lib/utils/Map/searchPlace';
-import { searchPlaceNoName } from '../../lib/utils/Map/searchPlaceNoName';
 import { getStorage } from 'kind-tiger';
 
 // 원위치 버튼
 const resetBtn = document.querySelector('.map__control--reset');
+const goStartBtn = document.querySelector('.homepage__gostart');
 /* ------------------- [ 지도 생성 ] ------------------ */
 const defaultX = 126.9790586047037;
 const defaultY = 37.57089677546261;
@@ -48,8 +48,8 @@ if (localStorage.getItem('home_place_name')) {
    );
 
    const info = `
-  <div class="info">
-    <div class="info__semi">
+  <div class="info" tabindex='3'>
+    <div class="info__semi" >
       <p class="info__name">${local.home_place_name}</p>
       ${local.home_category ? `<p class="info__category">${local.home_category}</p>` : ''}
     </div>
@@ -63,6 +63,13 @@ if (localStorage.getItem('home_place_name')) {
    const placeDetail = document.querySelector('.info');
 
    placeDetail.addEventListener('click', handleDetail);
+
+   // 엔터치면 들어갈 수 있게
+   placeDetail.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+         window.location.href = '/src/pages/place-detail/place-detail.html';
+      }
+   });
 }
 
 function displayMarker(place, info) {
@@ -106,7 +113,6 @@ resetBtn.addEventListener('click', handleReset);
 // 그 리뷰 필드 안에서 stores_id 가져오기
 // stores_id 가 아이디인 stores 필드에서 address 가져오기
 // address 로 주소 검색해서 store data 에서 x, y 가져오기
-//
 
 // 로그인 된 유저 정보
 function getUserEmail() {
@@ -262,3 +268,23 @@ async function insertData(searchData) {
 
    await pb.collection('stores').create(data);
 }
+
+// 임시 로그아웃 버튼 - 인증상태 삭제하면서 로컬에 있던거 지우기.
+// 원래는 제일 시작페이지로 이동하게끔.
+function handleGoStart() {
+   const confirmed = confirm(
+      '시작페이지로 이동하며 로그아웃됩니다.\n로그아웃 하시겠습니까?'
+   );
+   if (confirmed) {
+      localStorage.removeItem('pocketbase_auth');
+      localStorage.clear();
+      alert('로그아웃되었습니다. \n시작페이지로 이동합니다! 🐕');
+      location.href = '/index.html';
+   }
+}
+goStartBtn.addEventListener('click', handleGoStart);
+document.addEventListener('keydown', function (event) {
+   if (event.key === 'Enter') {
+      handleGoStart();
+   }
+});

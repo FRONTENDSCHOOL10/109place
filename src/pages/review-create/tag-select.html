@@ -23,7 +23,11 @@
       </header>
       <div class="column--tag-select">
          <section>
-            <h1><span>(장소)</span><span>()번째 방문이네요</span></h1>
+            <h1>
+               <span class="shop-name">(장소)</span>
+               <!-- visit-count 기능 만들면 적용 -->
+               <span class="visit-count">2번째 방문이네요</span>
+            </h1>
             <div class="review__tag--container">
                <form action="#">
                   <fieldset class="review__tag--column">
@@ -208,7 +212,7 @@
                         <input
                            type="radio"
                            name="keyword"
-                           value="양"
+                           value="🍚 양이 많아요"
                            id="quantities"
                            class="review__tag--input"
                         />
@@ -225,7 +229,7 @@
                            type="radio"
                            id="fresh"
                            name="keyword"
-                           value="재료"
+                           value="🥦 재료가 신선해요"
                            class="review__tag--input"
                         />
                         <label
@@ -241,7 +245,7 @@
                            type="radio"
                            id="food"
                            name="keyword"
-                           value="음식"
+                           value="😋 음식이 맛있어요"
                            class="review__tag--input"
                         />
 
@@ -258,7 +262,7 @@
                            type="radio"
                            id="special"
                            name="keyword"
-                           value="메뉴"
+                           value="🍷 특별한 메뉴가 있어요"
                            class="review__tag--input"
                         />
                         <label
@@ -274,7 +278,7 @@
                            type="radio"
                            id="price"
                            name="keyword"
-                           value="가성비"
+                           value="👍 가성비가 좋아요"
                            name="price"
                            class="review__tag--input 2"
                         />

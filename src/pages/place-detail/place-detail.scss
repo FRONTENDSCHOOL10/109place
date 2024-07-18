@@ -146,7 +146,6 @@
 .review-tag-container{
   display: flex;
   flex-flow: column;
-  gap: .25rem;
 }
 
 .review-tag{
@@ -157,13 +156,30 @@
   border-radius: .375rem;
 
   position: relative;
+  margin: 0;
 
   &--ratio{
     background: $primary-10;
     padding: 1.125rem 0;
     border-radius: .375rem;
 
+    // width:20%;
+  }
+
+  .ratio1{
+    width:40%;
+  }
+  .ratio2{
+    width:30%;
+  }
+  .ratio3{
+    width:20%;
+  }
+  .ratio4{
     width:10%;
+  }
+  .ratio5{
+    width:0%;
   }
 
   &__name{
@@ -193,6 +209,23 @@
   justify-content: space-between;
 
   padding-top: 1.25rem;
+
+  &--media-filter{
+    border: none;
+    background: $primary-5;
+    border: .0625rem solid $primary-50;
+    border-radius: .375rem;
+    padding: 4px;
+
+    @include set-font($primary-60,.8125rem,400);
+  }
+
+  &--recent-sort{
+    border: none;
+    background: inherit;
+
+    @include set-font($gray-90,.9375rem,400);
+  }
 }
 
 
@@ -272,7 +305,7 @@
     display:flex;
     gap: .25rem;
     flex-wrap: wrap;
-    width: 60%;
+    width: 90%;
   }
 
 }
@@ -283,6 +316,11 @@
    background: $gray-30;
    border-radius: 50%;
 }
+
+.place-reviews__content{
+  padding-bottom: 1.875rem;
+}
+
 
 // 장식용 선
 .decorative-line--light{
@@ -295,4 +333,8 @@
   width: 100%;
   height: .5rem;
   background: $gray-10;
+}
+
+.review-line{
+  margin-bottom: 1rem
 }

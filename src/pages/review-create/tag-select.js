@@ -4,6 +4,12 @@ import { getNode } from 'kind-tiger';
 const btnNext = getNode('.btn__next');
 const reviewTags = document.querySelectorAll('.review__tag--input');
 
+const shopName = document.querySelector('.shop-name');
+
+const place_name = localStorage.getItem('place_name');
+
+shopName.innerText = place_name;
+
 const handleBtnNext = () => {
    location.href = '/src/pages/review-create/img-content.html';
 };
