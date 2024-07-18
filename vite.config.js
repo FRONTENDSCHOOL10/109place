@@ -52,6 +52,7 @@ export default defineConfig({
                __dirname,
                '/src/pages/search-detail/search-detail.html'
             ),
+            reviewupdate: resolve(__dirname, '/src/pages/my-page/review/review-update.html'),
          },
       },
    },
