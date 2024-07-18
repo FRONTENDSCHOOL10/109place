@@ -38,6 +38,8 @@ async function renderPlaceInfoAll(){
 
 
   renderPlaceInfo(placeData.items[0]);
+  renderPlaceReview(placeData.items[0].id);
+
 }
 
 
@@ -54,19 +56,32 @@ async function getLocalStorageData(){
 }
 
 
+//가게 이미지 경로 가져오기
+async function getImgPath(placeData){
+  const BASE_URL = 'https://vanilla-109place.pockethost.io';
+  let placeImgData;
+  let imgUrl = [];
+
+  if(placeData.images[0]){
+    placeImgData = await pb.collection('stores_images').getOne(placeData.images[0]);
+  }
+
+  for(let i=0 ; i<5 ; i++){
+    if(!placeData.images[0]){
+      imgUrl[i] = '../../assets/dog.png'
+    }else{
+      imgUrl[i] = `${BASE_URL}/api/files/${placeImgData.collectionId}/${placeImgData.id}/${placeImgData.images[i]}`
+    }
+  }
+
+  return imgUrl;
+}
+
+
 
 // 가게 정보 렌더링
 async function renderPlaceInfo(placeData){
-  const BASE_URL = 'https://vanilla-109place.pockethost.io';
-  const placeImgData = await pb.collection('stores_images').getOne(placeData.images[0]);
-  const imgCollectionId = placeImgData.collectionId;
-  const imgId = placeImgData.id;
-  const imgs = placeImgData.images;
-
-
-
-  // const url= `${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[0]}`;
-
+  const imgUrl = await getImgPath(placeData);
 
   const headerTemplate =`
     <span>${placeData.name}</span>
@@ -76,14 +91,15 @@ async function renderPlaceInfo(placeData){
   const placeImgTemplate = `
     <section class="place-img-container">
       <div class="container container1">
-        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[0]}" alt=""/>
+        <img src="${imgUrl[0]}" alt="imgUrl"/>
       </div>
 
       <div class="container container2">
-        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[1]}" alt="" class="place-img"/>
-        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[2]}" alt="" class="place-img"/>
-        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[3]}" alt="" class="place-img"/>
-        <img src="${BASE_URL}/api/files/${imgCollectionId}/${imgId}/${imgs[4]}" alt="" class="place-img"/>
+      
+        <img src="${imgUrl[1]}" alt="" class="place-img"/>
+        <img src="${imgUrl[2]}" alt="" class="place-img"/>
+        <img src="${imgUrl[3]}" alt="" class="place-img"/>
+        <img src="${imgUrl[4]}" alt="" class="place-img"/>
       </div>
     </section>
 
@@ -134,83 +150,121 @@ async function renderPlaceInfo(placeData){
 }
 
 
+//리뷰를 쓴 user의 닉네임 가져오기
+async function foundReviewer(item){
+  const reviewer = await pb.collection('users').getOne(item.users_id);
 
-
+  return reviewer;
+}
 
 
 // 가게 리뷰 렌더링
-async function renderPlaceReview(foundData){
+async function renderPlaceReview(placeId){
 
-   const placeReviewTemplate = `
-    <article class="place-reviews__content">
+  const reviewData = await pb
+  .collection('review')
+  .getList(1, 50, {
+    filter: `stores_id = "${placeId}"`,
+  });
 
-        <!-- 리뷰 작성자 정보 -->
-        <figure class="user-profile">
-          <a href="/src/pages/my-page/main/main.html">
-            <img src="./image-sample/아보카도.png" alt="리뷰 작성자 프로필 이미지" />
+  let reviewer;
+  let imgUrl;
 
-            <div>
-              <figcaption aria-label="리뷰 작성자">백구하나</figcaption>
-              <p>리뷰 60</p>
-            </div>
-          </a>
-        </figure>
+  // for(let item of reviewData.items){
+  //   reviewer = await pb.collection('users').getOne(item.users_id);
+  //   console.log(reviewer);
+  // }
 
-        <!-- 리뷰 사진 (스와이퍼) -->
-        <div class="riview-img swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./image-sample/image 26.png" alt="" /></div>
-            <div class="swiper-slide"><img src="./image-sample/image 27.png" alt="" /></div>
-            <div class="swiper-slide"><img src="./image-sample/음료.png" alt="" /></div>
-            <div class="swiper-slide"><img src="./image-sample/아보카도.png" alt="" /></div>
-          </div>
-        </div>
-
-
-        <!-- 리뷰 -->
-        <div class="review-text">
-          <div class="review-text__visit-detail">
-            <span>예약 후 이동</span>
-            <div class="dot-separator"></div>
-            <span class="fixed-text">대기시간</span>
-            <span>바로 입장</span>
-            <div class="dot-separator"></div>
-            <span>지인/동료</span>
-          </div>
-
-          <p class="review-text__content">지중해 음식을 평소에도 너무 좋아해서 자주 찾아다니는데 너무 맛있는거 있쬬~~ 아보카도 짱이에요~ 추가해서 꼭 드시고 예약하고 가면 웨이팅 없어서 좋아요!! 진짜 맛있어요! 추천ㄱㄱ</p>
-
-          <div class="review-text__tag">
-            <div class="review-tag" role="group" aria-label="재료가 신선해요">
-              <p>🥦 재료가 신선해요</p>
-            </div>
-    
-            <div class="review-tag" role="group" aria-label="양이 많아요">
-              <p>🍚 양이 많아요</p>
-            </div>
-
-            <div class="review-tag" role="group" aria-label="재료가 신선해요">
-              <p>🥦 재료가 신선해요</p>
-            </div>
   
-            <div class="review-tag" role="group" aria-label="양이 많아요">
-              <p>🍚 양이 많아요</p>
+  await reviewData.items.forEach(item => {
+    
+    const placeReviewTemplate = `
+      <article class="place-reviews__content">
+
+          <!-- 리뷰 작성자 정보 -->
+          <figure class="user-profile">
+            <a href="/src/pages/my-page/main/main.html">
+              <img src="./image-sample/아보카도.png" alt="리뷰 작성자 프로필 이미지" />
+
+              <div>
+                <figcaption aria-label="리뷰 작성자">백구하나</figcaption>
+                <p>리뷰 60</p>
+              </div>
+            </a>
+          </figure>
+
+          <!-- 리뷰 사진 (스와이퍼) -->
+          <div class="riview-img swiper">
+            <div class="swiper-wrapper">
+
+            </div>
+          </div>
+
+
+          <!-- 리뷰 -->
+          <div class="review-text">
+            <div class="review-text__visit-detail">
+              <span>${item.how}</span>
+              <div class="dot-separator"></div>
+              <span class="fixed-text">대기시간</span>
+              <span>${item.delay}</span>
+              <div class="dot-separator"></div>
+              <span>${item.withwho}</span>
             </div>
 
-            <div class="review-tag" role="group" aria-label="재료가 신선해요">
-              <p>🥦 재료가 신선해요</p>
+            <p class="review-text__content">${item.review}<</p>
+
+            <div class="review-text__tag">
+
             </div>
 
           </div>
 
+        </article>
+
+      <div class="decorative-line--light"></div>
+    `
+
+
+
+    insertAfter('.place-reviews__header',placeReviewTemplate);
+
+
+    // 리뷰 사진 템플릿
+    item.image.forEach(img=>{
+      imgUrl = `https://vanilla-109place.pockethost.io/api/files/${item.collectionId}/${item.id}/${img}`
+
+      const placeReviewImgTemplate=`
+        <div class="swiper-slide"><img src="${imgUrl}" alt="" /></div>
+      `
+
+      insertLast('.swiper-wrapper',placeReviewImgTemplate);
+    })
+
+
+     // 리뷰 태그 템플릿
+    item.keyword.forEach(tag=>{
+      const tagText = {
+        '재료' : '🥦 재료가 신선해요',
+        '양' : '🍚 양이 많아요',
+        '음식' : '😋 음식이 맛있어요',
+        '가성비' : '👍 가성비가 좋아요',
+        '메뉴' : '🍷 특별한 메뉴가 있어요'
+      };
+
+      const placeReviewTagTemplate=`
+        <div class="review-tag" role="group" aria-label="리뷰태그">
+          <p>${tagText[tag]}</p>
         </div>
+      `
 
-      </article>
+      insertLast('.review-text__tag',placeReviewTagTemplate);
+    })
 
-    <div class="decorative-line--light"></div>
-   `
+  });
 
-   insertAfter('.place-reviews__header',placeReviewTemplate);
+
 }
 
 // insertBefore, insertAfter, insertFirst, insertLast
+
