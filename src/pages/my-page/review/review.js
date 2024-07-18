@@ -115,13 +115,18 @@ import pb from '/src/lib/utils/pocketbase';
          });
       }
    });
+   console.log('hi');
+   const cancelBtn = document.querySelector('.cancel-btn');
+
    const shareExitBtn = document.querySelector('.share-exit');
-   const clickBack = () => {
-      shareContainer.classList.remove('active');
+
+   const clickBack = (btn) => {
+      btn.classList.remove('active');
    };
-   shareExitBtn.addEventListener('click', clickBack);
+   shareExitBtn.addEventListener('click', () => clickBack(shareContainer));
 
    const deleteBtn = document.querySelector('.delete-btn');
+   cancelBtn.addEventListener('click', () => clickBack(deleteContainer));
 
    const deleteReview = async () => {
       console.log('hi');
