@@ -170,7 +170,12 @@ async function renderPlaceReview(placeId){
   let reviewer;
   let imgUrl;
 
+  // for(let item of reviewData.items){
+  //   reviewer = await pb.collection('users').getOne(item.users_id);
+  //   console.log(reviewer);
+  // }
 
+  
   await reviewData.items.forEach(item => {
     
     const placeReviewTemplate = `
@@ -248,7 +253,7 @@ async function renderPlaceReview(placeId){
       };
 
       const placeReviewTagTemplate=`
-        <div class="review-tag" role="group" aria-label="재료가 신선해요">
+        <div class="review-tag" role="group" aria-label="리뷰태그">
           <p>${tagText[tag]}</p>
         </div>
       `
