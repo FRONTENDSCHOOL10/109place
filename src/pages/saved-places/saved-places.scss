@@ -19,6 +19,18 @@
 // 저장된 장소 리스트
 .saved-places{
   padding: .5rem 1.25rem;
+  display:flex;
+  flex-direction: column;
+
+  max-height: 15rem;
+  overflow-y: hidden;
+  padding-bottom: 15rem;
+  &::-webkit-scrollbar {
+    display: none;
+ }
+ &:hover {
+  overflow-y: auto;
+}
 }
 
 .place-text{
@@ -51,7 +63,7 @@
 
   img{
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: cover;
   }
 
@@ -62,4 +74,18 @@
   &--right{
     border-radius: 0 1.25rem 1.25rem 0;
   }
+}
+
+
+
+// hide style  
+.hidden {
+  display: inline-block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#element-hide {
+  opacity: 1;
+  transition: all 0.2s ease;
 }
