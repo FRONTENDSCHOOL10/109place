@@ -1,11 +1,117 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
+      <title>리뷰 수정하기</title>
+      <link
+         rel="stylesheet"
+         href="/src/pages/my-page/review/review-update.scss"
+      />
+      <script
+         type="module"
+         defer
+         src="/src/pages/my-page/review/review-update.js"
+      ></script>
    </head>
    <body>
-      <div>리뷰수정하기</div>
+      <header class="header">
+         <span class="review-update--store-name"></span>
+         <a aria-label="닫기" class="right-exit">
+            <svg
+               role="img"
+               aria-label="닫기"
+               class="svg-icon right-exit__icon review-update__exit"
+            >
+               <use href="/src/assets/stack.svg#Close" />
+            </svg>
+         </a>
+      </header>
+      <div role="contentinfo" class="contentinfo">
+         <div class="review-data--info">
+            <div class="review-data">
+               <span class="review-data--black review-data__date"></span
+               ><span class="review-data--gray review-data__visit"></span>
+            </div>
+            <div class="review-data">
+               <span class="review-data--gray">이용 방법</span
+               ><span class="review-data--black review-data__how"></span>
+               <span class="review-data--gray">대기 시간</span
+               ><span class="review-data--black review-data__delay"></span>
+            </div>
+            <div class="review-data">
+               <span class="review-data--gray">동행</span
+               ><span class="review-data--black review-data__with"></span>
+            </div>
+         </div>
+         <div
+            class="review-tag-container"
+            role="group"
+            aria-label="리뷰 키워드"
+         ></div>
+      </div>
+
+      <div class="column--create-data">
+         <div aria-label="사진 선택란" class="column--image-upload">
+            <div src="" alt="음식 사진" class="review-upload__img"></div>
+            <svg
+               role="img"
+               aria-label="사진 업로드"
+               class="svg-icon store-info__more-icon photo-upload"
+            >
+               <use href="/src/assets/stack.svg#icon24_photo" />
+            </svg>
+            <form class="sr-only">
+               <label for="image-upload" class="upload-label">사진 추가</label>
+               <input
+                  type="file"
+                  id="image-upload"
+                  name="image-upload"
+                  accept="image/png image/svg image/jpg"
+                  class="upload-button"
+                  multiple="true"
+               />
+            </form>
+         </div>
+
+         <div aria-label="리뷰 작성란">
+            <form
+               class="input-count__component"
+               action="#"
+               method="post"
+               name="리뷰작성"
+            >
+               <label for="review" class="input-count__label"
+                  >리뷰를 작성해주세요</label
+               >
+               <!-- placeholder, maxlength 맞춰 변경 -->
+               <textarea
+                  id="review"
+                  class="input-count__input"
+                  placeholder="리뷰를 보는 사용자와 사업자에게 상처가 되는 욕설, 비방, 명예훼손성 표현은 사용하지 말아주세요."
+                  minlength="10"
+                  maxlength="400"
+                  rows="5"
+                  aria-describedby="review-desc char-count"
+                  aria-live="polite"
+               ></textarea>
+               <p id="review-desc" class="sr-only">
+                  리뷰를 작성해주세요 : 최소 10자에서 최대 400자까지 입력할 수
+                  있습니다.
+               </p>
+               <p
+                  id="char-count"
+                  class="input-count__c-container"
+                  aria-live="polite"
+               >
+                  <!-- 0 / 400 -->
+                  <span class="input-count__count">0</span>&nbsp;/&nbsp;<span
+                     >400</span
+                  >
+               </p>
+            </form>
+            <button type="submit" class="btn__next">등록하기</button>
+         </div>
+      </div>
    </body>
 </html>
