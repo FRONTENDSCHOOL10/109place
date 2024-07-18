@@ -84,8 +84,8 @@ function saveLocal(place) {
    const placeName = place.place_name;
    //  도로명주소
    const roadAddressName = place.road_address_name;
-   //  지번주소
-   const addressName = place.address_name;
+   // //  지번주소
+   // const addressName = place.address_name;
    // x 좌표
    const coordinateX = place.x;
    //  y 좌표
@@ -96,7 +96,7 @@ function saveLocal(place) {
    const category = place.category_group_name;
    localStorage.setItem('place_name', JSON.stringify(placeName));
    localStorage.setItem('road_address_name', JSON.stringify(roadAddressName));
-   localStorage.setItem('address_name', JSON.stringify(addressName));
+   // localStorage.setItem('address_name', JSON.stringify(addressName));
    localStorage.setItem('coor_x', JSON.stringify(coordinateX));
    localStorage.setItem('coor_y', JSON.stringify(coordinateY));
    localStorage.setItem('phone', JSON.stringify(phone));
@@ -107,7 +107,6 @@ function handleBack(e) {
    const removeKey = [
       'place_name',
       'road_address_name',
-      'address_name',
       'coor_x',
       'coor_y',
       'phone',
@@ -136,7 +135,7 @@ async function renderPlaceInfoAll() {
 //로컬 스토리지에서 데이터 꺼내오기
 async function getLocalStorageData() {
    const name = await getStorage('place_name');
-   const address = await getStorage('address_name');
+   const address = await getStorage('road_address_name');
    console.log(name);
    return { name, address };
 }
@@ -162,6 +161,7 @@ async function insertData(searchData) {
       name: searchData.name,
       address: searchData.address,
    };
+   console.log(adderess)
 
    await pb.collection('stores').create(data);
 }
