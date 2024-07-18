@@ -26,8 +26,7 @@ async function imgContent() {
    const delay = localStorage.getItem('delay');
    const keyword = localStorage.getItem('keyword');
    const review = localStorage.getItem('review');
-   const stores_id = JSON.parse(localStorage.getItem('stores_id'));
-
+   const stores_id = localStorage.getItem('stores_id');
    fileInput.addEventListener('change', function () {
       for (let file of fileInput.files) {
          formData.append('image', file);
@@ -41,28 +40,40 @@ async function imgContent() {
       console.error('Error fetching user data:', error);
    }
 
-   formData.append('date', date);
-   formData.append('withwho', withwho);
-   formData.append('how', how);
-   formData.append('delay', delay);
-   formData.append('keyword', keyword);
-   formData.append('review', review);
-   formData.append('stores_id', stores_id);
+   // formData.append('date', date);
+   // formData.append('withwho', withwho);
+   // formData.append('how', how);
+   // formData.append('delay', delay);
+   // formData.append('keyword', keyword);
+   // formData.append('review', review);
+   // formData.append('stores_id', stores_id);
 
-   if (user) {
-      formData.append('users_id', user.id);
-   }
+   // if (user) {
+   //    formData.append('users_id', user.id);
+   // }
 
-   async function handleBtnSubmit(e) {
+   const reviewData = {
+      date: date,
+      how: how,
+      delay: delay,
+      withwho: withwho,
+      keyword: keyword,
+      visit_count: 2,
+      review: review,
+      stores_id: stores_id,
+      users_id: user.id,
+   };
+   console.log(reviewData);
+
+   function handleBtnSubmit(e) {
       e.preventDefault();
-      for (let [key, value] of formData.entries()) {
-         console.log(key, value);
-      }
-      console.log(keyword);
-
+      // for (let [key, value] of formData.entries()) {
+      //    console.log(key, value);
+      // }
       try {
-         await pb.collection('review').create(formData);
+         pb.collection('review').create(reviewData);
          alert('등록완료');
+         location.href = '/src/pages/my-page/main/main.html';
       } catch (error) {
          console.error('Error creating review:', error);
       }
@@ -82,23 +93,19 @@ async function imgContent() {
    withwhoData.innerText = withwho;
 
    function createKeywordTag(keyword) {
-      if (keyword === '양') {
-         keywordData.innerText = '🍚 양이 많아요';
-      }
-      if (keyword === '메뉴') {
-         keywordData.innerText = '🍷 특별한 메뉴가 있어요';
-      }
-      if (keyword === '음식') {
-         keywordData.innerText = '😋 음식이 맛있어요<';
-      }
-      if (keyword === '재료') {
-         keywordData.innerText = '🥦 재료가 신선해요';
-      }
-      if (keyword === '가성비') {
-         keywordData.innerText = '👍 가성비가 좋아요';
-      }
+      const keywordMap = {
+         양: '🍚 양이 많아요',
+         메뉴: '🍷 특별한 메뉴가 있어요',
+         음식: '😋 음식이 맛있어요',
+         재료: '🥦 재료가 신선해요',
+         가성비: '👍 가성비가 좋아요',
+      };
+
+      keywordData.innerText =
+         keywordMap[keyword] || '키워드가 유효하지 않습니다.';
    }
-   createKeywordTag();
+
+   createKeywordTag(keyword);
 
    fileInput.addEventListener('change', function () {
       for (let file of fileInput.files) {
