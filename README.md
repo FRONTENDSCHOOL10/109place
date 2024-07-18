@@ -1,20 +1,56 @@
-# 109place
-
-
-![header](https://capsule-render.vercel.app/api?type=transparent&fontColor=246BEB&text=109&nbsp;플레이스&animation=fadeIn)
-
+<div align=center>
+  <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=246BEB&text=109&nbsp;플레이스&animation=fadeIn" alt="header">
+</div>
 
 <h2  align=center>🐶 Vanilla Project 9조 🐶</h2>
 <h4  align=center>🚨 구사일생 - 구해조 🚨</h4>
 
 
-| 이름  | MBTI  | 역할                | 깃허브 페이지                           |
-|-------|-------|---------------------|----------------------------------------|
-| 안재명 | INTJ  | 스크럼 마스터 🛠️  | [GitHub](https://github.com/username)  |
-| 박새롬 | INFP  | 발표자              | [GitHub](https://github.com/username)  |
-| 엄신혜 | ENFP  | PPT 작성자          | [GitHub](https://github.com/username)  |
-| 이민제 | ISFP  | 데일리 스크럼 기록자 | [GitHub](https://github.com/username)  |
-| 이예린 | INFJ  | 노션, 깃허브 페이지 관리자 | [GitHub](https://github.com/username)  |
+<!-- markdown -->
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>MBTI</th>
+        <th>역할</th>
+        <th>깃허브 페이지</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>안재명</td>
+        <td>INTJ</td>
+        <td>스크럼 마스터 🛠️</td>
+        <td><a href="https://github.com/username">GitHub</a></td>
+      </tr>
+      <tr>
+        <td>박새롬</td>
+        <td>INFP</td>
+        <td>발표자</td>
+        <td><a href="https://github.com/username">GitHub</a></td>
+      </tr>
+      <tr>
+        <td>엄신혜</td>
+        <td>ENFP</td>
+        <td>PPT 작성자</td>
+        <td><a href="https://github.com/username">GitHub</a></td>
+      </tr>
+      <tr>
+        <td>이민제</td>
+        <td>ISFP</td>
+        <td>데일리 스크럼 기록자</td>
+        <td><a href="https://github.com/username">GitHub</a></td>
+      </tr>
+      <tr>
+        <td>이예린</td>
+        <td>INFJ</td>
+        <td>노션, 깃허브 페이지 관리자</td>
+        <td><a href="https://github.com/username">GitHub</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 
 </br>
