@@ -159,7 +159,7 @@ async function renderPlaceInfo(placeData){
       </div>
   `
 
-  insertAfter('button',headerTemplate);
+  insertAfter('.back-btn',headerTemplate);
   insertFirst('.place-information',placeImgTemplate);
   insertBefore('.action-bar',placeTextTemplate);
 }
