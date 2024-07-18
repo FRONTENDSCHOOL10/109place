@@ -1,7 +1,6 @@
 import '/src/pages/review-create/img-content.scss';
 import pb from '/src/lib/utils/pocketbase';
 import '/src/components/input-count/input-count.js';
-
 async function imgContent() {
    const textarea = document.querySelector('textarea');
    const btnSubmit = document.querySelector('.btn__submit');
