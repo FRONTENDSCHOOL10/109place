@@ -96,6 +96,9 @@ input[type='file'] {
    font-size: 1.1875rem;
    border: none;
    padding: 0rem 1.25rem;
+   background: var(--primary-50, #246beb);
+   color: var(--gray-gray-0, var(--Color, #fff));
+   cursor: pointer;
 }
 
 .column--image-upload {
@@ -113,8 +116,10 @@ input[type='file'] {
 }
 
 .input-count__c-container {
+   position: initial;
    bottom: 16rem;
-}
+   text-align: end;
+
 
 .preview-img {
    display: none;
