@@ -272,10 +272,15 @@ async function insertData(searchData) {
 // 임시 로그아웃 버튼 - 인증상태 삭제하면서 로컬에 있던거 지우기.
 // 원래는 제일 시작페이지로 이동하게끔.
 function handleGoStart() {
-   localStorage.removeItem('pocketbase_auth');
-   localStorage.clear();
-   alert('로그아웃되었습니다. \n시작페이지로 이동합니다! 🐕');
-   location.href = '/index.html';
+   const confirmed = confirm(
+      '시작페이지로 이동하며 로그아웃됩니다.\n로그아웃 하시겠습니까?'
+   );
+   if (confirmed) {
+      localStorage.removeItem('pocketbase_auth');
+      localStorage.clear();
+      alert('로그아웃되었습니다. \n시작페이지로 이동합니다! 🐕');
+      location.href = '/index.html';
+   }
 }
 goStartBtn.addEventListener('click', handleGoStart);
 document.addEventListener('keydown', function (event) {
