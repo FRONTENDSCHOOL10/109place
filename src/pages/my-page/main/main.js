@@ -30,7 +30,7 @@ import pb from '/src/lib/utils/pocketbase';
       location.href = `/src/pages/my-page/profile/profile.html`;
    });
    reviewCreate.addEventListener('click', () => {
-      location.href = `/src/pages/review-create/date-place.html`;
+      location.href = `/src/pages/review-search/review-search.html`;
    });
 
    const scrollHandler = () => {
