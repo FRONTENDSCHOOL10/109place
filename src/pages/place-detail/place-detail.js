@@ -3,26 +3,41 @@ import pb from '/src/lib/utils/pocketbase';
 import { getPbImageURL , deleteStorage, getStorage, insertBefore, insertAfter, insertFirst, insertLast } from "kind-tiger";
 
 
-// 리뷰 이미지 스와이퍼
-var swiper = new Swiper(".swiper", {
-  slidesPerView: 1.8,
-  spaceBetween: 6,
-});
+// (async function () {
+//   try {
+//      const placeName = await getStorage('home_place_name');
 
+//      const placeReview = await pb.collection('review').getFullList({
+//         filter: {
+//            'stores_id.name': JSON.parse(placeName)
+//         }
+//      });
 
+//      console.log(placeReview);
 
-// 검색 -> 장소 상세
-// 1. 검색에서 받은 데이터가 stores 테이블 안에 있는지 체크
-//  1) 검색해서 장소 상세로 페이지 이동 시 클릭한 정보의 가게 이름과 주소 받아오기(로컬 스토리지)
-//    sample) 로컬 스토리지에 가게 이름과 주소 저장. (페이지 연결 시 추후 삭제)
-//            로컬 스토리지에서 가게 이름, 주소 가져오기.
-//  2) 받아온 가게 이름과 주소가 모두 동일한 데이터가 테이블에 존재하는지 확인
+//      // 유저 아이디로 닉네임 불러오기
+//      const userNicknames = await Promise.all(
+//         placeReview.map(async (review) => {
+//            const userId = review.users_id;
+//            const user = await pb.collection('users').getFullList({
+//               filter: {
+//                  id: userId
+//               }
+//            });
 
-// 2. 데이터 존재 여부에 따라 해당 방법으로 렌더링
-//   1) 안에 있다면 -> 테이블에서 데이터 가져오기 -> 렌더링
-//   2) 안에 없다면 -> 지도에서 데이터 가져오기 -> 테이블 저장 -> 렌더링
+//            const username = user[0].username;
 
+//            console.log(username); // 올바른 사용법
+//            console.log(user); // user 객체 전체를 로그로 출력
 
+//            return username; // user.username이 아닌 username을 반환
+//         })
+//      );
+
+//   } catch (error) {
+//      console.error('오류가 발생했습니다:', error);
+//   }
+// })();
 
 
 
@@ -144,17 +159,20 @@ async function renderPlaceInfo(placeData){
       </div>
   `
 
-  insertAfter('button',headerTemplate);
+  insertAfter('.back-btn',headerTemplate);
   insertFirst('.place-information',placeImgTemplate);
   insertBefore('.action-bar',placeTextTemplate);
 }
 
 
-//리뷰를 쓴 user의 닉네임 가져오기
-async function foundReviewer(item){
-  const reviewer = await pb.collection('users').getOne(item.users_id);
 
-  return reviewer;
+async function foundreviewr(reviewData){
+
+  for(let item of reviewData){
+    const reviewer = await pb.collection('users').getOne(item.users_id);
+
+    return reviewer;
+  }
 }
 
 
@@ -167,17 +185,12 @@ async function renderPlaceReview(placeId){
     filter: `stores_id = "${placeId}"`,
   });
 
-  let reviewer;
   let imgUrl;
-
-  // for(let item of reviewData.items){
-  //   reviewer = await pb.collection('users').getOne(item.users_id);
-  //   console.log(reviewer);
-  // }
+  let reviewer = await foundreviewr(reviewData.items);
 
   
   await reviewData.items.forEach(item => {
-    
+
     const placeReviewTemplate = `
       <article class="place-reviews__content">
 
@@ -187,7 +200,7 @@ async function renderPlaceReview(placeId){
               <img src="./image-sample/아보카도.png" alt="리뷰 작성자 프로필 이미지" />
 
               <div>
-                <figcaption aria-label="리뷰 작성자">백구하나</figcaption>
+                <figcaption aria-label="리뷰 작성자">${reviewer.username}</figcaption>
                 <p>리뷰 60</p>
               </div>
             </a>
@@ -222,13 +235,18 @@ async function renderPlaceReview(placeId){
 
         </article>
 
-      <div class="decorative-line--light"></div>
+      <div class="decorative-line--light review-line"></div>
     `
-
-
 
     insertAfter('.place-reviews__header',placeReviewTemplate);
 
+
+
+    // 리뷰 이미지 스와이퍼
+    var swiper = new Swiper(".swiper", {
+      slidesPerView: 1.8,
+      spaceBetween: 6,
+    });
 
     // 리뷰 사진 템플릿
     item.image.forEach(img=>{
