@@ -119,7 +119,7 @@ input[type='file'] {
    position: initial;
    bottom: 16rem;
    text-align: end;
-}
+
 
 .preview-img {
    display: none;
@@ -152,4 +152,9 @@ input[type='file'] {
 
 .contentinfo {
    padding: 2rem 1.25rem 1.5rem 1.25rem;
+}
+
+.btn__submit {
+   background: var(--primary-50, #246beb);
+   color: var(--gray-gray-0, var(--Color, #fff));
 }
