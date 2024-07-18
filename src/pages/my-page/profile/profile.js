@@ -19,6 +19,7 @@ import pb from '/src/lib/utils/pocketbase';
       );
 
       textCount.textContent = `${textLength}`;
+      count.textContent = `${textLength}`;
    }
 
    const count = document.querySelector('.input-count__count');
