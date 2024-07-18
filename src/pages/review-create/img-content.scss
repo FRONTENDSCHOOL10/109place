@@ -27,7 +27,7 @@ body {
    align-self: stretch;
    flex-wrap: wrap;
 }
-///////////
+
 .column--image-upload {
    display: flex;
    background-color: #f0f0f0;
@@ -123,7 +123,6 @@ input[type='file'] {
 
 .preview-img {
    display: none;
-
    &--on {
       display: flex;
       width: 16.5rem;
