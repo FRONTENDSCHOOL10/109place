@@ -106,15 +106,14 @@ import pb from '/src/lib/utils/pocketbase';
          withwho: selectReview.withwho,
          keyword: selectReview.keyword,
          visit_count: selectReview.visit_count,
-         review: selectReview.review,
+         review: textArea.value,
          stores_id: selectReview.stores_id,
          users_id: selectReview.users_id,
       };
-
       const reviewUpdate = await pb
          .collection('review')
          .update(urlParams.get('reviewId'), data);
-      selectReview.review = data.review;
+      selectReview.review = textArea.value;
       location.href = `/src/pages/my-page/review/review.html?reviewId=${urlParams.get('reviewId')}`;
    });
 
