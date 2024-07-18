@@ -19,31 +19,29 @@ import pb from '/src/lib/utils/pocketbase';
       );
 
       textCount.textContent = `${textLength}`;
-      count.textContent = `${textLength}`;
    }
 
    const count = document.querySelector('.input-count__count');
-   count.textContent = user.username.length;
-   const textArea = document.querySelectorAll('.input-count__input');
+   const textAreas = document.querySelectorAll('.input-count__input');
    const textUserName = document.querySelector('.user-name__input');
    const textUserInfo = document.querySelector('.user-info__input');
-   textArea.forEach((item) => {
+
+   textAreas.forEach((item) => {
       item.addEventListener('input', handleCount);
    });
 
    myPageProfileImg.style.backgroundImage = `url(${profileImageUrl})`;
-   textUserName.textContent = user.username;
-   textUserInfo.textContent = user.self_introduction;
-   const textAreaAll = document.querySelectorAll('textarea');
+   textUserName.value = user.username;
+   textUserInfo.value = user.self_introduction;
 
    const userInfoChange = async () => {
       const data = {
-         username: textAreaAll[0].value,
+         username: textUserName.value,
          emailVisibility: user.emailVisibility,
          password: user.password,
          passwordConfirm: user.passwordConfirm,
          oldPassword: user.oldPassword,
-         self_introduction: textAreaAll[1].value,
+         self_introduction: textUserInfo.value,
          number_of_reviews: user.number_of_reviews,
       };
 
@@ -52,19 +50,16 @@ import pb from '/src/lib/utils/pocketbase';
    };
 
    const profileSubmitBtn = document.querySelector('.profile-submit');
-
    profileSubmitBtn.addEventListener('click', userInfoChange);
-   const headerBackBtn = document.querySelector('.profile__header--back-btn');
 
+   const headerBackBtn = document.querySelector('.profile__header--back-btn');
    const clickBackHandler = () => {
       location.href = `/src/pages/my-page/main/main.html`;
    };
    headerBackBtn.addEventListener('click', clickBackHandler);
 
-   //탈퇴하기 누르면 회원 탈퇴
-
+   // 탈퇴하기 누르면 회원 탈퇴
    const leaveButton = document.querySelector('.leave-button');
-
    leaveButton.addEventListener('click', async () => {
       await pb.collection('users').delete(user.id);
       location.href = `/src/pages/my-page/login/login.html`;
