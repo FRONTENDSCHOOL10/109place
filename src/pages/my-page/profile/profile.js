@@ -46,6 +46,6 @@ import pb from '/src/lib/utils/pocketbase';
 
    leaveButton.addEventListener('click', async () => {
       await pb.collection('users').delete(user.id);
-      location.href = `/src/pages/my-page/main/main.html`;
+      location.href = `/src/pages/my-page/login/login.html`;
    });
 })();
