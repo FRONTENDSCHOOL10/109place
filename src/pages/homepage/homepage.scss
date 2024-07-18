@@ -13,15 +13,27 @@ body {
    &__container {
       display: flex;
       flex-flow: column;
-      //  alignitem center를 풀어야 푸터가 정상작동하는 신기한 현상 발견
       align-items: center;
       position: relative;
       width: 22.5rem;
       height: 37.25rem;
    }
+   &__gostart {
+      z-index: 1000;
+      position: absolute;
+      align-self: flex-start;
+      background-color: $gray-0;
+      border: 0.0625rem solid $gray-60;
+      top: 1.125rem;
+      left: 0.6875rem;
+      border-radius: 30%;
+   }
    &__search {
       position: absolute;
-      top: 0.5rem;
+      align-self: flex-end;
+      width: 16.75rem;
+      top: 1.125rem;
+      right: 1.25rem;
       z-index: 1000;
       background-color: #fff;
    }
@@ -43,9 +55,9 @@ body {
    left: 19rem;
    z-index: 2000;
    &--reset::after {
-      content: '원위치'; 
+      content: '원위치';
       position: absolute;
-      top: -2rem; 
+      top: -2rem;
       left: 50%;
       transform: translateX(-50%);
       background-color: $primary-90;
