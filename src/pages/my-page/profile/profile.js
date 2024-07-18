@@ -19,7 +19,6 @@ import pb from '/src/lib/utils/pocketbase';
       );
 
       textCount.textContent = `${textLength}`;
-      count.textContent = `${textLength}`;
    }
 
    const count = document.querySelector('.input-count__count');
@@ -34,6 +33,16 @@ import pb from '/src/lib/utils/pocketbase';
    myPageProfileImg.style.backgroundImage = `url(${profileImageUrl})`;
    textUserName.value = user.username;
    textUserInfo.value = user.self_introduction;
+
+   function initializeCounts() {
+      const userNameEvent = new Event('input');
+      textUserName.dispatchEvent(userNameEvent);
+
+      const userInfoEvent = new Event('input');
+      textUserInfo.dispatchEvent(userInfoEvent);
+   }
+
+   initializeCounts();
 
    const userInfoChange = async () => {
       const data = {
@@ -62,7 +71,10 @@ import pb from '/src/lib/utils/pocketbase';
    // 탈퇴하기 누르면 회원 탈퇴
    const leaveButton = document.querySelector('.leave-button');
    leaveButton.addEventListener('click', async () => {
-      await pb.collection('users').delete(user.id);
-      location.href = `/src/pages/my-page/login/login.html`;
+      const confirmLeave = confirm('🐶 백구플레이스를 진짜 떠나실건가요? 🐶');
+      if (confirmLeave) {
+         await pb.collection('users').delete(user.id);
+         location.href = `/src/pages/my-page/login/login.html`;
+      }
    });
 })();
