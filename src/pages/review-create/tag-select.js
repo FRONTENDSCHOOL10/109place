@@ -6,7 +6,7 @@ const reviewTags = document.querySelectorAll('.review__tag--input');
 
 const shopName = document.querySelector('.shop-name');
 
-const place_name = localStorage.getItem('place_name');
+const place_name = localStorage.getItem('home_place_name');
 
 shopName.innerText = place_name;
 
