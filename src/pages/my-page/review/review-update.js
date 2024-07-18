@@ -99,26 +99,23 @@ import pb from '/src/lib/utils/pocketbase';
 
    // 버튼 클릭 시 업데이트 실행
    uploadBtn.addEventListener('click', async () => {
-      try {
-         const data = {
-            date: selectReview.date,
-            how: selectReview.how,
-            delay: selectReview.delay,
-            withwho: selectReview.withwho,
-            keyword: selectReview.keyword,
-            visit_count: selectReview.visit_count,
-            review: selectReview.review,
-            stores_id: selectReview.stores_id,
-            users_id: selectReview.users_id,
-         };
+      const data = {
+         date: selectReview.date,
+         how: selectReview.how,
+         delay: selectReview.delay,
+         withwho: selectReview.withwho,
+         keyword: selectReview.keyword,
+         visit_count: selectReview.visit_count,
+         review: selectReview.review,
+         stores_id: selectReview.stores_id,
+         users_id: selectReview.users_id,
+      };
 
-         const reviewUpdate = await pb
-            .collection('review')
-            .update(urlParams.get('reviewId'), data);
-         console.log('Record updated successfully:', reviewUpdate);
-      } catch (error) {
-         console.error('Error updating record:', error);
-      }
+      const reviewUpdate = await pb
+         .collection('review')
+         .update(urlParams.get('reviewId'), data);
+      selectReview.review = data.review;
+      location.href = `/src/pages/my-page/review/review.html?reviewId=${urlParams.get('reviewId')}`;
    });
 
    const exitBtn = document.querySelector('.review-update__exit');
