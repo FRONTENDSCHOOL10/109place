@@ -77,8 +77,16 @@ import pb from '/src/lib/utils/pocketbase';
          const nameSpan = document.createElement('span');
          storeList.items.forEach((stores) => {
             if (reviews.stores_id === stores.id) {
-               locationSpan.textContent = stores.category;
-               nameSpan.textContent = stores.address;
+               locationSpan.textContent = stores.address
+                  .split(' ')
+                  .slice(
+                     0,
+                     stores.address
+                        .split(' ')
+                        .findIndex((part) => part.endsWith('구')) + 1
+                  )
+                  .join(' ');
+               nameSpan.textContent = stores.name;
             }
          });
 
