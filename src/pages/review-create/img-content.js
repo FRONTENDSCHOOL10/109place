@@ -24,16 +24,9 @@ async function imgContent() {
    const withwho = localStorage.getItem('withwho');
    const how = localStorage.getItem('how');
    const delay = localStorage.getItem('delay');
-   let keyword = localStorage.getItem('keyword');
+   const keyword = localStorage.getItem('keyword');
    const review = localStorage.getItem('review');
    const stores_id = JSON.parse(localStorage.getItem('stores_id'));
-
-   // 키워드를 배열로 변환
-   if (keyword) {
-      keyword = JSON.parse(keyword);
-   } else {
-      keyword = []; // 기본적으로 빈 배열로 초기화
-   }
 
    fileInput.addEventListener('change', function () {
       for (let file of fileInput.files) {
@@ -52,7 +45,6 @@ async function imgContent() {
    formData.append('withwho', withwho);
    formData.append('how', how);
    formData.append('delay', delay);
-   // 배열을 문자열로 변환하여 추가
    formData.append('keyword', keyword);
    formData.append('review', review);
    formData.append('stores_id', stores_id);
@@ -78,8 +70,7 @@ async function imgContent() {
 
    btnSubmit.addEventListener('click', handleBtnSubmit);
 
- 
-let place_name = localStorage.getItem('home_place_name')?localStorage.getItem('home_place_name'):localStorage.getItem('place_name');
+   const place_name = localStorage.getItem('home_place_name');
 
    let str = place_name;
    let newStr = str.replace(/"/g, '');
@@ -89,7 +80,25 @@ let place_name = localStorage.getItem('home_place_name')?localStorage.getItem('h
    howData.innerText = how + ' 이용';
    delayData.innerText = delay;
    withwhoData.innerText = withwho;
-   keywordData.innerText = keyword.join(', '); // 배열을 쉼표로 구분된 문자열로 표시
+
+   function createKeywordTag(keyword) {
+      if (keyword === '양') {
+         keywordData.innerText = '🍚 양이 많아요';
+      }
+      if (keyword === '메뉴') {
+         keywordData.innerText = '🍷 특별한 메뉴가 있어요';
+      }
+      if (keyword === '음식') {
+         keywordData.innerText = '😋 음식이 맛있어요<';
+      }
+      if (keyword === '재료') {
+         keywordData.innerText = '🥦 재료가 신선해요';
+      }
+      if (keyword === '가성비') {
+         keywordData.innerText = '👍 가성비가 좋아요';
+      }
+   }
+   createKeywordTag();
 
    fileInput.addEventListener('change', function () {
       for (let file of fileInput.files) {
