@@ -67,7 +67,7 @@ import pb from '/src/lib/utils/pocketbase';
          const figure = document.createElement('figure');
          figure.className = 'review--card';
          const reviewImageUrl = `${BASE_URL}/api/files/review/${reviews.id}/${reviews.image[0]}`;
-         figure.style.backgroundImage = `url(${reviewImageUrl})`;
+         figure.style.backgroundImage = `linear-gradient(180deg, rgba(20, 60, 133, 0.00) 0%, rgba(14, 43, 94, 0.80) 100%), url(${reviewImageUrl})`;
 
          const figcaption = document.createElement('figcaption');
          figcaption.className = 'review--card__title';
