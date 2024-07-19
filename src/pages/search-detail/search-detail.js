@@ -44,7 +44,6 @@ function displayPlaces(places) {
    }
 
    lisePlace.appendChild(fragment);
-  
 }
 
 function getListItem(index, places) {
@@ -94,7 +93,7 @@ function saveLocal(place) {
    const phone = place.phone;
    // 카테고리
    const category = place.category_group_name;
-   localStorage.setItem('place_name', JSON.stringify(placeName));
+   localStorage.setItem('home_place_name', JSON.stringify(placeName));
    localStorage.setItem('road_address_name', JSON.stringify(roadAddressName));
    // localStorage.setItem('address_name', JSON.stringify(addressName));
    localStorage.setItem('coor_x', JSON.stringify(coordinateX));
@@ -134,7 +133,7 @@ async function renderPlaceInfoAll() {
 
 //로컬 스토리지에서 데이터 꺼내오기
 async function getLocalStorageData() {
-   const name = await getStorage('place_name');
+   const name = await getStorage('home_place_name');
    const address = await getStorage('road_address_name');
    console.log(name);
    return { name, address };
@@ -143,12 +142,12 @@ async function getLocalStorageData() {
 // 검색 페이지에서 검색한 가게 정보가 DB에 존재하는지 확인 (중복 체크)
 async function matchLocalWithDB(searchData) {
    const storeRecordData = await pb.collection('stores').getFullList();
-
+   console.log(storeRecordData);
    const foundData = storeRecordData.filter(
       (data) =>
-         data.name === searchData.name && data.address === searchData.address
+         data.name === searchData.name || data.address === searchData.address
    );
-
+   // console.log(searchData);
    if (!foundData.length) {
       insertData(searchData);
    }
@@ -161,7 +160,7 @@ async function insertData(searchData) {
       name: searchData.name,
       address: searchData.address,
    };
-   console.log(adderess)
+   // console.log(adderess);
 
    await pb.collection('stores').create(data);
 }

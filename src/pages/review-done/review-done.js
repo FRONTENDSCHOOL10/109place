@@ -12,9 +12,12 @@ let recentBtn = document.querySelector('#recentReview');
 let exitBtn = document.querySelector('#exitBtn');
 
 async function setPlaceName() {
-   placeName.textContent = await getStorage('place_name');
-   placeName.setAttribute("aria-label",`${placeName.textContent}의 리뷰를 남겨주셨어요!`);
-   placeName.setAttribute('aria-live', 'polite'); 
+   placeName.textContent = await getStorage('home_place_name');
+   placeName.setAttribute(
+      'aria-label',
+      `${placeName.textContent}의 리뷰를 남겨주셨어요!`
+   );
+   placeName.setAttribute('aria-live', 'polite');
 }
 
 // 장소 정보 아이디 제거하는 함수
