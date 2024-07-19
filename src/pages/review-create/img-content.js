@@ -72,8 +72,8 @@ async function imgContent() {
       // }
       try {
          pb.collection('review').create(reviewData);
-         alert('등록완료');
-         location.href = '/src/pages/my-page/main/main.html';
+         alert('리뷰 등록 완료 ✅');
+         location.href = '/src/pages/review-done/review-done.html';
       } catch (error) {
          console.error('Error creating review:', error);
       }
